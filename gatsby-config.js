@@ -2,31 +2,37 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Federalist | Gatsby | USWDS`,
+    title: `U.S. Naval Research Laboratory`,
     header: {
       secondaryLinks: [
-        { text: 'Secondary link', link: '/' },
-        { text: 'Another secondary link', link: '/' },
+        { text: 'Field Sites', link: '/' },
+        { text: 'Visitor Info', link: '/' },
+        { text: 'Contact NRL', link: '/' },
       ],
       navigation: [
         {
-          title: 'Current Section',
+          title: 'Accomplishments',
           items: [
-            { text: 'Navigation link', link: '/' },
-            { text: 'Navigation link', link: '/' },
-            { text: 'Navigation link', link: '/' },
+            { text: 'Awards & Recognition', link: '/' },
+            { text: 'Timeline', link: '/' },
+            { text: 'Systems', link: '/' },
           ],
         },
         {
-          title: 'Section',
+          title: 'Research',
           items: [
-            { text: 'Navigation link', link: '/' },
-            { text: 'Navigation link', link: '/' },
-            { text: 'Navigation link', link: '/' },
+            { text: 'Directorates & Divisions', link: '/' },
+            { text: 'Nanoscience Institute', link: '/' },
+            { text: 'Laboratory for Autonomous Systems Research', link: '/' },
           ],
         },
         {
-          items: [{ text: 'Custom page', link: '/' }],
+          title: 'Careers',
+          items: [
+            { text: 'Opportunities', link: '/' },
+            { text: 'Post Docs', link: '/' },
+            { text: 'Students', link: '/' },
+          ],
         },
       ],
     },

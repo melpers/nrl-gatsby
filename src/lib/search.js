@@ -25,8 +25,18 @@ const Search = ({ big, className, small, srText }) => {
   );
 
   const render = ref => (
-    <form className={classNames} ref={ref}>
+    <form className={classNames} ref={ref} accept-charset="UTF-8" method="GET" action="https://search.usa.gov/search">
       <div role="search">
+        <input 
+          name="utf8"
+          type="hidden"
+          value="✓"
+        />
+        <input
+          name="affiliate"
+          type="hidden"
+          value="nrl"
+        />
         <label className="usa-sr-only" htmlFor={fieldName}>
           {srText}
         </label>
@@ -34,7 +44,8 @@ const Search = ({ big, className, small, srText }) => {
           className="usa-input"
           id={fieldName}
           type="search"
-          name="search"
+          name="query"
+          placeholder="SEARCH"
         />
         <button className="usa-button" type="submit">
           <span className="usa-sr-only">{srText}</span>
