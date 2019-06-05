@@ -31,7 +31,7 @@ const Spending = ({ data, location }) => {
                 <ul className="usa-sidenav">
                   <li className="usa-sidenav-item">
                     <Link to="spending" activeClassName="usa-current">
-                      Agencies:
+                      Agencies::
                     </Link>
                     <ul className="usa-sidenav-sublist">
                       {agencies.map((agency, idx) => (
