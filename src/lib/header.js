@@ -35,12 +35,8 @@ const Header = ({ className, children, ...props }) => {
       ref={ref}
     >
       <div className="usa-navbar">
-        <div className="usa-logo" id="extended-logo">
-          <em className="usa-logo-text">
-            <Link to="/" title="Home" aria-label="Home">
-              {props.title}
-            </Link>
-          </em>
+        <div className="usa-logo nrl-logo" id="extended-logo">
+            <Link to="/" title="Home" aria-label="Home"></Link>
         </div>
         <button className="usa-menu-btn">Menu</button>
       </div>

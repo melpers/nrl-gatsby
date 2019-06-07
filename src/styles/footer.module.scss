@@ -1,3 +1,31 @@
+@import 'variables';
+
 .nrl-footer {
-    background-color: #dbdee1;
+    background: url('../images/footer_faceted.jpg') center center no-repeat $footer_background_color;
+    background-size: cover;
+    color: $footer_links_color;
+    a {
+        color: $footer_links_color;
+        &:visited {
+            color: $footer_links_color;
+        }
+    }
+}
+.nrl-footer-section {
+    background-color: transparent !important;
+}
+.nrl-footer-logo {
+    width: 95px;
+    height: 63px;
+    display: block;
+    background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
+    background: url('../images/nrl_logo_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.nrl-required-links {
+    justify-content: flex-end;
+}
+.nrl-required-link {
+    font-size: 0.9rem;
 }
