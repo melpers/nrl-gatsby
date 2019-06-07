@@ -24,7 +24,8 @@ body {
         color: $header_button_hover_color;
     }
     .usa-header {
-        background: $header_background_color;
+        background: url('../images/header_faceted.jpg') center center no-repeat $header_background_color;
+        background-size: cover;
     }
     .usa-header-extended {
         .usa-nav {
@@ -39,15 +40,12 @@ body {
         .usa-navbar {
             border-bottom-color: $header_bottom_border_color;
         }
-    }
-    @media screen and (max-width: 63.99em) {
         .usa-nav-submenu-item {
             border-top: none;
         }
     }
     @media screen and (min-width: 64em) {
         .usa-header {
-            background: $header_background_color;
             a {
                 color: $header_links_color;
             }
