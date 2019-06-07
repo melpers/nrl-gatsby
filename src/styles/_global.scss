@@ -19,7 +19,8 @@ body {
             height: 37px;
         }
     }
-    .usa-nav-primary button:hover {
+    .usa-nav-primary button:hover,
+    .usa-nav-secondary-links a:hover {
         background-color: transparent;
         color: $header_button_hover_color;
     }
