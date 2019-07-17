@@ -4,115 +4,67 @@ module.exports = {
   siteMetadata: {
     title: `U.S. Naval Research Laboratory`,
     header: {
-      secondaryLinks: [
-        { text: 'Field Sites', link: '/' },
-        { text: 'Visitor Info', link: '/' },
-        { text: 'Contact NRL', link: '/' },
-      ],
       navigation: [
-        {
-          title: 'Accomplishments',
-          items: [
-            { text: 'Awards & Recognition', link: '/' },
-            { text: 'Timeline', link: '/' },
-            { text: 'Systems', link: '/' },
-          ],
-        },
-        {
-          title: 'Research',
-          items: [
-            { text: 'Directorates & Divisions', link: '/' },
-            { text: 'Nanoscience Institute', link: '/' },
-            { text: 'Laboratory for Autonomous Systems Research', link: '/' },
-          ],
-        },
-        {
-          title: 'Careers',
-          items: [
-            { text: 'Opportunities', link: '/' },
-            { text: 'Post Docs', link: '/' },
-            { text: 'Students', link: '/' },
-          ],
-        },
         {
           title: 'About NRL',
           items: [
-            { text: 'Mission', link: '/' },
-            { text: 'History', link: '/' },
-            { text: 'Commanding Officer', link: '/' },
+            { text: 'About Link 1', link: '/' },
+            { text: 'ABout Link 2', link: '/' },
+            { text: 'About Link 3', link: '/' },
           ],
         },
         {
-          title: 'Doing Business',
+          title: 'Research Areas',
           items: [
-            { text: 'Tech Transfer', link: '/' },
-            { text: 'NRL Supply Division', link: '/' },
-            { text: 'Contracting Division', link: '/' },
+            { text: 'Research Link 1', link: '/' },
+            { text: 'Research Link 2', link: '/' },
+            { text: 'Research Link 3', link: '/' },
           ],
         },
         {
-          title: 'Public Affairs & Media',
+          title: 'News',
           items: [
-            { text: 'Public Affairs Office', link: '/' },
-            { text: 'News Releases', link: '/' },
-            { text: 'NRL Videos', link: '/' },
+            { text: 'News Link 1', link: '/' },
+            { text: 'News Link 2', link: '/' },
+            { text: 'News Link 3', link: '/' },
+          ],
+        },
+        {
+          title: 'Work With Us',
+          items: [
+            { text: 'Work Link 1', link: '/' },
+            { text: 'Work Link 2', link: '/' },
+            { text: 'Work Link 3', link: '/' },
+          ],
+        },
+        {
+          title: 'Labs & Facilites',
+          items: [
+            { text: 'Labs Link 1', link: '/' },
+            { text: 'Labs Link 2', link: '/' },
+            { text: 'Labs Link 3', link: '/' },
           ],
         },
       ],
     },
     footer: {
-      secondaryLinks: [
-        { text: 'Field Sites', link: '/' },
-        { text: 'Visitor Info', link: '/' },
-        { text: 'Contact NRL', link: '/' },
-      ],
       navigation: [
         {
-          title: 'Accomplishments',
+          title: 'Row 1',
           items: [
-            { text: 'Awards & Recognition', link: '/' },
-            { text: 'Timeline', link: '/' },
-            { text: 'Systems', link: '/' },
+            { text: 'Department of the Navy', link: 'https://www.navy.mil' },
+            { text: 'Office of Naval Research', link: 'https://www.onr.navy.mil' },
+            { text: 'Navy Recruiting', link: 'https://www.navy.com' },
+            { text: 'No Fear Act', link: 'http://www.secnav.navy.mil/donhr/Site/Pages/No-Fear-Act.aspx' },
           ],
         },
         {
-          title: 'Research',
+          title: 'Row 2',
           items: [
-            { text: 'Directorates & Divisions', link: '/' },
-            { text: 'Nanoscience Institute', link: '/' },
-            { text: 'Laboratory for Autonomous Systems Research', link: '/' },
-          ],
-        },
-        {
-          title: 'Careers',
-          items: [
-            { text: 'Opportunities', link: '/' },
-            { text: 'Post Docs', link: '/' },
-            { text: 'Students', link: '/' },
-          ],
-        },
-        {
-          title: 'About NRL',
-          items: [
-            { text: 'Mission', link: '/' },
-            { text: 'History', link: '/' },
-            { text: 'Commanding Officer', link: '/' },
-          ],
-        },
-        {
-          title: 'Doing Business',
-          items: [
-            { text: 'Tech Transfer', link: '/' },
-            { text: 'NRL Supply Division', link: '/' },
-            { text: 'Contracting Division', link: '/' },
-          ],
-        },
-        {
-          title: 'Public Affairs & Media',
-          items: [
-            { text: 'Public Affairs Office', link: '/' },
-            { text: 'News Releases', link: '/' },
-            { text: 'NRL Videos', link: '/' },
+            { text: 'Link Disclaimer', link: 'https://www.nrl.navy.mil/link-disclaimer' },
+            { text: 'Privacy Policy', link: 'https://www.nrl.navy.mil/privacy-policy' },
+            { text: 'webmaster@nrl.navy.mil', link: 'mailto:webmaster@nrl.navy.mil' },
+            { text: 'FOIA', link: 'https://www.nrl.navy.mil/foia' },
           ],
         },
       ],

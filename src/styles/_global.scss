@@ -1,4 +1,13 @@
 body {
+    .grid-container {
+        max-width: 79rem;
+    }
+    header {
+        max-width: 79rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin: 0 auto;
+    }
     .nrl-logo {
         width: 112px;
         height: 74px;
@@ -9,8 +18,50 @@ body {
         background-size: contain;
     }
     @media screen and (min-width: 64em){
-        .usa-header-extended .usa-logo {
-            margin: 1rem 0 0.5rem;
+        .usa-header-extended {
+            .usa-navbar {
+                max-width: 100%;
+                padding: 0 0 5px 0;
+                float: left;
+            }
+            .usa-logo {
+                margin: 1rem 1rem 0.5rem 0;
+                max-width: 100%;
+                float: left;
+            }
+            .usa-nav {
+                border-top: none;
+                padding-top: 1.6rem;
+                width: auto;
+                float: none;
+            }
+            .usa-nav-inner {
+                max-width: 100%;
+                padding: 0 !important;
+                .usa-accordian {
+                    width: auto;
+                }
+            }
+            .usa-accordion.usa-nav-primary {
+                 width: auto;
+            }
+            .usa-nav-close + .usa-search {
+                 clear: none;
+            }
+            .usa-search {
+                 margin-top: 0.5rem;
+                 .usa-input {
+                     border: 1px solid $search_color;
+                     background: $search_background_color;
+                     color: #fff;
+                 }
+                 input::placeholder {
+                    color: $search_color;
+                }
+            }
+            .usa-nav-primary .usa-accordion-button span {
+                text-transform: uppercase;
+            }
         }
     }
     @media screen and (max-width: 63.99em) {
@@ -19,19 +70,13 @@ body {
             height: 37px;
         }
     }
-    .usa-nav-primary button:hover,
-    .usa-nav-secondary-links a:hover {
+    .usa-nav-primary button:hover {
         background-color: transparent;
         color: $header_button_hover_color;
     }
-    .usa-header {
+    .header-wrapper {
         background: url('../images/header_faceted.jpg') center center no-repeat $header_background_color;
         background-size: cover;
-    }
-    .usa-header-extended {
-        .usa-nav {
-            border-top: none;
-        }
     }
     .usa-header+.usa-section,
     .usa-header+main {
@@ -64,18 +109,41 @@ body {
         }
     }
 
-    .usa-unstyled-list {
-        margin-bottom: 2em;
-    }
-    .usa-footer-secondary-section {
-        a {
-            color: $footer_links_color;
-            &:visited {
-                color: $footer_links_color;
+    .usa-footer-nav {
+        text-align: right;
+
+        p {
+            max-width: 100%;
+        }
+
+        .usa-unstyled-list {
+            margin-bottom: 1em;
+            & > li {
+                display: inline-block;
+                padding-right: 1rem;
+                &:last-of-type {
+                    padding-right: 0;
+                }
             }
         }
+        .usa-footer-primary-link {
+            color: $footer_links_color;
+        }
     }
-    .usa-footer-primary-link {
-        color: $footer_links_color;
+    @media screen and (min-width: 30em) {
+        .usa-footer-big .usa-footer-nav {
+	        padding: 1rem 0 0;
+        }
+    }
+    footer {
+        position: relative;
+    }
+    .usa-footer-return-to-top {
+        position: absolute;
+    }
+    .grid-col-bottom {
+        display: flex;
+        flex-flow: column-reverse;
+        padding-bottom: 1rem;
     }
 }

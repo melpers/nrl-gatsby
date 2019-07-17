@@ -6,7 +6,9 @@
     color: $footer_links_color;
     a {
         color: $footer_links_color;
-        &:visited {
+        &:visited,
+        &:active,
+        &:hover {
             color: $footer_links_color;
         }
     }

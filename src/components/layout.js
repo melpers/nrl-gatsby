@@ -22,10 +22,6 @@ const Layout = ({ children }) => (
                   link
                 }
               }
-              secondaryLinks {
-                text
-                link
-              }
             }
             footer {
               navigation {
@@ -34,10 +30,6 @@ const Layout = ({ children }) => (
                   text
                   link
                 }
-              }
-              secondaryLinks {
-                text
-                link
               }
             }
           }
