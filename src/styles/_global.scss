@@ -135,6 +135,10 @@ body {
 	        padding: 1rem 0 0;
         }
     }
+    .footer-wrapper {
+        background: url('../images/footer_faceted.jpg') center center no-repeat $footer_background_color;
+        background-size: cover;
+    }
     footer {
         position: relative;
     }
