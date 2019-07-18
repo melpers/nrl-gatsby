@@ -142,9 +142,13 @@ body {
     footer {
         position: relative;
     }
+    .usa-footer {
+        font-size: .93162rem;
+    }
     .usa-footer-return-to-top {
         position: absolute;
-        padding: 1rem 0;
+        padding: 1rem 5px;
+        z-index: 1;
     }
     .grid-col-bottom {
         display: flex;
