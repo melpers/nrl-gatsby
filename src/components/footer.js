@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import cx from 'classnames';
 import { Footer as UswdsFooter } from 'uswds-react';
+import ExternalLink from '../components/externalLink';
 
 import footerStyles from '../styles/footer.module.scss'
 
@@ -27,7 +28,11 @@ const Footer = ({ footer }) => (
                           <ul className={ cx("usa-list", "usa-unstyled-list") }>
                           {navGroup.items.map((navItem, idx) => (
                             <li key={idx} className="usa-nav-submenu-item">
-                              <Link to={navItem.link}>{navItem.text}</Link>
+                              { navItem.type === 'internal' ? 
+                                <Link to={navItem.link}>{navItem.text}</Link> 
+                                  :
+                                ExternalLink(navItem)
+                              }
                             </li>
                           ))}
                           </ul>

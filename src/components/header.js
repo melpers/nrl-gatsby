@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import ExternalLink from '../components/externalLink';
 import close from 'uswds_images/close.svg';
 import {
   Accordion,
@@ -42,7 +43,11 @@ const Header = ({ title, header }) => (
                     >
                       {navGroup.items.map((navItem, idx) => (
                         <li key={idx} className="usa-nav-submenu-item">
-                          <Link to={navItem.link}>{navItem.text}</Link>
+                          { navItem.type === 'internal' ? 
+                            <Link to={navItem.link}>{navItem.text}</Link> 
+                              :
+                            ExternalLink(navItem)
+                          }
                         </li>
                       ))}
                     </AccordionContent>

@@ -20,6 +20,7 @@ const Layout = ({ children }) => (
                 items {
                   text
                   link
+                  type
                 }
               }
             }
@@ -29,6 +30,7 @@ const Layout = ({ children }) => (
                 items {
                   text
                   link
+                  type
                 }
               }
             }
