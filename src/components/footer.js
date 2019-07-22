@@ -28,7 +28,8 @@ const Footer = ({ footer }) => (
                           <ul className={ cx("usa-list", "usa-unstyled-list") }>
                           {navGroup.items.map((navItem, idx) => (
                             <li key={idx} className="usa-nav-submenu-item">
-                              { navItem.type === 'internal' ? 
+                              { navItem.type === 'internal' 
+                                  ? 
                                 <Link to={navItem.link}>{navItem.text}</Link> 
                                   :
                                 ExternalLink(navItem)

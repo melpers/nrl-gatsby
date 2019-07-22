@@ -173,11 +173,6 @@ body {
             color: $footer_links_color;
         }
     }
-    @media screen and (min-width: 30em) {
-        .usa-footer-big .usa-footer-nav {
-	        padding: 1rem 0 0;
-        }
-    }
     .footer-wrapper {
         background: url('../images/footer_faceted.jpg') center center no-repeat $footer_background_color;
         background-size: cover;
@@ -197,5 +192,46 @@ body {
         display: flex;
         flex-flow: column-reverse;
         padding-bottom: 1rem;
+    }
+    @media screen and (max-width: 50em) {
+        .footer-wrapper {
+            .grid-col-bottom {
+                display: block;
+                padding-top: 1rem;
+                padding-bottom: 0;
+                width: 100%;
+                .usa-footer-logo {
+                    a {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            }
+            .usa-footer-nav {
+                text-align: center;
+                margin-bottom: 2em;
+                p {
+                    max-width: auto;
+                    margin-top: 0.5em
+                }
+                section {
+                    margin-top: 0;
+                    &:last-of-type {
+                    }
+                }
+                .usa-unstyled-list {
+                    margin-bottom: 0;
+                    & > li {
+                        padding: 0.5em 0.5em 0;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 30em) {
+        .usa-footer-big .usa-footer-nav {
+            padding: 1rem 0 0;
+            border-bottom: none
+        }
     }
 }
