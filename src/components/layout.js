@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Banner, SkipNav } from 'uswds-react';
+import { SkipNav } from 'uswds-react';
 import './layout.css';
 import Header from './header';
 import Footer from './footer';
@@ -42,7 +42,6 @@ const Layout = ({ children }) => (
     render={data => (
       <div>
         <SkipNav skipsTo={mainContent} />
-        <Banner />
         <div className="usa-overlay" />
         <Header {...data.site.siteMetadata} />
         <main id={mainContent}>{children}</main>

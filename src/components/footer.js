@@ -21,7 +21,7 @@ const Footer = ({ footer }) => (
               </div>
               <div className="grid-col-fill">
                 <nav className="usa-footer-nav">
-                  <p>This Is An Official Navy Website.</p>
+                  <p>This Is An Official U.S. Navy Website.</p>
                   <p>U.S. Naval Research Lab 4555 Overlook Ave., SW Washington, DC 20375</p>
                     {footer.navigation.map((navGroup, idx) => (
                         <section key={idx} className={cx("usa-footer-primary-content", "usa-footer-primary-content-collapsible")}>
