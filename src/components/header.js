@@ -42,7 +42,7 @@ const Header = ({ title, header }) => (
                       className="usa-nav-submenu"
                     >
                       {navGroup.items.map((navItem, idx) => (
-                        <li key={idx} className="usa-nav-submenu-item">
+                        <li key={idx} className={"usa-nav-submenu-item depth-" + navItem.depth}>
                           { navItem.type === 'internal' 
                               ? 
                             <Link to={navItem.link}>{navItem.text}</Link> 

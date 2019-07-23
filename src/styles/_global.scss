@@ -17,6 +17,14 @@ body {
         background-repeat: no-repeat;
         background-size: contain;
     }
+    .usa-nav-submenu-item {
+        &.depth-1 {
+            padding-left: 15px;
+        }
+        &.depth-2 {
+            padding-left: 30px;
+        }
+    }
     @media screen and (min-width: 64em){
         .usa-header {
             a {

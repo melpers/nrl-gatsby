@@ -21,6 +21,7 @@ const Layout = ({ children }) => (
                   text
                   link
                   type
+                  depth
                 }
               }
             }
