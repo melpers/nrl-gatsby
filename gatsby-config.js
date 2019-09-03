@@ -6,17 +6,17 @@ module.exports = {
     header: {
       navigation: [
         {
-          title: 'About NRL',
+          title: 'About',
           items: [
-            { text: 'Link Parent', link: 'https://google.com', type: 'external', depth: '0' },
-              { text: ' - Link Child 1', link: 'https://google.com', type: 'external', depth: '1' },
-                { text: ' -- Link Child 1-1', link: 'https://google.com', type: 'external', depth: '2' },
-                { text: ' -- Link Child 1-2', link: 'https://google.com', type: 'external', depth: '2' },
-                { text: ' -- Link Child 1-3', link: 'https://google.com', type: 'external', depth: '2' },
-              { text: ' - Link Child 2', link: 'https://google.com', type: 'external', depth: '1' },
-              { text: ' - Link Child 3', link: 'https://google.com', type: 'external', depth: '1' },
-            { text: 'About Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'About Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'About Link 1', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 2', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 3', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 4', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 5', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 6', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 7', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Link 8', link: '/', type: 'internal', depth: '0' },
+            { text: 'About Link 9', link: '/', type: 'internal', depth: '0' },
           ],
         },
         {

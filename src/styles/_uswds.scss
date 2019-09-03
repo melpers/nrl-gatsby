@@ -1,4 +1,8 @@
 body {
+    .usa-focus, :focus {
+        outline: .25rem solid $nrl_gold;
+        outline-offset: 0;
+    }
     .grid-container {
         max-width: 79rem;
     }
@@ -12,10 +16,11 @@ body {
         width: 112px;
         height: 74px;
         display: block;
-        background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
-        background: url('../images/nrl_logo_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+        background: url('../images/nrl_logo_blue.png') center center no-repeat transparent;
+        background: url('../images/nrl_logo_blue.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
         background-repeat: no-repeat;
         background-size: contain;
+        fill: #f00;
     }
     .usa-nav-submenu-item {
         &.depth-1 {
@@ -44,9 +49,10 @@ body {
             }
             .usa-nav {
                 border-top: none;
-                padding-top: 1.6rem;
+                padding-top: 48px;
                 width: auto;
                 float: none;
+                position: relative;
             }
             .usa-nav-inner {
                 max-width: 100%;
@@ -74,11 +80,18 @@ body {
             }
             .usa-nav-primary {
                 .usa-nav-primary-item {
-                    position: relative;
+                    position: inherit;
+                    margin-right: 4px;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
                 }
                 .usa-nav-link {
                     color: $header_links_color;
                     font-weight: 400;
+                    &.usa-current {
+                        color: $nrl_gold;
+                    }
                 }
                 .usa-accordion-button {
                     background-image: none;
@@ -94,21 +107,32 @@ body {
                         &:focus {
                             // background-color: $nrl_navy_blue;
                             color: $header_button_hover_color;
+                            background-image: none;
                         }
                 }
                 button[aria-expanded=true] {
-                    background-color: $nrl_navy_blue;
+                    background-color: #fff;
                     color: $header_button_hover_color;
                     -webkit-font-smoothing: auto;
                 }
             }
             .usa-nav-submenu {
+                background-color: $nrl_medium_gray;
+                width: 100%;
+                left: 0;
+                right: 0;
+                margin-top: 10px;
+                padding: 1rem 1rem 0 9rem;
                 .usa-nav-submenu-item {
+                    display: inline-block;
+                    margin: 0 2.5rem 1rem 0;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
                     a {
                         &:hover,
                         &:active,
                         &:focus {
-                            color: $header_button_hover_color;
                             text-decoration: underline;
                         }
                     }
@@ -116,20 +140,12 @@ body {
             }
             .usa-nav-link:active:after,
             .usa-nav-link:focus:after {
-                background-color: $header_menu_highligh_color;
-                border-radius: 0;
-                bottom: 0;
-                content: "";
-                display: block;
-                height: 0.25rem;
-                left: 1rem;
-                position: absolute;
-                right: 1rem;
+                height: 0;
             }
             .usa-current:after,
             .usa-nav-link:hover:after,
             [aria-expanded=true]:after {
-                background-color: $header_menu_highligh_color;
+                background-color: transparent;
             }
         }
     }
@@ -151,10 +167,10 @@ body {
             border-top: none;
         }
     }
-    .header-wrapper {
-        background: url('../images/header_faceted.jpg') center center no-repeat $header_background_color;
-        background-size: cover;
-    }
+    // .header-wrapper {
+    //     background: #333;
+    //     background-size: cover;
+    // }
     .usa-header+.usa-section,
     .usa-header+main {
         border-top-color: $header_bottom_border_color;
