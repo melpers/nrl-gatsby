@@ -8,7 +8,7 @@ module.exports = {
         {
           title: 'About',
           items: [
-            { text: 'About Link 1', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'About Home', link: '/about', type: 'internal', depth: '0' },
             { text: 'About Link 2', link: 'https://google.com', type: 'external', depth: '0' },
             { text: 'About Link 3', link: 'https://google.com', type: 'external', depth: '0' },
             { text: 'About Link 4', link: 'https://google.com', type: 'external', depth: '0' },

@@ -1,4 +1,9 @@
 body {
+    .usa-skipnav:focus {
+        background: $nrl_blue;
+        color: #fff;
+        z-index: 315;
+    }
     .usa-focus, :focus {
         outline: .25rem solid $nrl_gold;
         outline-offset: 0;
@@ -13,14 +18,15 @@ body {
         margin: 0 auto;
     }
     .nrl-logo {
-        width: 112px;
-        height: 74px;
-        display: block;
-        background: url('../images/nrl_logo_blue.png') center center no-repeat transparent;
-        background: url('../images/nrl_logo_blue.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
-        background-repeat: no-repeat;
-        background-size: contain;
-        fill: #f00;
+        a {
+            width: 112px;
+            height: 74px;
+            display: block;
+            background: url('../images/nrl_logo_blue.png') center center no-repeat transparent;
+            background: url('../images/nrl_logo_blue.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
     }
     .usa-nav-submenu-item {
         &.depth-1 {
@@ -29,6 +35,12 @@ body {
         &.depth-2 {
             padding-left: 30px;
         }
+    }
+    .usa-prose>p, p {
+        line-height: 1.52155;
+        margin-bottom: 0;
+        margin-top: 0;
+        max-width: 100%;
     }
     @media screen and (min-width: 64em){
         .usa-header {
@@ -41,6 +53,9 @@ body {
                 max-width: 100%;
                 padding: 0 0 5px 0;
                 float: left;
+                position: relative;
+                z-index: 310;
+                margin-right: 32px;
             }
             .usa-logo {
                 margin: 1rem 1rem 0.5rem 0;
@@ -53,6 +68,7 @@ body {
                 width: auto;
                 float: none;
                 position: relative;
+                z-index: 305;
             }
             .usa-nav-inner {
                 max-width: 100%;
@@ -158,8 +174,10 @@ body {
             }
         }
         .nrl-logo {
-            height: 50px;
-            margin: 1rem 1rem 1rem 0;
+            a {
+                height: 50px;
+                margin: 1rem 1rem 1rem 0;
+            }
         }
         .usa-navbar {
             border-bottom-color: $header_bottom_border_color;
@@ -263,16 +281,87 @@ body {
     }
 }
 
-.page-home {
+
+/* FOOTER */
+.nrl-footer {
+    color: $footer_links_color;
+    padding: 10px 0;
+    section {
+        margin-top: 0;
+    }
+    p {
+        max-width: 100%;
+        margin-bottom: 0;
+        font-size: 12px;
+    }
+    a {
+        color: $footer_links_color;
+        text-decoration: none;
+        font-size: 12px;
+        &:visited,
+        &:active,
+        &:hover {
+            color: $footer_links_color;
+            text-decoration: underline;
+        }
+    }
+    .usa-unstyled-list {
+        li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+}
+
+.footer-inner-wrapper {
+    position: relative;
+    padding-left: 11rem;
+    background-color: #fff;
+}
+.icons-demo-block {
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+    .required-help-demo-block {
+        display: none;
+    }
+    .social-demo-block {
+        background: url('../images/social-icons.png') center bottom no-repeat transparent;
+        width: 118px;
+        height: 24px;
+    }
+}
+@media screen and (max-width: 63.99em) {
     .footer-inner-wrapper {
-        padding-left: 9rem;
+        padding-left: 4rem;
+    }
+    .icons-demo-block {
+        position: relative;
+        bottom: auto;
+        left: auto;
+    }
+}
+@media screen and (max-width: 53em) {
+    .footer-inner-wrapper {
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+div.page-home {
+    .footer-inner-wrapper {
+        padding-left: 11rem;
         background-color: $footer_background_color;
         border-top: 5px solid $nrl_medium_gray;
     }
     .icons-demo-block {
+        position: relative;
+        left: auto;
+        bottom: auto;
         float: right;
         width: 340px;
         .required-help-demo-block {
+            display: block;
             clear: both;
             background: url('../images/required-icons.png') center center no-repeat transparent;
             width: 215px;
@@ -322,27 +411,18 @@ body {
         .icons-demo-block {
             float: none;
             width: 100%;
-            text-align: center;
             .required-help-demo-block {
-                clear: both;
-                background: url('../images/required-icons.png') center center no-repeat transparent;
-                width: 215px;
-                height: 64px;
                 float: none;
                 display: block;
                 margin: 10px auto;
             }
             .social-demo-block {
-                background: url('../images/social-icons.png') center bottom no-repeat transparent;
-                width: 118px;
-                height: 24px;
                 padding-top: 0;
                 display: block;
                 margin: 0 auto;
             }
         }
     }
-    
     @media screen and (max-width: 53em) {
         .footer-inner-wrapper {
             padding: 0.5rem 1rem;

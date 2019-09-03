@@ -25,11 +25,41 @@
         font-weight: 400;
         position: absolute;
         top: 4.5rem;
-        left: 9rem;
-        max-width: 22rem;
-        p {
+        left: 11rem;
+        max-width: 23rem;
+        h1 {
             max-width: 100%;
             font-size: 120%;
+            font-weight: 300;
+        }
+    }
+}
+.hero-block-small {
+    width: 100%;
+    height: 200px;
+    &.hero-about {
+        background: url('../images/nrl_hero_about.jpg') center center no-repeat #fff;
+        background-size: cover;
+    }
+}
+
+.title-block {
+    background: $nrl_medium_gray;
+    border-top: 5px solid #00bef3;
+    padding: 0 1rem 0 11rem;
+    margin-bottom: 2.5rem;
+    h1 {
+        margin: 0;
+        font-weight: 300;
+        color: #fff;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 69.99em) {
+    .hero-block-large {
+        .hero-text-block {
+            left: 8rem;
         }
     }
 }
