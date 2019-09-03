@@ -3,10 +3,58 @@
     flex-direction: column;
     min-height: 100vh;
 
-    #main-content {
-        flex-grow: 1;
-    }
+    // #main-content {
+    //     flex-grow: 1;
+    // }
 }
 .content-wrapper {
     padding: 0 2em;
+    margin: 0 auto;
+    max-width: 79rem;
+}
+.hero-block-large {
+    width: 100%;
+    padding-top: 60%;
+    position: relative;
+    margin-bottom: 5px;
+    &.hero-home {
+        background: url('../images/nrl_hero_home.jpg') left center no-repeat #fff;
+        background-size: cover;
+    }
+    .hero-text-block {
+        font-weight: 400;
+        position: absolute;
+        top: 4.5rem;
+        left: 9rem;
+        max-width: 22rem;
+        p {
+            max-width: 100%;
+            font-size: 120%;
+        }
+    }
+}
+
+@media screen and (max-width: 63.99em) {
+    .hero-block-large {
+        .hero-text-block {
+            top: 2.5rem;
+            left: 4rem;
+        }
+    }
+}
+
+@media screen and (max-width: 53em) {
+    .hero-block-large {
+        .hero-text-block {
+            padding: 1.1rem 1.25rem;
+            position: relative;
+            top: auto;
+            left: auto;
+            max-width: 100%;
+            background-color: rgba(255,255,255,0.5);
+        }
+        &.hero-home {
+            background-position: center center;
+        }
+    }
 }

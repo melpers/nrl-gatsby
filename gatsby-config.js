@@ -62,17 +62,21 @@ module.exports = {
             { text: 'Office of Naval Research', link: 'https://www.onr.navy.mil', type: 'external', depth: '0' },
             { text: 'Navy Recruiting', link: 'https://www.navy.com', type: 'external', depth: '0' },
             { text: 'No Fear Act', link: 'http://www.secnav.navy.mil/donhr/Site/Pages/No-Fear-Act.aspx', type: 'external', depth: '0' },
-          ],
-        },
-        {
-          title: 'Row 2',
-          items: [
             { text: 'Link Disclaimer', link: 'https://www.nrl.navy.mil/link-disclaimer', type: 'external', depth: '0' },
             { text: 'Privacy Policy', link: 'https://www.nrl.navy.mil/privacy-policy', type: 'external', depth: '0' },
             { text: 'webmaster@nrl.navy.mil', link: 'mailto:webmaster@nrl.navy.mil', type: 'external', depth: '0' },
             { text: 'FOIA', link: 'https://www.nrl.navy.mil/foia', type: 'external', depth: '0' },
           ],
         },
+        // {
+        //   title: 'Row 2',
+        //   items: [
+        //     { text: 'Link Disclaimer', link: 'https://www.nrl.navy.mil/link-disclaimer', type: 'external', depth: '0' },
+        //     { text: 'Privacy Policy', link: 'https://www.nrl.navy.mil/privacy-policy', type: 'external', depth: '0' },
+        //     { text: 'webmaster@nrl.navy.mil', link: 'mailto:webmaster@nrl.navy.mil', type: 'external', depth: '0' },
+        //     { text: 'FOIA', link: 'https://www.nrl.navy.mil/foia', type: 'external', depth: '0' },
+        //   ],
+        // },
       ],
     },
   },
