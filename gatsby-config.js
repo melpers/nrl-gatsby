@@ -101,5 +101,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Open Sans: 400, 600']
+        }
+      }
+    },
   ],
 };
