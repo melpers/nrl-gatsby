@@ -37,3 +37,25 @@
         margin-bottom: 1rem;
     }
 }
+@media screen and (max-width: 63.99em) {
+    .title-block {
+        padding-left: 4rem;
+    }
+    .sidebar-block {
+        display: none;
+    }
+    .main-column {
+        margin-left: 0;
+        padding: 0 4rem;
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .title-block {
+        padding-left: 1rem;
+    }
+    .main-column {
+        margin-left: 0;
+        padding: 0 1rem;
+    }
+}
