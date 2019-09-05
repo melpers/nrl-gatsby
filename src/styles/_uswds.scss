@@ -292,12 +292,12 @@ body {
     p {
         max-width: 100%;
         margin-bottom: 0;
-        font-size: 12px;
+        font-size: 10px;
     }
     a {
         color: $footer_links_color;
         text-decoration: none;
-        font-size: 12px;
+        font-size: 10px;
         &:visited,
         &:active,
         &:hover {
@@ -353,6 +353,7 @@ div.page-home {
         padding-left: 11rem;
         background-color: $footer_background_color;
         border-top: 5px solid $nrl_medium_gray;
+        min-height: 69px;
     }
     .icons-demo-block {
         position: relative;
@@ -384,13 +385,12 @@ div.page-home {
         p {
             max-width: 100%;
             margin-bottom: 0;
-            font-size: 12px;
+            font-size: 10px;
         }
         a {
             color: $footer_links_color;
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 300;
+            font-size: 10px;
             &:visited,
             &:active,
             &:hover {
