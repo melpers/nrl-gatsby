@@ -81,7 +81,7 @@ body {
     padding: 0;
     color: #fff;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 13px;
     &:before {
         content: "";
         width: 0;
@@ -99,6 +99,7 @@ body {
         a {
             color: #fff;
             text-decoration: none;
+            text-transform: uppercase;
             &:focus,
             &:hover {
                 text-decoration: underline;
