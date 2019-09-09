@@ -21,6 +21,7 @@ body {
     position: relative;
     margin-bottom: 5px;
     max-height: 671px;
+    min-height: 350px;
     &.hero-home {
         background: url('../images/nrl_hero_home.jpg') left center no-repeat #fff;
         background-size: cover;
