@@ -8,16 +8,21 @@ $nrl_gray:                    #4c4f59;
 $nrl_yellow:                  #fab208;
 $nrl_gold:                    #87701D;
 
+// Content
+$desktop-left-offset:           175px;
+
 // Header
 $header_background_color:       #fff;
 $header_links_color:            $nrl_medium_gray;
 $header_bottom_border_color:    $nrl_gold;
 $header_menu_highligh_color:    $nrl_gold;
-$header_button_hover_color:     $nrl_gold;
+$header_button_hover_color:     #fff;
+$header_button_hover_bg_color:  $nrl_medium_gray;
 $search_background_color:       #fff;
 $search_color:                  $nrl_medium_gray;
+$focus_color:                   $nrl_light_blue;
+$header-submenu-offset:         $desktop-left-offset + 32px;
 
 // Footer
-// $footer_background_color:     #C7D6F0;
-$footer_background_color:     #79b7da;
-$footer_links_color:          $nrl_medium_gray;
+$footer_border_color:         #79b7da;
+$footer_links_color:            $nrl_medium_gray;

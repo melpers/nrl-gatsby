@@ -6,9 +6,15 @@ const Index = () => {
   return (
     <div className="page-about">
       <Layout>
+        <div className="hero-block-small hero-about" ></div>
+        <div className="title-block">
+          <div className="content-wrapper">
+            <div className="title-content">
+              <h1>About NRL</h1>
+            </div>
+          </div>
+        </div>
         <div class="content-wrapper">
-          <div className="hero-block-small hero-about" ></div>
-          <div className="title-block"><h1>About NRL</h1></div>
           <Sidebar menu="about"></Sidebar>
           <div className="main-column">
             <section>

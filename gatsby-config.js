@@ -20,15 +20,15 @@ module.exports = {
           ],
         },
         {
-          title: 'Research Areas',
+          title: 'Our Work',
           items: [
-            { text: 'Research Link 1', link: '/', type: 'internal', depth: '0' },
-            { text: 'Research Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'Research Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'Our Work Link 1', link: '/', type: 'internal', depth: '0' },
+            { text: 'Our Work Link 2', link: '/', type: 'internal', depth: '0' },
+            { text: 'Our Work Link 3', link: '/', type: 'internal', depth: '0' },
           ],
         },
         {
-          title: 'News',
+          title: 'News & Media',
           items: [
             { text: 'News Link 1', link: '/', type: 'internal', depth: '0' },
             { text: 'News Link 2', link: '/', type: 'internal', depth: '0' },
@@ -36,19 +36,27 @@ module.exports = {
           ],
         },
         {
-          title: 'Work With Us',
+          title: 'Doing Business',
           items: [
-            { text: 'Work Link 1', link: '/', type: 'internal', depth: '0' },
-            { text: 'Work Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'Work Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'Doing Business Link 1', link: '/', type: 'internal', depth: '0' },
+            { text: 'Doing Business Link 2', link: '/', type: 'internal', depth: '0' },
+            { text: 'Doing Business Link 3', link: '/', type: 'internal', depth: '0' },
           ],
         },
         {
-          title: 'Labs & Facilites',
+          title: 'Careers',
           items: [
-            { text: 'Labs Link 1', link: '/', type: 'internal', depth: '0' },
-            { text: 'Labs Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'Labs Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'Careers Link 1', link: '/', type: 'internal', depth: '0' },
+            { text: 'Careers Link 2', link: '/', type: 'internal', depth: '0' },
+            { text: 'Careers Link 3', link: '/', type: 'internal', depth: '0' },
+          ],
+        },
+        {
+          title: 'Contact',
+          items: [
+            { text: 'Contact Link 1', link: '/', type: 'internal', depth: '0' },
+            { text: 'Contact Link 2', link: '/', type: 'internal', depth: '0' },
+            { text: 'Contact Link 3', link: '/', type: 'internal', depth: '0' },
           ],
         },
       ],

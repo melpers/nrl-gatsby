@@ -20,20 +20,30 @@ body {
     padding-top: 60%;
     position: relative;
     margin-bottom: 5px;
+    max-height: 671px;
     &.hero-home {
         background: url('../images/nrl_hero_home.jpg') left center no-repeat #fff;
         background-size: cover;
+        background-position: 33% 33%;
     }
-    .hero-text-block {
-        font-weight: 400;
+    .hero-text-wrapper {
+        margin: 0;
         position: absolute;
-        top: 4.5rem;
-        left: 11rem;
-        max-width: 23rem;
-        h1 {
-            max-width: 100%;
-            font-size: 120%;
-            font-weight: 300;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .hero-text-block {
+            font-weight: 400;
+            position: absolute;
+            top: 4.5rem;
+            left: $desktop-left-offset + 30px;
+            max-width: 23rem;
+            h1 {
+                max-width: 100%;
+                font-size: 120%;
+                font-weight: 300;
+            }
         }
     }
 }
@@ -45,49 +55,78 @@ body {
         background-size: cover;
     }
 }
-
 .title-block {
     background: $nrl_medium_gray;
     border-top: 5px solid #00bef3;
-    padding: 0 1rem 0 11rem;
     margin-bottom: 2.5rem;
-    h1 {
-        margin: 0;
-        font-weight: 300;
-        color: #fff;
-        line-height: 40px;
+    .content-wrapper {
+        .title-content {
+            padding-left: $desktop-left-offset;
+            h1 {
+                margin: 0;
+                font-weight: 300;
+                color: #fff;
+                line-height: 40px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 70em){
+    .hero-block-large {
+        padding-top: 0;
+        margin-bottom: 5px;
+        height: 671px;
+        max-height: 671px;
+        .hero-text-wrapper {
+            width: 79rem;
+            margin: 0 auto;
+            .hero-block-large {
+                width: 100%;
+                padding-top: 0;
+                height: 671px;
+                max-height: 671px;
+            }
+        }
     }
 }
 
 @media screen and (max-width: 69.99em) {
     .hero-block-large {
-        .hero-text-block {
-            left: 8rem;
+        .hero-text-wrapper {
+            width: auto;
+            height: 100%;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            .hero-text-block {
+                top: 2.5rem;
+                left: 2rem;
+            }
         }
     }
 }
 
 @media screen and (max-width: 63.99em) {
-    .hero-block-large {
-        .hero-text-block {
-            top: 2.5rem;
-            left: 4rem;
+    .title-block {
+        .content-wrapper {
+            .title-content {
+                padding-left: 0;
+            }
         }
     }
 }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 50em) {
     .hero-block-large {
-        .hero-text-block {
-            padding: 1.1rem 1.25rem;
-            position: relative;
-            top: auto;
-            left: auto;
-            max-width: 100%;
-            background-color: rgba(255,255,255,0.5);
-        }
-        &.hero-home {
-            background-position: center center;
+        .hero-text-wrapper {
+            .hero-text-block {
+                padding: 1.1rem 1.25rem;
+                top: auto;
+                bottom: 0;
+                left: auto;
+                max-width: 100%;
+                background-color: rgba(255,255,255,0.5);
+            }
         }
     }
 }

@@ -5,8 +5,12 @@ body {
         z-index: 315;
     }
     .usa-focus, :focus {
-        outline: .25rem solid $nrl_gold;
+        outline: none;
         outline-offset: 0;
+    }
+    a:focus {
+        outline: none;
+        text-decoration: underline;
     }
     .grid-container {
         max-width: 79rem;
@@ -19,21 +23,28 @@ body {
     }
     .nrl-logo {
         a {
-            width: 112px;
+            width: 111px;
             height: 74px;
             display: block;
             background: url('../images/nrl_logo_blue.png') center center no-repeat transparent;
             background: url('../images/nrl_logo_blue.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
             background-repeat: no-repeat;
             background-size: contain;
+            margin-left: 1px;
+            &:focus {
+                outline: 1px dotted #000;
+            }
         }
+    }
+    .usa-nav-primary .usa-nav-primary-item a:focus {
+        text-decoration: underline;
     }
     .usa-nav-submenu-item {
         &.depth-1 {
             padding-left: 15px;
         }
         &.depth-2 {
-            padding-left: 30px;
+            padding-left: $desktop-left-offset;
         }
     }
     .usa-prose>p, p {
@@ -67,12 +78,13 @@ body {
                 padding-top: 48px;
                 width: auto;
                 float: none;
-                position: relative;
+                position: inherit;
                 z-index: 305;
             }
             .usa-nav-inner {
                 max-width: 100%;
                 padding: 0 !important;
+                position: inherit;
                 .usa-accordian {
                     width: auto;
                 }
@@ -84,14 +96,46 @@ body {
                  clear: none;
             }
             .usa-search {
-                 margin-top: 0.5rem;
-                 .usa-input {
-                     border: 1px solid $search_color;
-                     background: $search_background_color;
-                     color: #fff;
-                 }
-                 input::placeholder {
+                margin-top: 0.5rem;
+                max-width: 120px;
+                .usa-input {
+                    border: 1px solid $search_color;
+                    border-right: none;
+                    background: $search_background_color;
                     color: $search_color;
+                    &:focus {
+                        outline: none;
+                        background-color: $nrl_medium_gray;
+                        color: #fff;
+                        & + button {
+                            // background-color: $nrl_medium_gray;
+                            // background-image: url('../images/search.png');
+                            // background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
+                        }
+                        &::placeholder {
+                            color: #fff;
+                        }
+                    }
+                    &::placeholder {
+                        color: $search_color;
+                    }
+                }
+                .usa-button[type=submit] {
+                    background-color: #fff;
+                    background-image: url('../images/search_nrl.png');
+                    background-image: url('../images/search_nrl.svg'), linear-gradient(transparent, transparent);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    color: $nrl_medium_gray;
+                    border: 1px solid $search_color;
+                    border-left: none;
+                    border-radius: 0;
+                    &:focus {
+                        background-color: $nrl_medium_gray;
+                        background-image: url('../images/search.png');
+                        background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
+                        outline: none;
+                    }
                 }
             }
             .usa-nav-primary {
@@ -104,9 +148,9 @@ body {
                 }
                 .usa-nav-link {
                     color: $header_links_color;
-                    font-weight: 400;
+                    font-weight: 600;
                     &.usa-current {
-                        color: $nrl_gold;
+                        color: $nrl_blue;
                     }
                 }
                 .usa-accordion-button {
@@ -116,19 +160,22 @@ body {
                         padding-right: 0;
                     }
                 }
+                button {
+                    outline: none;
+                }
                 button[aria-expanded=false] {
                         background-color: transparent;
                         &:hover,
                         &:active,
                         &:focus {
-                            // background-color: $nrl_navy_blue;
-                            // color: $header_button_hover_color;
+                            background-color: $header_button_hover_bg_color;
+                            color: $header_button_hover_color;
                             text-decoration: underline;
                             background-image: none;
                         }
                 }
                 button[aria-expanded=true] {
-                    background-color: #fff;
+                    background-color: $header_button_hover_bg_color;
                     color: $header_button_hover_color;
                     -webkit-font-smoothing: auto;
                 }
@@ -138,19 +185,24 @@ body {
                 width: 100%;
                 left: 0;
                 right: 0;
-                margin-top: 10px;
-                padding: 1rem 1rem 0 9rem;
-                .usa-nav-submenu-item {
-                    display: inline-block;
-                    margin: 0 2.5rem 1rem 0;
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-                    a {
-                        &:hover,
-                        &:active,
-                        &:focus {
-                            text-decoration: underline;
+                margin: 10px auto 0;
+                padding: 1rem 0 0 0;
+                .usa-nav-submenu-wrapper {
+                    padding-left: $header-submenu-offset;
+                    max-width: 79rem;
+                    margin: 0 auto;
+                    .usa-nav-submenu-item {
+                        display: inline-block;
+                        margin: 0 2.5rem 1rem 0;
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+                        a {
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
@@ -167,6 +219,24 @@ body {
         }
     }
     @media screen and (max-width: 63.99em) {
+        .usa-menu-btn:focus {
+            background-color: $header_button_hover_bg_color;
+            text-decoration: underline;
+        }
+        .usa-nav-close {
+            margin-right: 1px;
+            &:focus {
+                outline: 2px solid $header_button_hover_bg_color;
+            }
+        }
+        .usa-search {
+            .usa-button:focus {
+                background-color: $header_button_hover_bg_color;
+            }
+        }
+        .usa-logo {
+            margin-left: 0;
+        }
         .usa-header-extended {
             .usa-navbar {
                 height: auto;
@@ -176,6 +246,7 @@ body {
         .nrl-logo {
             a {
                 height: 50px;
+                width: 75px;
                 margin: 1rem 1rem 1rem 0;
             }
         }
@@ -185,11 +256,10 @@ body {
         .usa-nav-submenu-item {
             border-top: none;
         }
+        .usa-nav-primary button:focus {
+            text-decoration: underline;
+        }
     }
-    // .header-wrapper {
-    //     background: #333;
-    //     background-size: cover;
-    // }
     .usa-header+.usa-section,
     .usa-header+main {
         border-top-color: $header_bottom_border_color;
@@ -261,8 +331,6 @@ body {
                 }
                 section {
                     margin-top: 0;
-                    &:last-of-type {
-                    }
                 }
                 .usa-unstyled-list {
                     margin-bottom: 0;
@@ -315,22 +383,19 @@ body {
 
 .footer-inner-wrapper {
     position: relative;
-    padding-left: 11rem;
+    padding-left: $desktop-left-offset;
     background-color: #fff;
 }
-.icons-demo-block {
-    position: absolute;
-    left: 0;
-    bottom: 16px;
-    .required-help-demo-block {
-        display: none;
-    }
-    .social-demo-block {
-        background: url('../images/social-icons.png') center bottom no-repeat transparent;
-        width: 118px;
-        height: 24px;
-    }
+.required-help-demo-block {
+    display: none;
 }
+.social-demo-block {
+    background: url('../images/social-icons.png') center bottom no-repeat transparent;
+    width: 118px;
+    height: 24px;
+    margin-bottom: 15px;
+}
+
 @media screen and (max-width: 63.99em) {
     .footer-inner-wrapper {
         padding-left: 4rem;
@@ -341,92 +406,35 @@ body {
         left: auto;
     }
 }
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 50em) {
     .footer-inner-wrapper {
         padding: 0.5rem 1rem;
     }
 }
 
-
 div.page-home {
-    .footer-inner-wrapper {
-        padding-left: 11rem;
-        background-color: $footer_background_color;
-        border-top: 5px solid $nrl_medium_gray;
-        min-height: 69px;
-    }
-    .icons-demo-block {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        float: right;
-        width: 340px;
-        .required-help-demo-block {
-            display: block;
-            clear: both;
-            background: url('../images/required-icons.png') center center no-repeat transparent;
-            width: 215px;
-            height: 64px;
-            float: right;
-        }
-        .social-demo-block {
-            background: url('../images/social-icons.png') center bottom no-repeat transparent;
-            width: 118px;
-            height: 24px;
-            padding-top: 53px;
-        }
-    }
-    .nrl-footer {
-        color: $footer_links_color;
-        padding: 10px 0;
-        section {
-            margin-top: 0;
-        }
-        p {
-            max-width: 100%;
-            margin-bottom: 0;
-            font-size: 10px;
-        }
-        a {
-            color: $footer_links_color;
-            text-decoration: none;
-            font-size: 10px;
-            &:visited,
-            &:active,
-            &:hover {
-                color: $footer_links_color;
-                text-decoration: underline;
-            }
-        }
-        .usa-unstyled-list {
-            li {
-                display: inline-block;
-                margin-right: 5px;
-            }
-        }
-    }
-    @media screen and (max-width: 63.99em) {
-        .footer-inner-wrapper {
-            padding-left: 4rem;
-        }
-        .icons-demo-block {
-            float: none;
-            width: 100%;
+    footer {
+        border-top: 15px solid $footer_border_color;
+        margin-top: 10px;
+        .footer-wrapper {
+            padding-top: 50px;
             .required-help-demo-block {
-                float: none;
                 display: block;
-                margin: 10px auto;
-            }
-            .social-demo-block {
-                padding-top: 0;
-                display: block;
-                margin: 0 auto;
+                background: url('../images/required-icons.png') center center no-repeat transparent;
+                width: 215px;
+                height: 64px;
+                float: right;
+                margin: 0 0 0 30px;
             }
         }
     }
     @media screen and (max-width: 53em) {
-        .footer-inner-wrapper {
-            padding: 0.5rem 1rem;
+        .required-help-demo-block {
+            float: none;
+            margin: 10px auto;
+            position: absolute;
+            top: -22px;
+            right: 0;
         }
     }
 }
