@@ -53,6 +53,10 @@ body {
         margin-top: 0;
         max-width: 100%;
     }
+    .usa-footer-primary-content {
+        border-top: none;
+    }
+
     @media screen and (min-width: 64em){
         .usa-header {
             a {
@@ -427,14 +431,31 @@ div.page-home {
                 margin: 0 0 0 30px;
             }
         }
-    }
-    @media screen and (max-width: 53em) {
-        .required-help-demo-block {
-            float: none;
-            margin: 10px auto;
-            position: absolute;
-            top: -22px;
-            right: 0;
+        @media screen and (max-width: 53em) {
+            .footer-wrapper {
+                .required-help-demo-block {
+                    float: none;
+                    margin: 10px auto;
+                    position: absolute;
+                    top: -22px;
+                    right: 0;
+                }
+            }
+        }
+        @media screen and (max-width: 500px) {
+            .footer-wrapper {
+                .required-help-demo-block {
+                    margin: 0 auto 20px;
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                }
+                .social-demo-block {
+                    width: 118px;
+                    height: 24px;
+                    margin: 0 auto 15px;
+                }
+            }
         }
     }
 }
