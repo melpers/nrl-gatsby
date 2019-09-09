@@ -107,6 +107,7 @@ body {
                     border-right: none;
                     background: $search_background_color;
                     color: $search_color;
+                    font-weight: 300;
                     &:focus {
                         outline: none;
                         background-color: $nrl_medium_gray;
@@ -122,6 +123,7 @@ body {
                     }
                     &::placeholder {
                         color: $search_color;
+                        font-weight: 300;
                     }
                 }
                 .usa-button[type=submit] {

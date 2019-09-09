@@ -11,6 +11,20 @@ const Index = () => {
           <div className="content-wrapper">
             <div className="title-content">
               <h1>About NRL</h1>
+              <ul className="breadcrumbs">
+              <li>
+                  <a href="/">Some other page with a very long title</a>
+                </li>
+                <li>
+                  <a href="/">Some page</a>
+                </li>
+                <li>
+                  <a href="/">Some section</a>
+                </li>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
