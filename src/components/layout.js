@@ -40,7 +40,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div class="container">
+      <div className="container">
         <SkipNav skipsTo={mainContent} />
         <div className="usa-overlay" />
         <Header {...data.site.siteMetadata} />

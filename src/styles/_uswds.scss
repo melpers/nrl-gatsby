@@ -33,7 +33,7 @@ body {
             background-size: contain;
             margin-left: 1px;
             &:focus {
-                outline: 1px solid $nrl_blue;
+                outline: 2px solid $nrl_blue;
                 border-bottom: none;
                 background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
                 background: url('../images/nrl_logo_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
