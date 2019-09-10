@@ -8,15 +8,11 @@ module.exports = {
         {
           title: 'About',
           items: [
-            { text: 'About Home', link: '/about', type: 'internal', depth: '0' },
-            { text: 'About Link 2', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 3', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 4', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 5', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 6', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 7', link: 'https://google.com', type: 'external', depth: '0' },
-            { text: 'About Link 8', link: '/', type: 'internal', depth: '0' },
-            { text: 'About Link 9', link: '/', type: 'internal', depth: '0' },
+            { text: 'About NRL', link: '/about', type: 'internal', depth: '0' },
+            { text: 'Mission', link: '/about', type: 'internal', depth: '1' },
+            { text: 'Accomplishments', link: '/about', type: 'internal', depth: '0' },
+            { text: 'Leadership', link: '/about', type: 'internal', depth: '0' },
+            { text: 'History', link: 'https://google.com', type: 'external', depth: '0' },
           ],
         },
         {
