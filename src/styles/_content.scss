@@ -22,7 +22,8 @@
             font-size: 14px;
             &:hover,
             &:focus {
-                text-decoration: underline;
+                // text-decoration: underline;
+                border-bottom: 2px solid;
             }
         }
     }

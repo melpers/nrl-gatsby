@@ -10,7 +10,8 @@ body {
     }
     a:focus {
         outline: none;
-        text-decoration: underline;
+        // text-decoration: underline;
+        border-bottom: 2px solid;
     }
     .grid-container {
         max-width: 79rem;
@@ -32,12 +33,13 @@ body {
             background-size: contain;
             margin-left: 1px;
             &:focus {
-                outline: 1px dotted #000;
+                outline: 1px solid $nrl_blue;
+                border-bottom: none;
+                background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
+                background: url('../images/nrl_logo_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+                background-color: $nrl_blue;
             }
         }
-    }
-    .usa-nav-primary .usa-nav-primary-item a:focus {
-        text-decoration: underline;
     }
     .usa-nav-submenu-item {
         &.depth-1 {
@@ -151,6 +153,9 @@ body {
                     &:last-of-type {
                         margin-right: 0;
                     }
+                    a:focus {
+                        border-bottom: 2px solid;
+                    }
                 }
                 .usa-nav-link {
                     color: $header_links_color;
@@ -176,7 +181,8 @@ body {
                         &:focus {
                             background-color: $header_button_hover_bg_color;
                             color: $header_button_hover_color;
-                            text-decoration: underline;
+                            // text-decoration: underline;
+                            border-bottom: 2px solid;
                             background-image: none;
                         }
                 }
@@ -207,7 +213,8 @@ body {
                             &:hover,
                             &:active,
                             &:focus {
-                                text-decoration: underline;
+                                text-decoration: none;
+                                border-bottom: 2px solid;
                             }
                         }
                     }
@@ -228,6 +235,7 @@ body {
         .usa-menu-btn:focus {
             background-color: $header_button_hover_bg_color;
             text-decoration: underline;
+            border-bottom: none;
         }
         .usa-nav-close {
             margin-right: 1px;
@@ -262,8 +270,37 @@ body {
         .usa-nav-submenu-item {
             border-top: none;
         }
-        .usa-nav-primary button:focus {
-            text-decoration: underline;
+        .usa-nav-primary {
+            button[aria-expanded=false],
+            button[aria-expanded=true] {
+                background-position: right 5px center;
+            }
+            button:focus {
+                color: #fff;
+            }
+            button[aria-expanded=false]:focus {
+                background: url('../images/plus_white.png') center center no-repeat transparent;
+                background: url('../images/plus_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+                background-color: $header_button_hover_bg_color;
+                background-position: right 5px center;
+	            background-repeat: no-repeat;
+	            background-size: .75rem;
+            }
+            button[aria-expanded=true]:focus {
+                background: url('../images/minus_white.png') center center no-repeat transparent;
+                background: url('../images/minus_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+                background-color: $header_button_hover_bg_color;
+                background-position: right 5px center;
+	            background-repeat: no-repeat;
+	            background-size: .75rem;
+            }
+            .usa-nav-primary-item {
+                a:focus {
+                    background-color: $header_button_hover_bg_color;
+                    color: #fff;
+                    border-bottom: none;
+                }
+            }
         }
     }
     .usa-header+.usa-section,
@@ -376,7 +413,8 @@ body {
         &:active,
         &:hover {
             color: $footer_links_color;
-            text-decoration: underline;
+            // text-decoration: underline;
+            border-bottom: 2px solid;
         }
     }
     .usa-unstyled-list {
