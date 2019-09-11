@@ -1,0 +1,121 @@
+--- 
+header: 
+  navigation: 
+    - 
+      title: About
+      items: 
+        - 
+          depth: "0"
+          link: /about
+          text: "About NRL"
+          type: internal
+        - 
+          depth: "1"
+          link: /about
+          text: Mission
+          type: internal
+        - 
+          depth: "0"
+          link: /about
+          text: Accomplishments
+          type: internal
+        - 
+          depth: "0"
+          link: /about
+          text: Leadership
+          type: internal
+        - 
+          depth: "0"
+          link: "https://google.com"
+          text: History
+          type: external
+    - 
+      title: "Our Work"
+      items: 
+        - 
+          depth: "0"
+          link: /
+          text: "Our Work Link 1"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Our Work Link 2"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Our Work Link 3"
+          type: internal
+    - 
+      title: "News & Media"
+      items: 
+        - 
+          depth: "0"
+          link: /
+          text: "News Link 1"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "News Link 2"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "News Link 3"
+          type: internal
+    - 
+      title: "Doing Business"
+      items: 
+        - 
+          depth: "0"
+          link: /
+          text: "Doing Business Link 1"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Doing Business Link 2"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Doing Business Link 3"
+          type: internal
+    - 
+      title: Careers
+      items: 
+        - 
+          depth: "0"
+          link: /
+          text: "Careers Link 1"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Careers Link 2"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Careers Link 3"
+          type: internal
+    - 
+      title: Contact
+      items: 
+        - 
+          depth: "0"
+          link: /
+          text: "Contact Link 1"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Contact Link 2"
+          type: internal
+        - 
+          depth: "0"
+          link: /
+          text: "Contact Link 3"
+          type: internal

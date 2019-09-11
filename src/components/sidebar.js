@@ -1,15 +1,43 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
-const Sidebar = (props) => {
-    const menu = props.menu;
+const Sidebar = ({menu}) => {
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    header {
+                      navigation {
+                            items {
+                                type
+                                text
+                                link
+                                depth
+                            }
+                            title
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    // Pick out the menu we want from the full menu tree
+    const navigation = data.site.siteMetadata.header.navigation;
+    let activeMenu = false;
+    for (var i=0; i < navigation.length; i++) {
+        if (navigation[i].title.toLowerCase() === menu.toLowerCase()) {
+            activeMenu = navigation[i];
+            break;
+        } 
+    }
+
     return (
         <div className="sidebar-block">
             <ul className={"sidebar-menu sidebar-menu-"+menu}>
-                <li className="depth-0"><a href="/about">About</a></li>
-                <li className="depth-1"><a href="/about">Mission</a></li>
-                <li className="depth-0"><a href="/about">Accomplishments</a></li>
-                <li className="depth-0"><a href="/about">Leadership</a></li>
-                <li className="depth-0"><a href="/about">History</a></li>
+                {activeMenu.items.map( (item, idx) => (
+                    <li className={"depth-" + item.depth}><a href={item.link}>{item.text}</a></li>
+                ))}
             </ul>
         </div>
     )
