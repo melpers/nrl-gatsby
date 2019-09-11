@@ -198,14 +198,14 @@ body {
                 left: 0;
                 right: 0;
                 margin: 10px auto 0;
-                padding: 1rem 0 0 0;
+                padding: 0.5rem 0;
                 .usa-nav-submenu-wrapper {
                     padding-left: $header-submenu-offset;
                     max-width: 79rem;
                     margin: 0 auto;
                     .usa-nav-submenu-item {
                         display: inline-block;
-                        margin: 0 2.5rem 1rem 0;
+                        margin: 0 2.5rem 0 0;
                         &:last-of-type {
                             margin-right: 0;
                         }
