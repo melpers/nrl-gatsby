@@ -36,7 +36,7 @@ const Sidebar = ({menu}) => {
         <div className="sidebar-block">
             <ul className={"sidebar-menu sidebar-menu-"+menu}>
                 {activeMenu.items.map( (item, idx) => (
-                    <li className={"depth-" + item.depth}><a href={item.link}>{item.text}</a></li>
+                    <li key={idx} className={"depth-" + item.depth}><a href={item.link}>{item.text}</a></li>
                 ))}
             </ul>
         </div>

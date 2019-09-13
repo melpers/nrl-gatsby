@@ -114,11 +114,6 @@ body {
                         outline: none;
                         background-color: $nrl_medium_gray;
                         color: #fff;
-                        & + button {
-                            // background-color: $nrl_medium_gray;
-                            // background-image: url('../images/search.png');
-                            // background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
-                        }
                         &::placeholder {
                             color: #fff;
                         }
