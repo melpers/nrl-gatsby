@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../components/layout';
-import Sidebar from '../components/sidebar';
+import Layout from 'src/components/layout';
+import Sidebar from 'src/components/sidebar';
 
 const Index = () => {
   return (

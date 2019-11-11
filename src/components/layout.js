@@ -2,8 +2,8 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { SkipNav } from 'uswds-react';
 import './layout.css';
-import Header from './header';
-import Footer from './footer';
+import Header from 'src/components/header';
+import Footer from 'src/components/footer';
 
 const mainContent = 'main-content';
 

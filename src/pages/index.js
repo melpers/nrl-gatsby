@@ -1,14 +1,41 @@
 import React from 'react';
-import Layout from '../components/layout';
+import { graphql, useStaticQuery } from "gatsby"
+
+import Layout from 'src/components/layout';
 
 const Index = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: {
+            regex: "/pages/"
+          },
+          frontmatter: {
+            title: {
+              eq: "Home"
+            }
+          }
+        }){
+        edges {
+          node {
+            html
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div className="page-home">
       <Layout>
         <div className="hero-block-large hero-home">
           <div className="hero-text-wrapper">
             <div className="hero-text-block">
-              <h1>As a specialized laboratory for the U.S. Navy, we are driven to discover. Our research takes us from the depths of the ocean to the edges of the galaxy, producing powerful results that benefit both military and civilians alike.</h1>
+              <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }}></div>
             </div>
           </div>
         </div>
