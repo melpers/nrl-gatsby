@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
-import ExternalLink from '../components/externalLink';
-import SocialIcon from '../components/socialIcon';
+import ExternalLink from 'components/externalLink';
+import SocialIcon from 'components/socialIcon';
 
 const Footer = ({ footer }) => {
   const data = useStaticQuery(graphql`
