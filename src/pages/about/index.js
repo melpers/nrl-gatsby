@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from 'components/layout';
 import Sidebar from 'components/sidebar';
+import Breadcrumbs from "components/breadcrumbs"
 
-const Index = () => {
+const Index = (props) => {
   const data = useStaticQuery(graphql`
   query {
     markdownRemark(
@@ -27,11 +28,7 @@ const Index = () => {
           <div className="content-wrapper">
             <div className="title-content">
               <h1>{data.markdownRemark.frontmatter.title}</h1>
-              <ul className="breadcrumbs">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-              </ul>
+              <Breadcrumbs uri={props.uri} title={props.data.markdownRemark.frontmatter.title}></Breadcrumbs>
             </div>
           </div>
         </div>

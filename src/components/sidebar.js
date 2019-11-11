@@ -1,5 +1,7 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
+
+import ExternalLink from "components/externalLink";
 
 const Sidebar = ({menu}) => {
     const data = useStaticQuery(graphql`
@@ -36,7 +38,14 @@ const Sidebar = ({menu}) => {
         <div className="sidebar-block">
             <ul className={"sidebar-menu sidebar-menu-"+menu}>
                 {activeMenu.items.map( (item, idx) => (
-                    <li key={idx} className={"depth-" + item.depth}><a href={item.link}>{item.text}</a></li>
+                    <>
+                    {item.type === 'internal'
+                        ?
+                        <li key={idx} className={"depth-" + item.depth}><Link to={item.link}>{item.text}</Link></li>
+                        :
+                        <li key={idx} className={"depth-" + item.depth}><ExternalLink to={item.link}>{item.text}</ExternalLink></li>
+                    }
+                    </>
                 ))}
             </ul>
         </div>

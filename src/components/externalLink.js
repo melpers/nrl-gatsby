@@ -1,16 +1,9 @@
 import React from 'react';
 
 const ExternalLink = (props) => {
-    if (props.link.includes("http")) {
-        return (
-            <a href={props.link} target="_blank" rel="noopener noreferrer">{props.text}</a>
-        )
-    }
-    else {
-        return (
-            <a href={props.link}>{props.text}</a>
-        )
-    }
+    return (
+        <a href={props.to} target="_blank" rel="noopener noreferrer" className={props.className}>{props.children}</a>
+    )
 }
 
 export default ExternalLink

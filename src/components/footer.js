@@ -58,7 +58,7 @@ const Footer = ({ footer }) => {
                           ? 
                         <Link to={navItem.link}>{navItem.text}</Link> 
                           :
-                        ExternalLink(navItem)
+                        <ExternalLink to={navItem.link}>{navItem.text}</ExternalLink>
                       }
                     </li>
                   ))}
@@ -69,8 +69,12 @@ const Footer = ({ footer }) => {
           </nav>
         </div>
         <div className="help-block">
-          <a href="https://safehelpline.org/" target="_blank" rel="noopener noreferrer"><img src={data.helpIconSafe.publicURL} alt="D0D Safe Helpline 1-877-995-5247" /></a>
-          <a href="https://www.veteranscrisisline.net/" target="_blank" rel="noopener noreferrer"><img src={data.helpIconCrisis.publicURL} alt="Veterans Crisis Line 1-800-273-8255 Press 1" /></a>
+          <ExternalLink to="https://safehelpline.org/">
+            <img src={data.helpIconSafe.publicURL} alt="D0D Safe Helpline 1-877-995-5247" />
+          </ExternalLink>
+          <ExternalLink to="https://www.veteranscrisisline.net/">
+            <img src={data.helpIconCrisis.publicURL} alt="Veterans Crisis Line 1-800-273-8255 Press 1" />
+          </ExternalLink>
         </div>
       </div>
     </footer>
