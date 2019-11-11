@@ -53,7 +53,7 @@ const Header = ({ title, header }) => (
                                       ? 
                                     <Link to={navItem.link}>{navItem.text}</Link> 
                                       :
-                                    ExternalLink(navItem)
+                                    <ExternalLink to={navItem.link}>{navItem.text}</ExternalLink>
                                   }
                                 </li>
                                 :
