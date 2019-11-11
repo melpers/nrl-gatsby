@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import ExternalLink from 'src/components/externalLink';
+import ExternalLink from '../components/externalLink';
 import close from 'uswds_images/close.svg';
 import {
   Accordion,

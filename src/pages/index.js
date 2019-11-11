@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby"
 
-import Layout from 'src/components/layout';
+import Layout from '../components/layout';
 
 const Index = () => {
   const data = useStaticQuery(graphql`
