@@ -126,6 +126,7 @@ module.exports = {
     `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     // 'gatsby-plugin-root-import',
+    `gatsby-plugin-resolve-src`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
