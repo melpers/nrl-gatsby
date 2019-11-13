@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Location } from '@reach/router';
 
 export default function HTML(props) {
   return (
@@ -19,11 +20,27 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
         </noscript>
-        <div
-          key={`body`}
-          id="___gatsby"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
+        <Location>
+            {({ location }) => {
+                /* Add a className to the context specific to each page to help with styling:
+                    Prepend 'page' to the pathname,
+                    then replace all "/" characters with "-",
+                    then if the last character is a "-" remove it.
+                */
+                let pageName = "page" + location.pathname.replace(/\//g, '-').replace(/-$/, '');
+                if (pageName === "page") {
+                    pageName = "page-home"
+                }
+                return (
+                  <div
+                    key={`body`}
+                    id="___gatsby"
+                    className={pageName}
+                    dangerouslySetInnerHTML={{ __html: props.body }}
+                  />
+                )
+            }}
+        </Location>
         {props.postBodyComponents}
       </body>
     </html>

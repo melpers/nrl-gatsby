@@ -1,0 +1,97 @@
+.hero-block {
+    width: 100%;
+    border-bottom: 5px solid $nrl_light_blue_alt;
+    position: relative;
+    .gatsby-image-wrapper {
+        position: absolute !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+}
+.hero-color-yellow {
+    border-bottom-color: $nrl_yellow;
+}
+
+.hero-block-large {
+    padding-top: 60%;
+    position: relative;
+    margin-bottom: 5px;
+    max-height: 671px;
+    min-height: 350px;
+    .hero-text-wrapper {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .hero-text-block {
+            font-weight: 400;
+            position: absolute;
+            top: 4.5rem;
+            left: $desktop-left-offset + 30px;
+            max-width: 23rem;
+            h1 {
+                max-width: 100%;
+                font-size: 120%;
+                font-weight: 300;
+            }
+        }
+    }
+}
+.hero-block-small {
+    height: 200px;
+}
+
+@media screen and (min-width: 70em){
+    .hero-block-large {
+        padding-top: 0;
+        margin-bottom: 5px;
+        height: 671px;
+        max-height: 671px;
+        .hero-text-wrapper {
+            width: 79rem;
+            margin: 0 auto;
+            .hero-block-large {
+                width: 100%;
+                padding-top: 0;
+                height: 671px;
+                max-height: 671px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 69.99em) {
+    .hero-block-large {
+        .hero-text-wrapper {
+            width: auto;
+            height: 100%;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            .hero-text-block {
+                top: 2.5rem;
+                left: 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .hero-block-large {
+        .hero-text-wrapper {
+            .hero-text-block {
+                padding: 1.1rem 1.25rem;
+                top: auto;
+                bottom: 0;
+                left: auto;
+                max-width: 100%;
+                background-color: rgba(255,255,255,0.5);
+            }
+        }
+    }
+}

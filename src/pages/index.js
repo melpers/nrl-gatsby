@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from 'components/layout';
+import HeroImage from 'components/heroImage';
 
-const Index = () => {
+const Index = (props) => {
   const data = useStaticQuery(graphql`
     query {
       markdownRemark(
@@ -12,6 +13,15 @@ const Index = () => {
       ) {
       frontmatter {
         title
+        hero_image {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        hero_color
+        hero_size
       }
       html
     }
@@ -21,15 +31,13 @@ const Index = () => {
   return (
     <div className="page-home">
       <Layout>
-        <div className="hero-block-large hero-home">
+        <HeroImage frontmatter={props.data.markdownRemark.frontmatter}>
           <div className="hero-text-wrapper">
             <div className="hero-text-block">
               <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
             </div>
           </div>
-        </div>
-        <div className="content-wrapper">
-        </div>
+        </HeroImage>
       </Layout>
     </div>
   );

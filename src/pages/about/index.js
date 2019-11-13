@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from 'components/layout';
+import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
-import Breadcrumbs from "components/breadcrumbs"
+import Breadcrumbs from "components/breadcrumbs";
 
 const Index = (props) => {
   const data = useStaticQuery(graphql`
@@ -14,6 +15,15 @@ const Index = (props) => {
       ) {
       frontmatter {
         title
+        hero_image {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        hero_color
+        hero_size
       }
       html
     }
@@ -23,7 +33,7 @@ const Index = (props) => {
   return (
     <div className="page-about">
       <Layout>
-        <div className="hero-block-small hero-about" ></div>
+        <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
         <div className="title-block">
           <div className="content-wrapper">
             <div className="title-content">
