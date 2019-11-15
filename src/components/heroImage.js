@@ -1,6 +1,5 @@
 import React from "react";
 import Img from 'gatsby-image';
-import kebabCase from "lodash/kebabCase"
 
 const HeroImage = (props) => {
     const colorClass = "hero-color-" + props.frontmatter.hero_color;
