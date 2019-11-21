@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `U.S. Naval Research Laboratory`,
+    siteUrl: 'https://www.nrl.navy.mil/', //Used by the sitemap plugin
     header: {
       navigation: [
         {
@@ -142,13 +143,21 @@ module.exports = {
     `gatsby-plugin-resolve-src`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Open Sans: 400, 600']
+          families: ['Open Sans: 300, 400, 600']
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+          lang: 'en'
+      }
+    },
+    `gatsby-plugin-sitemap`, // Defaults to /sitemap.xml
   ],
 };
