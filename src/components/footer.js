@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
 import ExternalLink from 'components/externalLink';
 import SocialIcon from 'components/socialIcon';
+import ThemeContext from '../context/ThemeContext';
 
 const Footer = ({ footer }) => {
   const data = useStaticQuery(graphql`
@@ -68,14 +69,26 @@ const Footer = ({ footer }) => {
             </div>
           </nav>
         </div>
-        <div className="help-block">
-          <ExternalLink to="https://safehelpline.org/">
-            <img src={data.helpIconSafe.publicURL} alt="D0D Safe Helpline 1-877-995-5247" />
-          </ExternalLink>
-          <ExternalLink to="https://www.veteranscrisisline.net/">
-            <img src={data.helpIconCrisis.publicURL} alt="Veterans Crisis Line 1-800-273-8255 Press 1" />
-          </ExternalLink>
-        </div>
+
+        <ThemeContext.Consumer>
+          {theme => (
+            <>
+            {theme.pageName === 'page-home'
+              ? 
+                <div className="help-block">
+                  <ExternalLink to="https://safehelpline.org/">
+                    <img src={data.helpIconSafe.publicURL} alt="D0D Safe Helpline 1-877-995-5247" />
+                  </ExternalLink>
+                  <ExternalLink to="https://www.veteranscrisisline.net/">
+                    <img src={data.helpIconCrisis.publicURL} alt="Veterans Crisis Line 1-800-273-8255 Press 1" />
+                  </ExternalLink>
+                </div>
+              : 
+                null
+            }
+            </>
+          )}
+        </ThemeContext.Consumer>
       </div>
     </footer>
   )

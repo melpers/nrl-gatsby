@@ -2,39 +2,39 @@ import React from "react"
 import { Location } from '@reach/router';
 
 const defaultState = {
-    dark: false,
-    toggleDark: () => {},
+    // dark: false,
+    // toggleDark: () => {},
 }
 
 const ThemeContext = React.createContext(defaultState)
 
 // Getting dark mode information from OS
-const supportsDarkMode = () => window.matchMedia("(prefers-color-scheme: dark)").matches === true
+// const supportsDarkMode = () => window.matchMedia("(prefers-color-scheme: dark)").matches === true
 
 class ThemeProvider extends React.Component {
-    state = {
-        dark: false,
-    }
+    // state = {
+    //     dark: false,
+    // }
 
-    toggleDark = () => {
-        let dark = !this.state.dark
-        localStorage.setItem("dark", JSON.stringify(dark))
-        this.setState({ dark })
-    }
+    // toggleDark = () => {
+    //     let dark = !this.state.dark
+    //     localStorage.setItem("dark", JSON.stringify(dark))
+    //     this.setState({ dark })
+    // }
 
-    componentDidMount() {
-        // Getting dark mode value from localStorage
-        const lsDark = JSON.parse(localStorage.getItem("dark"))
-        if (lsDark !== null) {
-            this.setState({ dark: lsDark })
-        } else if (supportsDarkMode()) {
-            this.setState({ dark: true })
-        }
-    }
+    // componentDidMount() {
+    //     // Getting dark mode value from localStorage
+    //     const lsDark = JSON.parse(localStorage.getItem("dark"))
+    //     if (lsDark !== null) {
+    //         this.setState({ dark: lsDark })
+    //     } else if (supportsDarkMode()) {
+    //         this.setState({ dark: true })
+    //     }
+    // }
 
     render() {
         const { children } = this.props
-        const { dark } = this.state
+        // const { dark } = this.state
         return (
         <Location>
             {({ location }) => {
@@ -50,8 +50,8 @@ class ThemeProvider extends React.Component {
                 return (
                     <ThemeContext.Provider
                         value={{
-                            dark,
-                            toggleDark: this.toggleDark,
+                            // dark,
+                            // toggleDark: this.toggleDark,
                             pageName,
                         }}
                     >
