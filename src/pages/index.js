@@ -29,17 +29,15 @@ const Index = (props) => {
   `)
 
   return (
-    <div className="page-home">
-      <Layout>
-        <HeroImage frontmatter={props.data.markdownRemark.frontmatter}>
-          <div className="hero-text-wrapper">
-            <div className="hero-text-block">
-              <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
-            </div>
+    <Layout>
+      <HeroImage frontmatter={props.data.markdownRemark.frontmatter}>
+        <div className="hero-text-wrapper">
+          <div className="hero-text-block">
+            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
           </div>
-        </HeroImage>
-      </Layout>
-    </div>
+        </div>
+      </HeroImage>
+    </Layout>
   );
 };
 

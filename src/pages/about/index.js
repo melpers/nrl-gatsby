@@ -31,23 +31,21 @@ const Index = (props) => {
 `)
 
   return (
-    <div className="page-about">
-      <Layout>
-        <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
-        <div className="title-block">
-          <div className="content-wrapper">
-            <div className="title-content">
-              <h1>{data.markdownRemark.frontmatter.title}</h1>
-              <Breadcrumbs uri={props.uri} title={props.data.markdownRemark.frontmatter.title}></Breadcrumbs>
-            </div>
+    <Layout>
+      <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
+      <div className="title-block">
+        <div className="content-wrapper">
+          <div className="title-content">
+            <h1>{data.markdownRemark.frontmatter.title}</h1>
+            <Breadcrumbs uri={props.uri} title={props.data.markdownRemark.frontmatter.title}></Breadcrumbs>
           </div>
         </div>
-        <div class="content-wrapper">
-          <Sidebar menu="about"></Sidebar>
-          <div className="main-column" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
-        </div>
-      </Layout>
-    </div>
+      </div>
+      <div class="content-wrapper">
+        <Sidebar menu="about"></Sidebar>
+        <div className="main-column" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
+      </div>
+    </Layout>
   );
 };
 

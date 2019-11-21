@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { SkipNav } from 'uswds-react';
+import ThemeContext from '../context/ThemeContext';
 import './layout.css';
 import Header from 'components/header';
 import Footer from 'components/footer';
@@ -40,13 +41,17 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div className="container">
-        <SkipNav skipsTo={mainContent} />
-        <div className="usa-overlay" />
-        <Header {...data.site.siteMetadata} />
-        <main id={mainContent}>{children}</main>
-        <Footer {...data.site.siteMetadata} />
-      </div>
+      <ThemeContext.Consumer>
+        {theme => (
+          <div className={(theme.dark ? 'dark' : 'light') + " " + theme.pageName + " container"}>
+            <SkipNav skipsTo={mainContent} />
+            <div className="usa-overlay" />
+            <Header {...data.site.siteMetadata} />
+            <main id={mainContent}>{children}</main>
+            <Footer {...data.site.siteMetadata} />
+          </div>
+        )}
+      </ThemeContext.Consumer>
     )}
   />
 );
