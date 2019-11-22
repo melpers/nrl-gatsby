@@ -25,7 +25,7 @@ const Search = ({ big, className, small, srText }) => {
   );
 
   const render = ref => (
-    <form className={classNames} ref={ref} accept-charset="UTF-8" method="GET" action="https://search.usa.gov/search">
+    <form className={classNames} ref={ref} acceptCharset="UTF-8" method="GET" action="https://search.usa.gov/search">
       <div role="search">
         <input 
           name="utf8"

@@ -10,8 +10,8 @@ const Index = (props) => {
   const data = useStaticQuery(graphql`
   query {
     markdownRemark(
-        fileAbsolutePath: {regex: "/pages/about/"},
-        frontmatter: {title: {eq: "About NRL"}}
+        fileAbsolutePath: {regex: "/pages/our-work/areas-of-research/spacecraft-engineering/"},
+        frontmatter: {title: {eq: "Spacecraft Engineering"}}
       ) {
       frontmatter {
         title

@@ -10,7 +10,6 @@ module.exports = {
           title: 'About',
           items: [
             { text: 'About NRL', link: '/about', type: 'internal', depth: '0' },
-            { text: 'Mission', link: '/about', type: 'internal', depth: '1' },
             { text: 'Accomplishments', link: '/about', type: 'internal', depth: '0' },
             { text: 'Leadership', link: '/about', type: 'internal', depth: '0' },
             { text: 'History', link: 'https://google.com', type: 'external', depth: '0' },
@@ -19,9 +18,26 @@ module.exports = {
         {
           title: 'Our Work',
           items: [
-            { text: 'Our Work Link 1', link: '/', type: 'internal', depth: '0' },
-            { text: 'Our Work Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'Our Work Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'Our Work', link: '/our-work', type: 'internal', depth: '0' },
+            { text: 'Areas of Research', link: '/our-work/areas-of-research', type: 'internal', depth: '0' },
+              { text: 'Autonomous & Unmanned Systems', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Chemical & Biological Sciences', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Electronic Warfare', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Environments', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Information Sciences', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Materials', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Nanotechnology', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Power & Energy', link: '/our-work/areas-of-research', type: 'internal', depth: '1' },
+              { text: 'Spacecraft Engineering', link: '/our-work/areas-of-research/spacecraft-engineering', type: 'internal', depth: '1' },
+                { text: 'Highlights', link: '/our-work/areas-of-research/spacecraft-engineering/highlights', type: 'internal', depth: '2' },
+                { text: 'Core Capabilities', link: '/our-work/areas-of-research/spacecraft-engineering/core-capabilities', type: 'internal', depth: '2' },
+                { text: 'Facilities', link: '/our-work/areas-of-research/spacecraft-engineering/facilities', type: 'internal', depth: '2' },
+                { text: 'Publications', link: '/our-work/areas-of-research/spacecraft-engineering/publications', type: 'internal', depth: '2' },
+            { text: 'Labs & Facilities', link: '/our-work/labs-and-facilities', type: 'internal', depth: '0' },
+              { text: 'Nanoscience Institute', link: '/', type: 'internal', depth: '1' },
+              { text: 'Space Chamber', link: '/', type: 'internal', depth: '1' },
+              { text: 'Autonomous Systems', link: '/', type: 'internal', depth: '1' },
+            { text: 'VSX-1', link: '/', type: 'internal', depth: '1' },
           ],
         },
         {
@@ -73,15 +89,6 @@ module.exports = {
             { text: 'FOIA', link: 'https://www.nrl.navy.mil/foia', type: 'external', depth: '0' },
           ],
         },
-        // {
-        //   title: 'Row 2',
-        //   items: [
-        //     { text: 'Link Disclaimer', link: 'https://www.nrl.navy.mil/link-disclaimer', type: 'external', depth: '0' },
-        //     { text: 'Privacy Policy', link: 'https://www.nrl.navy.mil/privacy-policy', type: 'external', depth: '0' },
-        //     { text: 'webmaster@nrl.navy.mil', link: 'mailto:webmaster@nrl.navy.mil', type: 'external', depth: '0' },
-        //     { text: 'FOIA', link: 'https://www.nrl.navy.mil/foia', type: 'external', depth: '0' },
-        //   ],
-        // },
       ],
     },
   },
@@ -145,12 +152,15 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        google: {
-          families: ['Open Sans: 300, 400, 600']
-        }
-      }
+        fonts: [
+          {
+            family: `Open Sans`,
+            variants: [`300`,`400`,`600`]
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-html-attributes',

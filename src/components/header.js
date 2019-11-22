@@ -71,10 +71,10 @@ const Header = ({ title, header }) => {
                           <React.Fragment>
                             <div className="usa-nav-submenu-wrapper">
                               {navGroup.items.map((navItem, idx) => (
-                                <React.Fragment>
+                                <React.Fragment key={idx}>
                                   {/* We only want depth 0 items in the main menu */}
                                   {navItem.depth === '0' ? 
-                                    <li key={idx} className={"usa-nav-submenu-item depth-" + navItem.depth}>
+                                    <li className={"usa-nav-submenu-item depth-" + navItem.depth}>
                                       { navItem.type === 'internal' 
                                           ? 
                                         <Link to={navItem.link}>{navItem.text}</Link> 

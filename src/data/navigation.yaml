@@ -34,18 +34,13 @@ header:
       items: 
         - 
           depth: "0"
-          link: /
-          text: "Our Work Link 1"
+          link: /areas-of-research
+          text: "Areas of Research"
           type: internal
         - 
           depth: "0"
           link: /
-          text: "Our Work Link 2"
-          type: internal
-        - 
-          depth: "0"
-          link: /
-          text: "Our Work Link 3"
+          text: "Labs & Facilities"
           type: internal
     - 
       title: "News & Media"
