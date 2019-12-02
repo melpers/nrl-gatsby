@@ -42,7 +42,7 @@ const Index = (props) => {
         </div>
       </div>
       <div className="content-wrapper">
-        {/* <Sidebar uri={props.uri}></Sidebar> */}
+        <Sidebar uri={props.uri}></Sidebar>
         {props.uri}
         <div className="main-column" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
       </div>

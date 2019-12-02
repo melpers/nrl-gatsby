@@ -70,6 +70,11 @@ const Sidebar = ({uri}) => {
 
     return (
         <>
+        <pre>
+            {JSON.stringify(pages, null, 2)}
+            <p>=========================</p>
+            {JSON.stringify(tree, null, 2)}
+        </pre>
         {navtree !== undefined ? 
             <div className="sidebar-block">
                 <ul className={"sidebar-menu"}>

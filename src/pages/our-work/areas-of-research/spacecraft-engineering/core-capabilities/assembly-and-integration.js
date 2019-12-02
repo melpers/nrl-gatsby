@@ -10,8 +10,8 @@ const Index = (props) => {
   const data = useStaticQuery(graphql`
   query {
     markdownRemark(
-        fileAbsolutePath: {regex: "/pages/our-work/areas-of-research/spacecraft-engineering/highlights/"},
-        frontmatter: {title: {eq: "Highlights"}}
+        fileAbsolutePath: {regex: "/pages/our-work/areas-of-research/spacecraft-engineering/core-capabilities/"},
+        frontmatter: {title: {eq: "Assembly and Integration"}}
       ) {
       frontmatter {
         title
@@ -41,7 +41,7 @@ const Index = (props) => {
           </div>
         </div>
       </div>
-      <div class="content-wrapper">
+      <div className="content-wrapper">
         <Sidebar uri={props.uri}></Sidebar>
         {props.uri}
         <div className="main-column" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
