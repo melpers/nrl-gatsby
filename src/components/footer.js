@@ -73,7 +73,7 @@ const Footer = ({ footer }) => {
         <ThemeContext.Consumer>
           {theme => (
             <>
-            {theme.pageName === ' page-home'
+            {theme.pageName === 'page-home'
               ? 
                 <div className="help-block">
                   <ExternalLink to="https://safehelpline.org/">

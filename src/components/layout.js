@@ -43,7 +43,7 @@ const Layout = ({ children }) => (
     render={data => (
       <ThemeContext.Consumer>
         {theme => (
-          <div className={"container" + theme.pageName}>
+          <div className={"container " + theme.pageName}>
             {/* <div className={(theme.dark ? 'dark' : 'light') + " " + theme.pageName + " container"}> */}
             <SkipNav skipsTo={mainContent} />
             <div className="usa-overlay" />
