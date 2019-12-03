@@ -15,10 +15,7 @@ const Breadcrumbs = ({uri, title}) => {
     // Add back in a leading slash since we use that for Home below
     uriFixed = "/" + uriFixed;
 
-    console.log("uriFixed: ", uriFixed);
-
     const path = uriFixed.split("/");
-    console.log("path", path);
 
     let route = [];
     let label = [];

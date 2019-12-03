@@ -5,4 +5,4 @@ hero_image: nrl_hero_aor.jpg
 hero_color: yellow
 hero_size: small
 ---
-More Coming...
+Our Work landing page placeholder.

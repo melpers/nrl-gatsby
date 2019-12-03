@@ -40,6 +40,36 @@
     }
 }
 
+.page-areas-of-research {
+    .main-column {
+        column-count: 2;
+        column-gap: 20px;
+        .area-block {
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        h2 {
+            color: $nrl_gold;
+            font-size: 120%;
+            margin: 0 0 5px;
+            a {
+                text-decoration: none;
+                color: inherit;
+                &:hover,
+                &:focus {
+                    border-bottom: 2px solid;
+                }
+            }
+        }
+        ul {
+            margin: 0 0 1em;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+}
+
 .page-spacecraft-engineering {
     h2 {
         border-bottom: 2px solid $nrl_blue_grey;
@@ -169,6 +199,11 @@ ul.tabs {
             ul {
                 column-count: 2;
             }
+        }
+    }
+    .page-areas-of-research {
+        .main-column {
+            column-count: 1;
         }
     }
 }
