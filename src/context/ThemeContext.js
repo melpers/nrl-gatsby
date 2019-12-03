@@ -44,14 +44,16 @@ class ThemeProvider extends React.Component {
                     then replace all "/" characters with "-",
                     then if the last character is a "-" remove it.
                 */
-                // Remove leading & trailing slashes
+
                 let pageName = "";
+
+                // Remove leading & trailing slashes
                 let route = location.pathname.replace(/^\/|\/$/g, '');
-                
+
                 // Some cleanup for the Federalist preview URLs
                 route = route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
                 route = route.replace('preview/melpers/nrl-gatsby/v0.4', '');
-                
+
                 if (route === ""){
                     pageName += "page-home";
                 }
@@ -66,9 +68,6 @@ class ThemeProvider extends React.Component {
                             pageName += "path-" + routeParts[i] + " ";
                         }
                     }
-                    console.log(route);
-                    console.log(routeParts);
-
                 }
                 return (
                     <ThemeContext.Provider

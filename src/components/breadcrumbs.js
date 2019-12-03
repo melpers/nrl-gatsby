@@ -5,7 +5,21 @@ import breadcrumbStyles from "styles/breadcrumbs.module.scss";
 import startCase from "lodash/startCase";
 
 const Breadcrumbs = ({uri, title}) => {
-    const path = uri.split("/");
+    // Remove leading & trailing slashes
+    let uriFixed = uri.replace(/^\/|\/$/g, '');
+
+    // Some cleanup for the Federalist preview URLs
+    uriFixed = uriFixed.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+    uriFixed = uriFixed.replace('preview/melpers/nrl-gatsby/v0.4', '');
+
+    // Add back in a leading slash since we use that for Home below
+    uriFixed = "/" + uriFixed;
+
+    console.log("uriFixed: ", uriFixed);
+
+    const path = uriFixed.split("/");
+    console.log("path", path);
+
     let route = [];
     let label = [];
     for (var i=0; i < path.length; i++){
