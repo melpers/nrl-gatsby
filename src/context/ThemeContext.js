@@ -59,6 +59,7 @@ class ThemeProvider extends React.Component {
                     let routeParts = route.split("/");
                     for (let i = 0; i < routeParts.length; i++) {
                         if ( i === (routeParts.length - 1) ){
+                            pageName += "path-" + routeParts[i] + " ";
                             pageName += "page-" + routeParts[i];
                         }
                         else {
