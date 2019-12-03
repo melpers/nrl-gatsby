@@ -47,13 +47,15 @@ class ThemeProvider extends React.Component {
                 // Remove leading & trailing slashes
                 let pageName = "";
                 let route = location.pathname.replace(/^\/|\/$/g, '');
+                
+                // Some cleanup for the Federalist preview URLs
+                route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+                route.replace('preview/melpers/nrl-gatsby/v0.4', '');
+                
                 if (route === ""){
                     pageName += "page-home";
                 }
                 else {
-                    // Some cleanup for the Federalist preview URLs
-                    route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
-                    route.replace('preview/melpers/nrl-gatsby/v0.4', '');
                     let routeParts = route.split("/");
                     for (let i = 0; i < routeParts.length; i++) {
                         if ( i === (routeParts.length - 1) ){
