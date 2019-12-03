@@ -49,8 +49,8 @@ class ThemeProvider extends React.Component {
                 let route = location.pathname.replace(/^\/|\/$/g, '');
                 
                 // Some cleanup for the Federalist preview URLs
-                route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
-                route.replace('preview/melpers/nrl-gatsby/v0.4', '');
+                route = route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+                route = route.replace('preview/melpers/nrl-gatsby/v0.4', '');
                 
                 if (route === ""){
                     pageName += "page-home";
