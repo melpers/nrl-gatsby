@@ -4,6 +4,7 @@ import { Location } from '@reach/router';
 const defaultState = {
     // dark: false,
     // toggleDark: () => {},
+    pageName: "page-home",
 }
 
 const ThemeContext = React.createContext(defaultState)
@@ -43,9 +44,25 @@ class ThemeProvider extends React.Component {
                     then replace all "/" characters with "-",
                     then if the last character is a "-" remove it.
                 */
-                let pageName = "page" + location.pathname.replace(/\//g, '-').replace(/-$/, '');
-                if (pageName === "page") {
-                    pageName = "page-home"
+                // Remove leading & trailing slashes
+                let pageName = "";
+                let route = location.pathname.replace(/^\/|\/$/g, '');
+                if (route === ""){
+                    pageName = " page-home";
+                }
+                else {
+                    let routeParts = route.split("/");
+                    for (let i = 0; i < routeParts.length; i++) {
+                        if ( i === (routeParts.length - 1) ){
+                            pageName += " page-" + routeParts[i];
+                        }
+                        else {
+                            pageName += " path-" + routeParts[i];
+                        }
+                    }
+                    console.log(route);
+                    console.log(routeParts);
+
                 }
                 return (
                     <ThemeContext.Provider

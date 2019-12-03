@@ -40,12 +40,12 @@
     }
 }
 
-.page-our-work-areas-of-research-spacecraft-engineering {
+.page-spacecraft-engineering {
     h2 {
         border-bottom: 2px solid $nrl_blue_grey;
     }
 }
-.page-our-work-areas-of-research-spacecraft-engineering-core-capabilities {
+.page-core-capabilities {
     .main-column {
         ul {
             list-style-type: none;
@@ -63,8 +63,8 @@
         }
     }
 }
-.page-our-work-areas-of-research-spacecraft-engineering-core-capabilities-assembly-and-integration,
-.page-our-work-areas-of-research-spacecraft-engineering-facilities-acoustic-chamber {
+.page-assembly-and-integration,
+.page-acoustic-chamber {
     .main-column > p:first-of-type {
         float: left;
         width: 100%;
@@ -72,7 +72,7 @@
         margin: 0 2% 2% 0;
     }
 }
-.page-our-work-areas-of-research-spacecraft-engineering-facilities {
+.page-facilities {
     .main-column {
         ul {
             list-style-type: none;
@@ -164,7 +164,7 @@ ul.tabs {
             flex-shrink: 0;
         }
     }
-    .page-our-work-areas-of-research-spacecraft-engineering-core-capabilities {
+    .page-core-capabilities {
         .main-column {
             ul {
                 column-count: 2;
@@ -192,7 +192,7 @@ ul.tabs {
     }
 }
 
-.page-our-work-areas-of-research-spacecraft-engineering-highlights {
+.page-highlights {
     .main-content-block {
         display: flex;
         flex-direction: row;
@@ -243,7 +243,7 @@ ul.tabs {
         margin-left: 0;
         padding: 0 4rem;
     }
-    .page-our-work-areas-of-research-spacecraft-engineering-highlights {
+    .page-highlights {
         .main-content-block {
             flex-direction: column;
             .article-preview-block {

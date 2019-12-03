@@ -45,7 +45,7 @@ const Index = (props) => {
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
           <div className="pub-filter">
-            <span className="pub-filter-label">Filter By:</span> <a href="#">Author</a> <a href="#">Title</a> <a className="active asc" href="#">Year</a> <a href="#">Publication #</a>
+            <span className="pub-filter-label">Filter By:</span> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Author</a> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Title</a> <a className="active asc" href="/our-work/areas-of-research/spacecraft-engineering/publications">Year</a> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Publication #</a>
           </div>
             <div className="main-content-block" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
         </div>
