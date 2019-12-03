@@ -13,6 +13,10 @@ body {
         // text-decoration: underline;
         border-bottom: 2px solid;
     }
+    a.gatsby-resp-image-link:focus {
+        border-bottom: none;
+        outline: 1px dotted;
+    }
     .grid-container {
         max-width: 79rem;
     }
@@ -163,6 +167,7 @@ body {
                     span {
                         text-transform: uppercase;
                         padding-right: 0;
+                        font-weight: 400;
                     }
                 }
                 button {
@@ -398,12 +403,12 @@ body {
     p {
         max-width: 100%;
         margin-bottom: 0;
-        font-size: 10px;
+        font-size: 80%;
     }
     a {
         color: $footer_links_color;
         text-decoration: none;
-        font-size: 10px;
+        font-size: 80%;
         &:visited,
         &:active,
         &:hover {
