@@ -43,7 +43,8 @@ body {
             background-repeat: no-repeat;
             background-size: contain;
             margin-left: 1px;
-            &:focus {
+            &:focus,
+            &:hover {
                 outline: 2px solid $nrl_blue;
                 border-bottom: none;
                 background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
@@ -78,7 +79,7 @@ body {
         .usa-header-extended {
             .usa-navbar {
                 max-width: 100%;
-                padding: 0 0 5px 0;
+                padding: 0;
                 float: left;
                 position: relative;
                 z-index: 310;
@@ -91,7 +92,7 @@ body {
             }
             .usa-nav {
                 border-top: none;
-                padding-top: 48px;
+                padding-top: 53px;
                 width: auto;
                 float: none;
                 position: inherit;
@@ -112,7 +113,7 @@ body {
                  clear: none;
             }
             .usa-search {
-                margin-top: 0.5rem;
+                margin-top: 0;
                 max-width: 120px;
                 .usa-input {
                     border: 1px solid $search_color;
@@ -188,7 +189,7 @@ body {
                             background-color: $header_button_hover_bg_color;
                             color: $header_button_hover_color;
                             // text-decoration: underline;
-                            border-bottom: 2px solid;
+                            border-bottom: none;
                             background-image: none;
                         }
                 }
@@ -203,7 +204,7 @@ body {
                 width: 100%;
                 left: 0;
                 right: 0;
-                margin: 10px auto 0;
+                margin: 0 auto;
                 padding: 0.5rem 0;
                 .usa-nav-submenu-wrapper {
                     padding-left: $header-submenu-offset;
@@ -235,6 +236,8 @@ body {
             .usa-nav-link:hover:after,
             [aria-expanded=true]:after {
                 background-color: transparent;
+                height: 0;
+                display: none;
             }
         }
     }

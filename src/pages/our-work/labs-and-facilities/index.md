@@ -1,5 +1,8 @@
 ---
 title: Labs & Facilities
-path: /labs-and-facilities
+path: /our-work/labs-and-facilities
+hero_image: header_faceted.jpg
+hero_color: light-blue
+hero_size: small
 ---
-More Coming...
+Labs & Facilities Page Placeholder.
