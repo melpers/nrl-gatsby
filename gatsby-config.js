@@ -12,9 +12,9 @@ module.exports = {
           title: 'About',
           items: [
             { text: 'About NRL', link: '/about', type: 'internal', depth: '0' },
-            { text: 'Accomplishments', link: '/about', type: 'internal', depth: '0' },
-            { text: 'Leadership', link: '/about', type: 'internal', depth: '0' },
-            { text: 'History', link: 'https://google.com', type: 'external', depth: '0' },
+            { text: 'Accomplishments', link: '/about/accomplishments', type: 'internal', depth: '0' },
+            { text: 'Leadership', link: '/about/leadership', type: 'internal', depth: '0' },
+            { text: 'History', link: '/about/history', type: 'internal', depth: '0' },
           ],
         },
         {

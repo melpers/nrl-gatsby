@@ -41,6 +41,7 @@ const Index = (props) => {
           </div>
         </div>
       </HeroImage>
+      <div className="filler"></div>
     </Layout>
   );
 };

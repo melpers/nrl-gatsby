@@ -8,14 +8,21 @@ body {
         outline: none;
         outline-offset: 0;
     }
-    a:focus {
+    a,
+    a:visited {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:focus,
+    a:hover {
         outline: none;
         // text-decoration: underline;
         border-bottom: 2px solid;
     }
-    a.gatsby-resp-image-link:focus {
+    a.gatsby-resp-image-link:focus,
+    a.gatsby-resp-image-link:hover {
         border-bottom: none;
-        outline: 1px dotted;
+        outline: 2px solid;
     }
     .grid-container {
         max-width: 79rem;
@@ -466,8 +473,6 @@ body {
 
 div.page-home {
     footer {
-        border-top: 15px solid $footer_border_color;
-        margin-top: 10px;
         .footer-wrapper {
             padding-top: 50px;
             .help-block {

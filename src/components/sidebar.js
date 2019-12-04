@@ -14,6 +14,7 @@ function findNested(obj, value) {
         } else {
             for (var i = 0, len = Object.keys(obj[arrKey]).length; i < len; i++) {
                 if (obj[arrKey][i].directory){
+                    // *** Warning: Recusion Ahead ***
                     var found = findNested(obj[arrKey][i], value);
                 }
                 if (found) {
@@ -51,6 +52,7 @@ function compare(a, b) {
     let optA = a.order;
     let optB = b.order;
 
+    // Bubble the directory links to the bottom
     if (optA === null) optA = 998;
     if (optB === null) optA = 998;
     if (optA === undefined) optA = 999;
@@ -88,6 +90,8 @@ const Sidebar = ({uri}) => {
     const pages = data.allMarkdownRemark.edges;
     const tree = parseLinksToTree(pages);
     let navtree = buildTree(tree,uri);
+    
+    // Sort the links by the order value
     if (navtree) navtree.sort(compare);
 
     return (
