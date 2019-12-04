@@ -3,6 +3,8 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `U.S. Naval Research Laboratory`,
+    description: `NRL operates as the Navy's full-spectrum corporate laboratory, conducting a broadly based multidisciplinary program of scientific research and advanced technological development directed toward maritime applications of new and improved materials, techniques, equipment, systems and ocean, atmospheric, and space sciences and related technologies.`,
+    keywords: `NRL, US Navy, US Naval Research`,
     siteUrl: 'https://www.nrl.navy.mil/', //Used by the sitemap plugin
     header: {
       navigation: [
@@ -145,6 +147,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-resolve-src`,

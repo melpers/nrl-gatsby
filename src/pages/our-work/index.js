@@ -31,7 +31,11 @@ const Index = (props) => {
 `)
 
   return (
-    <Layout>
+    <Layout
+      pageMeta={{
+        title: props.data.markdownRemark.frontmatter.title,
+      }}
+    >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
       <div className="title-block">
         <div className="content-wrapper">

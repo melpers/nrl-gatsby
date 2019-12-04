@@ -6,7 +6,11 @@ import Layout from 'components/layout';
 const NotFound = () => {
     return (
         <div className="page-home">
-            <Layout>
+            <Layout
+            pageMeta={{
+                title: "Page Not Found",
+            }}
+            >
                 <h1>Page Not Found</h1>
                 <p><Link to="/">Home</Link></p>
             </Layout>

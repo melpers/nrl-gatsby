@@ -29,7 +29,11 @@ const Index = (props) => {
   `)
 
   return (
-    <Layout>
+    <Layout
+      pageMeta={{
+        title: "Home",
+      }}
+    >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}>
         <div className="hero-text-wrapper">
           <div className="hero-text-block">
