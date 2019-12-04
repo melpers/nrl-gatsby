@@ -12,20 +12,23 @@
         list-style: none;
         padding: 0;
         margin-top: 0;
-        .depth-0 {
-            text-transform: uppercase;
-            & + .depth-0 {
-                margin-top: 1rem;
-            }
-        }
-        .depth-1 {
-            padding-left: 1rem;
-            margin-bottom: 1rem;
+        // .depth-0 {
+        //     text-transform: uppercase;
+        //     & + .depth-0 {
+        //         margin-top: 1rem;
+        //     }
+        // }
+        // .depth-1 {
+        //     padding-left: 1rem;
+        //     margin-bottom: 1rem;
+        // }
+        li {
+            margin-bottom: 10px;
         }
         a {
             color: $header_links_color;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 85%;
             &:hover,
             &:focus {
                 // text-decoration: underline;
