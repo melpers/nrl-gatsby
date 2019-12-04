@@ -100,7 +100,7 @@ body {
             .usa-nav-inner {
                 max-width: 100%;
                 padding: 0 !important;
-                position: inherit;
+                position: relative;
                 .usa-accordian {
                     width: auto;
                 }
@@ -113,13 +113,13 @@ body {
             }
             .usa-search {
                 margin-top: 0.5rem;
-                max-width: 120px;
                 .usa-input {
                     border: 1px solid $search_color;
                     border-right: none;
                     background: $search_background_color;
                     color: $search_color;
                     font-weight: 300;
+                    max-width: 90px;
                     &:focus {
                         outline: none;
                         background-color: $nrl_medium_gray;
