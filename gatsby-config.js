@@ -172,5 +172,11 @@ module.exports = {
       }
     },
     `gatsby-plugin-sitemap`, // Defaults to /sitemap.xml
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.nrl.navy.mil`,
+      },
+    },
   ],
 };
