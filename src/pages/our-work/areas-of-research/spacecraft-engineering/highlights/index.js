@@ -102,40 +102,49 @@ const Index = (props) => {
 
             <div className="section-grid">
               <div className="image-box-wrapper">
-                <div className="image-box">
-                  <Img fluid={data.newsImage.childImageSharp.fluid} />
-                  <div className="image-box-content">
-                    <h3>News</h3>
+                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/highlights/news">
+                  <div className="image-box">
+                    <Img fluid={data.newsImage.childImageSharp.fluid} />
+                    <div className="image-box-content">
+                      <h3>News</h3>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               <div className="image-box-wrapper">
-                <div className="image-box">
-                  <Img fluid={data.videosImage.childImageSharp.fluid} />
-                  <div className="image-box-content">
-                    <h3>Videos</h3>
+                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/highlights/videos">
+                  <div className="image-box">
+                    <Img fluid={data.videosImage.childImageSharp.fluid} />
+                    <div className="image-box-content">
+                      <h3>Videos</h3>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               <div className="image-box-wrapper">
-                <div className="image-box">
-                  <Img fluid={data.pubsImage.childImageSharp.fluid} />
-                  <div className="image-box-content">
-                    <h3>Publications</h3>
+                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/publications">
+                  <div className="image-box">
+                    <Img fluid={data.pubsImage.childImageSharp.fluid} />
+                    <div className="image-box-content">
+                      <h3>Publications</h3>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               <div className="image-box-wrapper">
-                <div className="image-box">
-                  <Img fluid={data.researchImage.childImageSharp.fluid} />
-                  <div className="image-box-content">
-                    <h3>Research</h3>
+                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/highlights/videos">
+                  <div className="image-box">
+                    <Img fluid={data.researchImage.childImageSharp.fluid} />
+                    <div className="image-box-content">
+                      <h3>Research</h3>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
+
             </div>
           </div>
         </div>
