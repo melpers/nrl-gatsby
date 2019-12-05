@@ -95,7 +95,7 @@ const Sidebar = ({uri}) => {
     if (navtree) navtree.sort(compare);
 
     return (
-        <>
+        <React.Fragment>
         {/* <pre>
             {JSON.stringify(uri, null, 2)}
             <p>=========================</p>
@@ -127,7 +127,7 @@ const Sidebar = ({uri}) => {
             :
             <span></span>
         }
-        </>
+        </React.Fragment>
     )
 }
 

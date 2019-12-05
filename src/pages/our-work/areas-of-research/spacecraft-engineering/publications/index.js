@@ -46,7 +46,7 @@ const Index = (props) => {
         </div>
       </div>
       <div className="content-wrapper">
-        <Sidebar uri={props.uri}></Sidebar>
+        <Sidebar uri={props.uri} />
         <div className="main-column">
           <div className="pub-filter">
             <span className="pub-filter-label">Sort By:</span> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Author</a> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Title</a> <a className="active asc" href="/our-work/areas-of-research/spacecraft-engineering/publications">Year</a> <a href="/our-work/areas-of-research/spacecraft-engineering/publications">Publication #</a>
