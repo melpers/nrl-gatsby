@@ -325,6 +325,8 @@ ul.tabs {
         margin: 0 5px;
         text-decoration: none;
         border-bottom: 2px solid transparent;
+        font-weight: 600;
+        color: $nrl_blue;
         &:hover,
         &:focus {
             border-bottom-color: inherit;
@@ -337,6 +339,9 @@ ul.tabs {
         }
         &.active.desc:after {
             content: " V ]";
+        }
+        &:visited {
+            color: $nrl_blue;
         }
     }
 }

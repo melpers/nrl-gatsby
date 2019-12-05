@@ -194,7 +194,7 @@ body {
                         }
                 }
                 button[aria-expanded=true] {
-                    background-color: $header_button_hover_bg_color;
+                    background-color: $header_button_active_bg_color;
                     color: $header_button_hover_color;
                     -webkit-font-smoothing: auto;
                 }
