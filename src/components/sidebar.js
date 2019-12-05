@@ -94,8 +94,11 @@ const Sidebar = ({uri}) => {
     // Sort the links by the order value
     if (navtree) navtree.sort(compare);
 
+    console.log(navtree);
+
     return (
-        <React.Fragment>
+        <div className="sidebar-block">
+
         {/* <pre>
             {JSON.stringify(uri, null, 2)}
             <p>=========================</p>
@@ -105,8 +108,8 @@ const Sidebar = ({uri}) => {
             <p>=========================</p>
             {JSON.stringify(navtree, null, 2)}
         </pre> */}
+
         {navtree !== undefined ? 
-            <div className="sidebar-block">
                 <ul className={"sidebar-menu"}>
                     {navtree.map( (item, idx) => (
                         <React.Fragment key={idx}>
@@ -123,11 +126,10 @@ const Sidebar = ({uri}) => {
                         </React.Fragment>
                     ))}
                 </ul>
-            </div>
             :
-            <span></span>
+            null
         }
-        </React.Fragment>
+        </div>
     )
 }
 
