@@ -125,7 +125,7 @@ const Sidebar = ({uri}) => {
                 </ul>
             </div>
             :
-            null
+            <span></span>
         }
         </>
     )
