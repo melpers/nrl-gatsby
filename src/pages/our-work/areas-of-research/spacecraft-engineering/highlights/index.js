@@ -135,7 +135,7 @@ const Index = (props) => {
               </div>
 
               <div className="image-box-wrapper">
-                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/highlights/videos">
+                <Link className="image-box-link" to="/our-work/areas-of-research/spacecraft-engineering/highlights/research">
                   <div className="image-box">
                     <Img fluid={data.researchImage.childImageSharp.fluid} />
                     <div className="image-box-content">
