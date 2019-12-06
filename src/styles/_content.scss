@@ -218,23 +218,6 @@ ul.tabs {
     }
 }
 
-@-webkit-keyframes scaleAni {
-    0% {
-        -webkit-transform: scale(0);
-    }
-    100% {
-        -webkit-transform: scale(1);
-    }
-}
-@keyframes scaleAni {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
 a.image-box-link {
     display: inline-block;
     width: 100%;
@@ -248,7 +231,6 @@ a.image-box-link {
         }
     }
 }
-
 .image-box {
     position: relative;
     .image-box-content {
