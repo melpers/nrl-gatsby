@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet'
 import ThemeContext from '../context/ThemeContext';
 import Header from 'components/header';
 import Footer from 'components/footer';
+import AppContainer from 'components/appContainer';
+import { Location } from '@reach/router'
 
 import './layout.css';
 
@@ -61,14 +63,22 @@ const Layout = ({ pageMeta, children }) => (
               <meta name="apple-mobile-web-app-capable" content="yes" />
               <meta name="apple-mobile-web-app-status-bar-style" content="white" />
             </Helmet>
-            <div className={"container " + theme.pageName}>
-              {/* <div className={(theme.dark ? 'dark' : 'light') + " " + theme.pageName + " container"}> */}
-              <SkipNav skipsTo={mainContent} />
-              <div className="usa-overlay" />
-              <Header {...data.site.siteMetadata} />
-              <main id={mainContent}>{children}</main>
-              <Footer {...data.site.siteMetadata} />
-            </div>
+            <Location>
+              {({ location }) => {
+                return (
+                  <AppContainer location={location}>
+                    {/* <div className={(theme.dark ? 'dark' : 'light') + " " + theme.pageName + " container"}> */}
+                    <SkipNav skipsTo={mainContent} />
+                    <div className="usa-overlay" />
+                    <Header {...data.site.siteMetadata} />
+                    <main id={mainContent}>
+                      {children}
+                    </main>
+                    <Footer {...data.site.siteMetadata} />
+                  </AppContainer>
+                )
+              }}
+            </Location>
           </React.Fragment>
         )}
       </ThemeContext.Consumer>

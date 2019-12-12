@@ -94,7 +94,7 @@ const Sidebar = ({uri}) => {
     // Sort the links by the order value
     if (navtree) navtree.sort(compare);
 
-    console.log(navtree);
+    // console.log(navtree);
 
     return (
         <div className="sidebar-block">
