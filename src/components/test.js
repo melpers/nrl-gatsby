@@ -93,26 +93,26 @@ function testParse(pages){
     return pagesObj;
 }
 
-function compare(a, b) {
-    let optA = a.order;
-    let optB = b.order;
+// function compare(a, b) {
+//     let optA = a.order;
+//     let optB = b.order;
 
-    // Bubble the directory links to the bottom
-    if (optA === null) optA = 998;
-    if (optB === null) optA = 998;
-    if (optA === undefined) optA = 999;
-    if (optB === undefined) optB = 999;
+//     // Bubble the directory links to the bottom
+//     if (optA === null) optA = 998;
+//     if (optB === null) optA = 998;
+//     if (optA === undefined) optA = 999;
+//     if (optB === undefined) optB = 999;
 
-    let comparison = 0;
+//     let comparison = 0;
 
-    if (optA > optB) {
-        comparison = 1;
-    } else if (optA < optB) {
-        comparison = -1;
-    }
+//     if (optA > optB) {
+//         comparison = 1;
+//     } else if (optA < optB) {
+//         comparison = -1;
+//     }
 
-    return comparison;
- }
+//     return comparison;
+// }
 
 function renderTree(tree){
     let result = "";
@@ -148,17 +148,17 @@ function RenderTree(tree){
     return result;
 }
 
-function RenderComponent(obj) {
-    // let objRoot = obj.obj.home;
-    // console.log(objRoot);
-    // console.log(objRoot.children);
+// function RenderComponent(obj) {
+//     // let objRoot = obj.obj.home;
+//     // console.log(objRoot);
+//     // console.log(objRoot.children);
 
-    return (
-        <React.Fragment>
-            <Link to="/about">test link</Link>
-        </React.Fragment>
-    )
-}
+//     return (
+//         <React.Fragment>
+//             <Link to="/about">test link</Link>
+//         </React.Fragment>
+//     )
+// }
 
 
 const Test = ({uri}) => {
@@ -206,6 +206,7 @@ const Test = ({uri}) => {
             <div dangerouslySetInnerHTML={{ __html: renderTree(testTree) }}></div>
             <RenderTree tree={testTree.home} />
             <div dangerouslySetInnerHTML={{__html: testing}}></div>
+            <Link to="/">Home</Link>
         </div>
     )
 }
