@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 
 const _ = require(`lodash`);
 
-function testParse(pages){
+function treeParse(pages){
     let pagesObj = {};
     let path = "";
 
@@ -68,41 +68,51 @@ function objToArr(obj){
     return newArray;
 }
 
-// function compare(a, b) {
-//     let optA = a.order;
-//     let optB = b.order;
+function compare(a, b) {
+    let optA = a.order;
+    let optB = b.order;
 
-//     // Bubble the directory links to the bottom
-//     if (optA === null) optA = 998;
-//     if (optB === null) optA = 998;
-//     if (optA === undefined) optA = 999;
-//     if (optB === undefined) optB = 999;
+    // Bubble the directory links to the bottom
+    if (optA === null) optA = 998;
+    if (optB === null) optA = 998;
+    if (optA === undefined) optA = 999;
+    if (optB === undefined) optB = 999;
 
-//     let comparison = 0;
+    let comparison = 0;
 
-//     if (optA > optB) {
-//         comparison = 1;
-//     } else if (optA < optB) {
-//         comparison = -1;
-//     }
+    if (optA > optB) {
+        comparison = 1;
+    } else if (optA < optB) {
+        comparison = -1;
+    }
 
-//     return comparison;
-// }
+    return comparison;
+}
 
-function renderArray(arr){
+function renderArray(arr, uri, depth){
+    depth = typeof depth !== 'undefined' ? depth + 1 : 0;
     const menuItems = arr.map((node) => {
 
-        const link = (
-            <Link to={node.path}>{node.title}</Link>
-        );
+        let link;
+        if (node.path === uri) {
+            link = (
+                <span className="sidebar-current-page">{node.navTitle ? node.navTitle : node.title}</span>
+            );
+        }
+        else {
+            link = (
+                <Link to={node.path}>{node.navTitle ? node.navTitle : node.title}</Link>
+            );
+        }
+
 
         let subMenu;
         if (node.children && node.children.length > 0) {
-            subMenu = renderArray(node.children);
+            subMenu = renderArray(node.children, uri, depth);
         }
 
         return (
-            <li key={node.title} className={"nav-depth-" + node.depth}>
+            <li key={node.title}>
                 {link}
                 {subMenu}
             </li>
@@ -110,7 +120,7 @@ function renderArray(arr){
     })
 
     return (
-        <ul>
+        <ul className={"nav-depth-" + depth}>
             {menuItems}
         </ul>
     )
@@ -137,7 +147,6 @@ function findParentNode(arr, uri){
 }
 
 function trimChildren(arr, targetUri, parentUri){
-    console.log("Trim 1",arr);
     for (var i = 0, len = arr.length; i < len; i++) {
         if (arr[i].path === targetUri) {
             for (var j = 0, len2 = arr[i].children.length; j < len2; j++) {
@@ -148,7 +157,15 @@ function trimChildren(arr, targetUri, parentUri){
             arr[i].children = [];
         }
     }
-    console.log("Trim 2",arr);
+    // Now sort the siblings & active children
+    arr.sort(compare);
+    for (var k = 0, len3 = arr.length; k < len3; k++) {
+        if (arr[k].children.length > 0){
+            arr[k].children.sort(compare);
+        }
+    }
+
+    console.log(arr);
     return arr;
 }
 
@@ -173,42 +190,40 @@ const Test = ({uri}) => {
     const pages = data.allMarkdownRemark.edges;
     // const tree = parseLinksToTree(pages);
     // let navtree = buildTree(tree,uri);
-    const testTree = testParse(pages);
-    // console.log(testTree);
-    const testArr = objToArr(testTree);
-    // console.log(testArr);
+    const navTree = treeParse(pages);
+    // console.log(navTree);
+    const navArr = objToArr(navTree);
+    // console.log(navArr);
 
-    //let filteredArr = [];
-    const testUri = "/areas-of-research/spacecraft-engineering";
-    let parentUri = testUri.substr(0, testUri.lastIndexOf("/"));
+    // TODO: test page override if for the test page only. Remove this when converting to a real component.
+    if (uri === "/test") {
+        uri = "/areas-of-research/spacecraft-engineering";
+    }
+    let parentUri = uri.substr(0, uri.lastIndexOf("/"));
     if (parentUri === "") {
         parentUri = "/";
     }
-    console.log("ParentURI: ", parentUri);
-    const filteredArr = findParentNode(testArr, parentUri);
-    const trimmedArr = trimChildren(filteredArr, testUri, parentUri);
-
-    // Sort the links by the order value
-    // if (navtree) navtree.sort(compare);
-    // console.log(navtree);
+    const filteredArr = findParentNode(navArr, parentUri);
+    const trimmedArr = trimChildren(filteredArr, uri, parentUri);
 
     return (
         <div>
 
-        <pre>
-            {/* {JSON.stringify(uri, null, 2)}
-            <p>=========================</p>
-            {JSON.stringify(pages, null, 2)}
-            <p>=========================</p>
-            {JSON.stringify(testTree, null, 2)}
-            <p>=========================</p> */}
-            {JSON.stringify(testArr, null, 2)}
-            <p>=========================</p>
-            {JSON.stringify(trimmedArr, null, 2)}
-        </pre>
-            { renderArray(testArr) }
-            <p>For page {testUri}</p>
-            { renderArray(trimmedArr) }
+            <pre>
+                {/* {JSON.stringify(uri, null, 2)}
+                <p>=========================</p>
+                {JSON.stringify(pages, null, 2)}
+                <p>=========================</p>
+                {JSON.stringify(navTree, null, 2)}
+                <p>=========================</p>
+                {JSON.stringify(navArr, null, 2)}
+                <p>=========================</p>
+                {JSON.stringify(trimmedArr, null, 2)} */}
+            </pre>
+            <p>Full Tree</p>
+            { renderArray(navArr) }
+            <p>For page {uri}</p>
+            { renderArray(trimmedArr, uri) }
         </div>
     )
 }
