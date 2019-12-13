@@ -196,9 +196,9 @@ const Test = ({uri}) => {
     // console.log(navArr);
 
     // TODO: test page override if for the test page only. Remove this when converting to a real component.
-    if (uri === "/test") {
-        uri = "/areas-of-research/spacecraft-engineering";
-    }
+    // if (uri === "/test") {
+    //     uri = "/areas-of-research/spacecraft-engineering";
+    // }
     let parentUri = uri.substr(0, uri.lastIndexOf("/"));
     if (parentUri === "") {
         parentUri = "/";

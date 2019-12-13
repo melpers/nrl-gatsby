@@ -138,7 +138,6 @@ function trimChildren(arr, targetUri, parentUri){
             arr[k].children.sort(compare);
         }
     }
-    console.log(arr);
     return arr;
 }
 
