@@ -187,6 +187,9 @@ const Test = ({uri}) => {
         }
     `)
 
+    // For the preview pages
+    uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+
     const pages = data.allMarkdownRemark.edges;
     // const tree = parseLinksToTree(pages);
     // let navtree = buildTree(tree,uri);
@@ -199,6 +202,7 @@ const Test = ({uri}) => {
     // if (uri === "/test") {
     //     uri = "/areas-of-research/spacecraft-engineering";
     // }
+
     let parentUri = uri.substr(0, uri.lastIndexOf("/"));
     if (parentUri === "") {
         parentUri = "/";
