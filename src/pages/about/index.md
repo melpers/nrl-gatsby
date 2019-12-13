@@ -1,6 +1,5 @@
 ---
 title: About NRL
-navTitle: About
 path: /about
 hero_image: nrl_hero_about.jpg
 hero_color: light-blue

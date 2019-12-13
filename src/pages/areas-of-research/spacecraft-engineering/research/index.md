@@ -1,7 +1,6 @@
 ---
 title: Research
-navTitle: Test Reasearch Title
-order: 1
+order: 5
 path: /areas-of-research/spacecraft-engineering/research
 hero_image: header_faceted.jpg
 hero_color: yellow
