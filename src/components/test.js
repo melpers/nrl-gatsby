@@ -2,54 +2,7 @@ import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 // import ExternalLink from "components/externalLink";
 
-// import { parseLinksToTree } from 'utils/parse-links-to-tree';
-// import ExternalLink from './externalLink';
-
 const _ = require(`lodash`);
-
-// function findNested(obj, value) {
-//     const objKey = "directory";
-//     const arrKey = "links";
-
-//     if (typeof obj == 'object') {
-//         if (obj[objKey] === value) {
-//             return obj[arrKey];
-//         } else {
-//             for (var i = 0, len = Object.keys(obj[arrKey]).length; i < len; i++) {
-//                 if (obj[arrKey][i].directory){
-//                     // *** Warning: Recusion Ahead ***
-//                     var found = findNested(obj[arrKey][i], value);
-//                 }
-//                 if (found) {
-//                     // If the object was found in the recursive call, bubble it up.
-//                     return found;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// function buildTree(tree,uri){
-//     // console.log(uri);
-//     // Make sure we don't have a trailing slash
-//     var lastChar = uri.slice(-1);
-//     if (lastChar === '/') {
-//         uri = uri.slice(0, -1);
-//     }
-//     // Find the directory we need
-//     let targetDirectory = "/";
-//     let targetDirectoryArray = uri.split("/");
-//     // console.log(targetDirectoryArray);
-//     if (targetDirectoryArray.length > 1){
-//         targetDirectory = targetDirectoryArray[targetDirectoryArray.length - 1];
-//     }
-//     // console.log(targetDirectory);
-//     // Fetch the links
-//     let result = null;
-//     // console.log(tree[0]);
-//     result = findNested(tree[0], targetDirectory);
-//     return result;
-// }
 
 function testParse(pages){
     let pagesObj = {};
@@ -58,7 +11,7 @@ function testParse(pages){
     for (var i = 0, len = pages.length; i < len; i++) {
         let page = pages[i].node.frontmatter;
         path = page.path.split("/");
-        console.log(path);
+        // console.log(path);
         if (path.length === 2 && path[0] === "" && path[1] === "") {
             // Shift the redundant second index off for the first node
             path.shift();
@@ -81,6 +34,7 @@ function testParse(pages){
                     {
                         "title": page.title,
                         "navTitle": page.navTitle,
+                        "path": page.path,
                         "order": page.order,
                         "depth": j,
                         "children": {}
@@ -91,6 +45,27 @@ function testParse(pages){
     }
 
     return pagesObj;
+}
+
+function objToArr(obj){
+    let newArray = [];
+
+    for (var key in obj) {
+        let tempObj = {};
+        tempObj.title = obj[key].title;
+        tempObj.path = obj[key].path;
+        tempObj.navTitle = obj[key].navTitle;
+        tempObj.order = obj[key].order;
+        tempObj.depth = obj[key].depth;
+        
+        if (typeof obj[key].children === "object") {
+            tempObj.children = objToArr(obj[key].children);
+        }
+
+        newArray.push(tempObj);
+    }
+
+    return newArray;
 }
 
 // function compare(a, b) {
@@ -114,52 +89,68 @@ function testParse(pages){
 //     return comparison;
 // }
 
-function renderTree(tree){
-    let result = "";
-    // console.log('renderTree Call');
-    // console.log(tree);
-    for (var key in tree) {
+function renderArray(arr){
+    const menuItems = arr.map((node) => {
 
-        result += "<ul class='depth-" + tree[key].depth + "'>";
-        result += "<li>" + tree[key].title + "</a></li>";
+        const link = (
+            <Link to={node.path}>{node.title}</Link>
+        );
 
-        if (typeof tree[key].children === "object") {
-            result += renderTree(tree[key].children);
+        let subMenu;
+        if (node.children && node.children.length > 0) {
+            subMenu = renderArray(node.children);
         }
 
-        result += "</ul>";
+        return (
+            <li key={node.title} className={"nav-depth-" + node.depth}>
+                {link}
+                {subMenu}
+            </li>
+        );
+    })
+
+    return (
+        <ul>
+            {menuItems}
+        </ul>
+    )
+
+}
+
+function findParentNode(arr, uri){
+    let result = [];
+
+    for (var i = 0, len = arr.length; i < len; i++) {
+        let node = arr[i];
+        if (node.path === uri) {
+            result = node.children;
+            return result;
+        }
+        else if (node.children && node.children.length > 0) {
+            result = findParentNode(node.children, uri);
+        }
+        if (result.length > 0) {
+            break;
+        }
     }
     return result;
 }
 
-function RenderTree(tree){
-    let result = "";
-    for (var key in tree) {
-
-        result += "<ul class='depth-" + tree[key].depth + "'>";
-        result += "<li>" + tree[key].title + "</a></li>";
-
-        if (typeof tree[key].children === "object") {
-            result += RenderTree(tree[key].children);
+function trimChildren(arr, targetUri, parentUri){
+    console.log("Trim 1",arr);
+    for (var i = 0, len = arr.length; i < len; i++) {
+        if (arr[i].path === targetUri) {
+            for (var j = 0, len2 = arr[i].children.length; j < len2; j++) {
+                arr[i].children[j].children = [];
+            }
         }
-
-        result += "</ul>";
+        else if (arr[i].path !== parentUri && arr[i].path !== targetUri){
+            arr[i].children = [];
+        }
     }
-    return result;
+    console.log("Trim 2",arr);
+    return arr;
 }
-
-// function RenderComponent(obj) {
-//     // let objRoot = obj.obj.home;
-//     // console.log(objRoot);
-//     // console.log(objRoot.children);
-
-//     return (
-//         <React.Fragment>
-//             <Link to="/about">test link</Link>
-//         </React.Fragment>
-//     )
-// }
-
 
 const Test = ({uri}) => {
     const data = useStaticQuery(graphql`
@@ -182,31 +173,42 @@ const Test = ({uri}) => {
     const pages = data.allMarkdownRemark.edges;
     // const tree = parseLinksToTree(pages);
     // let navtree = buildTree(tree,uri);
-
     const testTree = testParse(pages);
-    console.log(testTree);
+    // console.log(testTree);
+    const testArr = objToArr(testTree);
+    // console.log(testArr);
+
+    //let filteredArr = [];
+    const testUri = "/areas-of-research/spacecraft-engineering";
+    let parentUri = testUri.substr(0, testUri.lastIndexOf("/"));
+    if (parentUri === "") {
+        parentUri = "/";
+    }
+    console.log("ParentURI: ", parentUri);
+    const filteredArr = findParentNode(testArr, parentUri);
+    const trimmedArr = trimChildren(filteredArr, testUri, parentUri);
 
     // Sort the links by the order value
     // if (navtree) navtree.sort(compare);
     // console.log(navtree);
 
-    let testing = "<link to='/about'>Linking?</Link>";
-
     return (
         <div>
 
         <pre>
-            {JSON.stringify(uri, null, 2)}
+            {/* {JSON.stringify(uri, null, 2)}
             <p>=========================</p>
             {JSON.stringify(pages, null, 2)}
             <p>=========================</p>
             {JSON.stringify(testTree, null, 2)}
+            <p>=========================</p> */}
+            {JSON.stringify(testArr, null, 2)}
             <p>=========================</p>
+            {JSON.stringify(trimmedArr, null, 2)}
         </pre>
-            <div dangerouslySetInnerHTML={{ __html: renderTree(testTree) }}></div>
-            <RenderTree tree={testTree.home} />
-            <div dangerouslySetInnerHTML={{__html: testing}}></div>
-            <Link to="/">Home</Link>
+            { renderArray(testArr) }
+            <p>For page {testUri}</p>
+            { renderArray(trimmedArr) }
         </div>
     )
 }
