@@ -162,7 +162,7 @@ const Sidebar = ({uri}) => {
     // For the preview pages
         var newUrl = '';
         if (uri.includes("/preview/")){
-            newUrl = uri.replace(/([^/]*\/){5}/, '')
+            newUrl = uri.replace(/([^/]*\/){5}/, '/')
         }
 
 
