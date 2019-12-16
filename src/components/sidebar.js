@@ -121,7 +121,8 @@ function findParentNode(arr, uri){
     return result;
 }
 
-function trimChildren(arr, targetUri, parentUri){
+function trimAndSortChildren(arr, targetUri, parentUri){
+    // Remove all children except the direct children of the active node.
     for (var i = 0, len = arr.length; i < len; i++) {
         if (arr[i].path === targetUri) {
             for (var j = 0, len2 = arr[i].children.length; j < len2; j++) {
@@ -163,21 +164,24 @@ const Sidebar = ({uri}) => {
     // Adjust the URI for the Federalist preview URLs
     uri = cleanPreviewUri(uri);
 
-    const pages = data.allMarkdownRemark.edges;
-    const navTree = treeParse(pages);
-    const navArr = objToArr(navTree);
-
     let parentUri = uri.substr(0, uri.lastIndexOf("/"));
     if (parentUri === "") {
         parentUri = "/";
     }
 
-    const filteredArr = findParentNode(navArr, parentUri);
-    const trimmedArr = trimChildren(filteredArr, uri, parentUri);
+    // For stepping through the parts. 
+    // const pages = data.allMarkdownRemark.edges;
+    // const navTree = treeParse(pages);
+    // const navArr = objToArr(navTree);
+    // const filteredArr = findParentNode(navArr, parentUri);
+    // const trimmedArr = trimAndSortChildren(filteredArr, uri, parentUri);
+    // replace below: renderArray(trimmedArr, uri )
 
     return (
         <div className="sidebar-block">
-            { renderArray(trimmedArr, uri) }
+            { 
+                renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri )
+            }
         </div>
     )
 }
