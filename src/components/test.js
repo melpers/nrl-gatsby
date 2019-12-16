@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-// import ExternalLink from "components/externalLink";
+import { cleanPreviewUri } from 'utils/clean-preview-uri';
 
 const _ = require(`lodash`);
 
@@ -187,8 +187,8 @@ const Test = ({uri}) => {
         }
     `)
 
-    // For the preview pages
-    uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+    // Adjust the URI for the Federalist preview URLs
+    uri = cleanPreviewUri(uri);
 
     const pages = data.allMarkdownRemark.edges;
     // const tree = parseLinksToTree(pages);

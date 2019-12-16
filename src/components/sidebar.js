@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
+import { cleanPreviewUri } from 'utils/clean-preview-uri';
 
 const _ = require(`lodash`);
 
@@ -160,9 +161,7 @@ const Sidebar = ({uri}) => {
     `)
 
     // Adjust the URI for the Federalist preview URLs
-        if (uri.includes("/preview/")){
-            uri = uri.replace(/([^/]*\/){5}/, '/')
-        }
+    uri = cleanPreviewUri(uri);
 
     const pages = data.allMarkdownRemark.edges;
     const navTree = treeParse(pages);

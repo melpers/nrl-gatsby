@@ -1,21 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 
+import { cleanPreviewUri } from 'utils/clean-preview-uri';
 import breadcrumbStyles from "styles/breadcrumbs.module.scss";
 import startCase from "lodash/startCase";
 
 const Breadcrumbs = ({uri, title}) => {
-    // Remove leading & trailing slashes
-    let uriFixed = uri.replace(/^\/|\/$/g, '');
-
-    // Some cleanup for the Federalist preview URLs
-    uriFixed = uriFixed.replace('preview/melpers/nrl-gatsby/v0.4/', '');
-    uriFixed = uriFixed.replace('preview/melpers/nrl-gatsby/v0.4', '');
-
-    // Add back in a leading slash since we use that for Home below
-    uriFixed = "/" + uriFixed;
-
-    const path = uriFixed.split("/");
+    // Adjust the URI for the Federalist preview URLs
+    uri = cleanPreviewUri(uri);
+    const path = uri.split("/");
 
     let route = [];
     let label = [];

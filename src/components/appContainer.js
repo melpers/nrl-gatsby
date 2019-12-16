@@ -1,13 +1,12 @@
 import React from "react";
+import { cleanPreviewUri } from 'utils/clean-preview-uri';
 
 const AppContainer = ({location, children}) => {
     let pageName = "";
 
-    // Remove leading & trailing slashes
-    let route = location.pathname.replace(/^\/|\/$/g, '');
-    // Some cleanup for the Federalist preview URLs
-    route = route.replace('preview/melpers/nrl-gatsby/v0.4/', '');
-    route = route.replace('preview/melpers/nrl-gatsby/v0.4', '');
+    let route = location.pathname;
+    // Adjust the URI for the Federalist preview URLs
+    route = cleanPreviewUri(route);
 
     if (route === ""){
         pageName += "page-home";
