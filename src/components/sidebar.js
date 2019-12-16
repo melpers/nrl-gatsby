@@ -160,7 +160,14 @@ const Sidebar = ({uri}) => {
     `)
 
     // For the preview pages
-    uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+        var newUrl = '';
+        if (uri.includes("/preview/")){
+            newUrl = uri.replace(/([^/]*\/){3}/, '')
+        }
+
+
+
+    // uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
 
     const pages = data.allMarkdownRemark.edges;
     const navTree = treeParse(pages);
@@ -176,6 +183,7 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
+        <p>new: {newUrl}</p>
             { renderArray(trimmedArr, uri) }
         </div>
     )
