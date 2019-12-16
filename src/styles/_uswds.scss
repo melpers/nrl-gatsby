@@ -242,6 +242,16 @@ body {
         }
     }
     @media screen and (max-width: 63.99em) {
+        .usa-menu-btn {
+            background-image: url('../images/menu-icon.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: transparent;
+            width: 48px;
+            font-size: 1px;
+            line-height: 1px;
+        }
         .usa-menu-btn:focus {
             background-color: $header_button_hover_bg_color;
             text-decoration: underline;
