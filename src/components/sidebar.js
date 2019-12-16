@@ -159,15 +159,10 @@ const Sidebar = ({uri}) => {
         }
     `)
 
-    // For the preview pages
-        var newUrl = '';
+    // Adjust the URI for the Federalist preview URLs
         if (uri.includes("/preview/")){
-            newUrl = uri.replace(/([^/]*\/){5}/, '/')
+            uri = uri.replace(/([^/]*\/){5}/, '/')
         }
-
-
-
-    // uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
 
     const pages = data.allMarkdownRemark.edges;
     const navTree = treeParse(pages);
@@ -183,7 +178,6 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
-        <p>new: {newUrl}</p>
             { renderArray(trimmedArr, uri) }
         </div>
     )
