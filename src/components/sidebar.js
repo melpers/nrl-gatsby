@@ -173,6 +173,7 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
+        <p>{uri}</p>
             { renderArray(trimmedArr, uri) }
         </div>
     )
