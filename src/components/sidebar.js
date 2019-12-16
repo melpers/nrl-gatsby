@@ -159,6 +159,9 @@ const Sidebar = ({uri}) => {
         }
     `)
 
+    // For the preview pages
+    uri = uri.replace('preview/melpers/nrl-gatsby/v0.4/', '');
+
     const pages = data.allMarkdownRemark.edges;
     const navTree = treeParse(pages);
     const navArr = objToArr(navTree);
@@ -173,7 +176,6 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
-        <p>{uri}</p>
             { renderArray(trimmedArr, uri) }
         </div>
     )
