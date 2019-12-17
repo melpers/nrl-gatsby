@@ -266,7 +266,7 @@ a.image-box-link {
             .image-box-wrapper {
                 width: 48%;
                 height: 48%;
-                margin-bottom: 3%;
+                margin-bottom: 2.5%;
                 .image-box {
                     .gatsby-image-wrapper > div:first-of-type {
                         padding-bottom: 100% !important;
@@ -354,6 +354,19 @@ a.image-box-link {
     }
 }
 
+@media screen and (max-width: 37.5em) {
+    .page-spacecraft-engineering {
+        .highlights-block {
+            .article-preview-block {
+                .image-box {
+                    .image-box-content {
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 50em) {
     .title-block {
         padding-left: 1rem;
