@@ -189,6 +189,8 @@ ul.tabs {
         }
         .bio-contact {
             font-size: 85%;
+            display: inline-block;
+            margin-right: 0.5rem;
             .bio-contact-label {
                 color: $nrl_blue;
                 font-weight: bold;
