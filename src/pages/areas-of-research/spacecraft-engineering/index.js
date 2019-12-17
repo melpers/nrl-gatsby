@@ -168,13 +168,13 @@ const Index = (props) => {
                 <p className="bio-title">Superintendent: Spacecraft Engineering Department</p>
 
                 <div className="bio-contact">
-                  <span className="bio-contact-label">E</span> <a href="mailto:spaenginfo@nrl.navy.mil">spaenginfo@nrl.navy.mil</a>
+                  <span className="bio-contact-label">E</span> <a href="mailto:spaenginfo@nrl.navy.mil" aria-label="email address">spaenginfo@nrl.navy.mil</a>
                 </div>
                 <div className="bio-contact">
-                  <span className="bio-contact-label">P</span> <a href="tel:+12027676408">(202) 767 6408</a>
+                  <span className="bio-contact-label">P</span> <a href="tel:+12027676408" aria-label="phone number">(202) 767 6408</a>
                 </div>
                 <div className="bio-contact">
-                  <span className="bio-contact-label">F</span> <a href="tel:+12027676429">(202) 767 6429</a>
+                  <span className="bio-contact-label">F</span> <a href="tel:+12027676429" aria-label="fax number">(202) 767 6429</a>
                 </div>
 
               </div>
