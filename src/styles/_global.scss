@@ -38,7 +38,7 @@ body {
 .expanded-text-wrapper {
     margin-top: 1rem;
     .expanded-text {
-        max-height: 200px;
+        max-height: 250px;
         padding-bottom: 5px;
         overflow: hidden;
         position: relative;
@@ -76,6 +76,22 @@ body {
             .title-content {
                 padding-left: 0;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+    .expanded-text-wrapper {
+        .expanded-text {
+            max-height: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 31.25em) {
+    .expanded-text-wrapper {
+        .expanded-text {
+            max-height: 500px;
         }
     }
 }

@@ -248,7 +248,9 @@ body {
             background-position: center center;
             background-size: cover;
             color: transparent;
-            width: 48px;
+            width: 42px;
+            max-width: 42px;
+            max-height: 42px;
             font-size: 1px;
             line-height: 1px;
         }

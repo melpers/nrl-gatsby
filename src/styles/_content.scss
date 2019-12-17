@@ -354,6 +354,16 @@ a.image-box-link {
     }
 }
 
+@media screen and (max-width: 50em) {
+    .title-block {
+        padding-left: 1rem;
+    }
+    .main-column {
+        margin-left: 0;
+        padding: 0 1rem;
+    }
+}
+
 @media screen and (max-width: 37.5em) {
     .page-spacecraft-engineering {
         .highlights-block {
@@ -367,12 +377,12 @@ a.image-box-link {
         }
     }
 }
-@media screen and (max-width: 50em) {
-    .title-block {
-        padding-left: 1rem;
-    }
-    .main-column {
-        margin-left: 0;
-        padding: 0 1rem;
+
+@media screen and (max-width: 31.25em) {
+    .leadership-bio-block {
+        .gatsby-image-wrapper {
+            margin: 0 auto;
+            float: none;
+        }
     }
 }
