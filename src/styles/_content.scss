@@ -169,16 +169,13 @@ ul.tabs {
 }
 
 .leadership-bio-block {
-    display: flex;
-    align-items: flex-end;
     .gatsby-image-wrapper {
         width: 100%;
         max-width: 175px;
         margin-right: 20px;
-        flex-shrink: 0;
+        float: left;
     }
     .leadership-bio-content {
-        flex-grow: 1;
         h3 {
             color: $nrl_blue;
             text-transform: uppercase;
@@ -190,8 +187,7 @@ ul.tabs {
             color: $nrl_gray;
             font-size: 85%;
         }
-        .bio-contacts {
-            margin: 0;
+        .bio-contact {
             font-size: 85%;
             .bio-contact-label {
                 color: $nrl_blue;
@@ -201,17 +197,6 @@ ul.tabs {
     }
 }
 @media screen and (max-width: 680px) {
-    .leadership-bio-block {
-        flex-direction: column;
-        align-items: flex-start;
-
-        .gatsby-image-wrapper {
-            width: 100%;
-            max-width: 175px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-    }
     .page-core-capabilities {
         .main-column {
             ul {
