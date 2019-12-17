@@ -171,10 +171,10 @@ const Index = (props) => {
                   <span className="bio-contact-label">E</span> <a href="mailto:spaenginfo@nrl.navy.mil">spaenginfo@nrl.navy.mil</a>
                 </div>
                 <div className="bio-contact">
-                  <span className="bio-contact-label">P</span> (202) 767 6408
+                  <span className="bio-contact-label">P</span> <a href="tel:+12027676408">(202) 767 6408</a>
                 </div>
                 <div className="bio-contact">
-                  <span className="bio-contact-label">F</span> (202) 767 6429
+                  <span className="bio-contact-label">F</span> <a href="tel:+12027676429">(202) 767 6429</a>
                 </div>
 
               </div>
