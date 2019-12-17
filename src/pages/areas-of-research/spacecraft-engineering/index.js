@@ -19,7 +19,7 @@ const Index = (props) => {
         title
         hero_image {
           childImageSharp {
-            fluid(maxWidth: 1200) {
+            fluid(quality: 80, maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
