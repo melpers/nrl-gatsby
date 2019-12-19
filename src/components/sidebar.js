@@ -72,7 +72,7 @@ function compare(a, b) {
     return comparison;
 }
 
-function renderArray(arr, uri, depth){
+function renderArray(arr, uri, toggleOpen, depth){
     depth = typeof depth !== 'undefined' ? depth + 1 : 0;
     const menuItems = arr.map((node) => {
         let link;
@@ -83,12 +83,12 @@ function renderArray(arr, uri, depth){
         }
         else {
             link = (
-                <Link to={node.path}>{node.navTitle ? node.navTitle : node.title}</Link>
+                <Link to={node.path} onClick={toggleOpen}>{node.navTitle ? node.navTitle : node.title}</Link>
             );
         }
         let subMenu;
         if (node.children && node.children.length > 0) {
-            subMenu = renderArray(node.children, uri, depth);
+            subMenu = renderArray(node.children, uri, toggleOpen, depth);
         }
         return (
             <li key={node.title}>
@@ -193,7 +193,7 @@ const Sidebar = ({uri}) => {
                     <img src={close} alt="close" />
                 </button>
                 { 
-                    renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri )
+                    renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri, toggleOpen)
                 }
             </nav>
         </div>
