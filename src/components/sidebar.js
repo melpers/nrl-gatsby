@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { cleanPreviewUri } from 'utils/clean-preview-uri';
+import close from 'uswds_images/close.svg';
 
 const _ = require(`lodash`);
 
@@ -144,6 +145,13 @@ function trimAndSortChildren(arr, targetUri, parentUri){
 }
 
 const Sidebar = ({uri}) => {
+    const [isOpen, setOpen] = useState(false);
+    const toggleOpen = () => {
+        !isOpen ? document.body.classList.add('usa-mobile_nav-active') : document.body.classList.remove('usa-mobile_nav-active');
+        !isOpen ? document.querySelector('.usa-overlay').classList.add('is-visible') : document.querySelector('.usa-overlay').classList.remove('is-visible');
+        setOpen(!isOpen);
+    }
+
     const data = useStaticQuery(graphql`
          query {
             allMarkdownRemark(sort: {fields: [frontmatter___path], order: ASC}, filter: {frontmatter: {path: {ne: null}}}) {
@@ -179,9 +187,15 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
-            { 
-                renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri )
-            }
+            <button className="sidebar-btn usa-menu-btn" onClick={toggleOpen}>Sidebar</button>
+            <nav role="navigation" className={"sidebar-nav" + (isOpen ? " is-visible" : "")}>
+                <button className="sidebar-nav-close usa-nav-close" onClick={toggleOpen}>
+                    <img src={close} alt="close" />
+                </button>
+                { 
+                    renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri )
+                }
+            </nav>
         </div>
     )
 }

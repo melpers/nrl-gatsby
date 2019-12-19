@@ -8,6 +8,10 @@
     max-width: 9rem;
     margin-right: 1rem;
     float: left;
+    .sidebar-btn,
+    .sidebar-nav-close {
+        display: none;
+    }
     .sidebar-menu {
         list-style: none;
         padding: 0;
@@ -45,6 +49,7 @@
         }
     }
 }
+
 .main-column {
     margin-left: 11rem;
     padding-right: 6rem;
@@ -285,12 +290,61 @@ a.image-box-link {
     }
 }
 
+@-webkit-keyframes slidein-right { 
+    0% {
+        -webkit-transform:translateX(-15rem);
+        transform:translateX(-15rem)
+    }
+    to
+    {
+        -webkit-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+@keyframes slidein-right { 
+    0% {
+        -webkit-transform:translateX(-15rem);
+        transform:translateX(-15rem)
+    }
+    to
+    {
+        -webkit-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+
 @media screen and (max-width: 63.99em) {
     .title-block {
         padding-left: 4rem;
     }
     .sidebar-block {
-        display: none;
+        width: auto;
+        margin: 0;
+        .sidebar-btn,
+        .sidebar-nav-close {
+            display: block;
+        }
+        .sidebar-nav {
+            display: none;
+            background: #fff;
+            border-left: 0;
+            bottom: 0;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 1rem;
+            position: absolute;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 15rem;
+            z-index: 500;
+            &.is-visible {
+                -webkit-animation: slidein-right .3s ease-in-out;
+                animation: slidein-right .3s ease-in-out;
+                display: flex;
+            }
+        }
     }
     .main-column {
         margin-left: 0;
@@ -357,6 +411,10 @@ a.image-box-link {
 @media screen and (max-width: 50em) {
     .title-block {
         padding-left: 1rem;
+    }
+    .sidebar-block {
+        width: auto;
+        margin: -2.5rem 0 0 -2rem;
     }
     .main-column {
         margin-left: 0;
