@@ -26,9 +26,24 @@ const Index = (props) => {
         hero_size
       }
       html
+    },
+    allDataYaml(filter: {publications: {elemMatch: {author: {ne: null}}}}) {
+      edges {
+        node {
+          publications {
+            author
+            journal
+            pub_number
+            title
+            year
+          }
+        }
+      }
     }
   }
 `)
+
+  const publicationsData = props.data.allDataYaml.edges[0].node.publications;
 
   return (
     <Layout
@@ -51,7 +66,14 @@ const Index = (props) => {
           <div className="pub-filter">
             <span className="pub-filter-label">Sort By:</span> <a href="/areas-of-research/spacecraft-engineering/publications">Author</a> <a href="/areas-of-research/spacecraft-engineering/publications">Title</a> <a className="active asc" href="/areas-of-research/spacecraft-engineering/publications">Year</a> <a href="/areas-of-research/spacecraft-engineering/publications">Publication #</a>
           </div>
-            <div className="main-content-block" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
+          <div className="main-content-block">
+          <ul>
+            {publicationsData.map((publication, index) => (
+              <li key={index}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
+              </li>
+            ))}
+          </ul>
+          </div>
         </div>
       </div>
     </Layout>
