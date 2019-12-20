@@ -72,38 +72,6 @@ function compare(a, b) {
     return comparison;
 }
 
-function renderArray(arr, uri, toggleOpen, depth){
-    depth = typeof depth !== 'undefined' ? depth + 1 : 0;
-    const menuItems = arr.map((node) => {
-        let link;
-        if (node.path === uri) {
-            link = (
-                <span className="sidebar-current-page">{node.navTitle ? node.navTitle : node.title}</span>
-            );
-        }
-        else {
-            link = (
-                <Link to={node.path} onClick={toggleOpen}>{node.navTitle ? node.navTitle : node.title}</Link>
-            );
-        }
-        let subMenu;
-        if (node.children && node.children.length > 0) {
-            subMenu = renderArray(node.children, uri, toggleOpen, depth);
-        }
-        return (
-            <li key={node.title}>
-                {link}
-                {subMenu}
-            </li>
-        );
-    })
-    return (
-        <ul className={"sidebar-menu menu-depth-" + depth}>
-            {menuItems}
-        </ul>
-    )
-}
-
 function findParentNode(arr, uri){
     let result = [];
     for (var i = 0, len = arr.length; i < len; i++) {
@@ -152,6 +120,38 @@ const Sidebar = ({uri}) => {
         setOpen(!isOpen);
     }
 
+    function renderArray(arr, uri, depth){
+        depth = typeof depth !== 'undefined' ? depth + 1 : 0;
+        const menuItems = arr.map((node) => {
+            let link;
+            if (node.path === uri) {
+                link = (
+                    <span className="sidebar-current-page">{node.navTitle ? node.navTitle : node.title}</span>
+                );
+            }
+            else {
+                link = (
+                    <Link to={node.path} onClick={toggleOpen}>{node.navTitle ? node.navTitle : node.title}</Link>
+                );
+            }
+            let subMenu;
+            if (node.children && node.children.length > 0) {
+                subMenu = renderArray(node.children, uri, depth);
+            }
+            return (
+                <li key={node.title}>
+                    {link}
+                    {subMenu}
+                </li>
+            );
+        })
+        return (
+            <ul className={"sidebar-menu menu-depth-" + depth}>
+                {menuItems}
+            </ul>
+        )
+    }
+
     const data = useStaticQuery(graphql`
          query {
             allMarkdownRemark(sort: {fields: [frontmatter___path], order: ASC}, filter: {frontmatter: {path: {ne: null}}}) {
@@ -193,7 +193,7 @@ const Sidebar = ({uri}) => {
                     <img src={close} alt="close" />
                 </button>
                 { 
-                    renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri, toggleOpen)
+                    renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri)
                 }
             </nav>
         </div>

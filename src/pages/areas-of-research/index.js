@@ -48,26 +48,26 @@ const Index = (props) => {
       <div className="content-wrapper">
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
-          <div class="area-block">
+          <div className="area-block">
             <h2>Autonomous & Unmanned Systems</h2>
             <ul>
               <li>Radar / Tactical Electronic Warfare</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Chemical & Biological Sciences</h2>
             <ul>
               <li>Chemistry</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Electronic Warfare</h2>
             <ul>
               <li>Electronic Science & Technology / Radar</li>
               <li>Tactical Electronic Warfare</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Environments [Sea/Air/Space]</h2>
             <ul>
               <li>Acoustics / Marine Geosciences</li>
@@ -78,28 +78,28 @@ const Index = (props) => {
               <li>Space Science</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Information Sciences</h2>
             <ul>
               <li>Artificial Intelligence</li>
               <li>Information Technology</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Materials</h2>
             <ul>
              <li>Material Science & Component Technology</li>
               <li>Optical Sciences</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Nanotechnology</h2>
             <ul>
               <li>Electronic Science & Technology</li>
               <li>Optical Sciences / Quantum Research</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Power & Energy</h2>
             <ul>
               <li>Biomoleculer Science & Engineering</li>
@@ -107,7 +107,7 @@ const Index = (props) => {
               <li>Plasma Physics</li>
             </ul>
           </div>
-          <div class="area-block">
+          <div className="area-block">
             <h2>Space Sciences</h2>
             <ul>
               <li><Link to="/areas-of-research/spacecraft-engineering">Spacecraft Engineering</Link></li>
