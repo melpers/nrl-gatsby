@@ -33,10 +33,10 @@ const Index = (props) => {
           node {
             publications {
               author
+              year
+              title
               journal
               pub_number
-              title
-              year
             }
           }
         }
@@ -45,9 +45,9 @@ const Index = (props) => {
   `)
 
   let publicationsData = props.data.allDataYaml.edges[0].node.publications;
-  const [sortBy, setSortBy] = useState("author");
-  const [direction, setDirection] = useState("asc");
-  const filters = ["author", "title", "year", "pub_number"];
+  const [sortBy, setSortBy] = useState("year");
+  const [direction, setDirection] = useState("desc");
+  const filters = ["author", "year", "title", "pub_number"];
 
   const RenderFilters = (props) => {
     return (
@@ -71,7 +71,6 @@ const Index = (props) => {
   }
 
   const handleResort = (newSort, newDir) => {
-    console.log("handleResort", newSort, newDir);
     setSortBy(newSort);
     setDirection(newDir);
   }
