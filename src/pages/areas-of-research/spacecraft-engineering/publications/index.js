@@ -1,49 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
-import Breadcrumbs from "components/breadcrumbs";
+import Breadcrumbs from 'components/breadcrumbs';
+import Datasort from 'react-data-sort';
 
 const Index = (props) => {
   const data = useStaticQuery(graphql`
-  query {
-    markdownRemark(
-        fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/publications/"},
-        frontmatter: {title: {eq: "Publications"}}
-      ) {
-      frontmatter {
-        title
-        hero_image {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
+    query {
+      markdownRemark(
+          fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/publications/"},
+          frontmatter: {title: {eq: "Publications"}}
+        ) {
+        frontmatter {
+          title
+          hero_image {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
+          hero_color
+          hero_size
         }
-        hero_color
-        hero_size
-      }
-      html
-    },
-    allDataYaml(filter: {publications: {elemMatch: {author: {ne: null}}}}) {
-      edges {
-        node {
-          publications {
-            author
-            journal
-            pub_number
-            title
-            year
+        html
+      },
+      allDataYaml(filter: {publications: {elemMatch: {author: {ne: null}}}}) {
+        edges {
+          node {
+            publications {
+              author
+              journal
+              pub_number
+              title
+              year
+            }
           }
         }
       }
     }
-  }
-`)
+  `)
 
-  const publicationsData = props.data.allDataYaml.edges[0].node.publications;
+  let publicationsData = props.data.allDataYaml.edges[0].node.publications;
+  const [sortBy, setSortBy] = useState("author");
+  const [direction, setDirection] = useState("asc");
+  const filters = ["author", "title", "year", "pub_number"];
+
+  const RenderFilters = (props) => {
+    return (
+      <div className="pub-filter">
+        <span className="pub-filter-label">Sort By:</span>
+          {props.filters.map((filter, idx) => 
+            <RenderFilter key={idx} filter={filter} />
+          )}
+      </div>
+    )
+  }
+
+  const RenderFilter = ({filter}) => {
+    let nextDirection = "asc";
+    if (sortBy === filter && direction === "asc") {
+      nextDirection = "desc";
+    }
+    return (
+      <button className={sortBy === filter ? "active " + direction : ""} onClick={() => handleResort(filter, nextDirection)}>{filter === "pub_number" ? "Publication #" : filter}</button>
+    )
+  }
+
+  const handleResort = (newSort, newDir) => {
+    console.log("handleResort", newSort, newDir);
+    setSortBy(newSort);
+    setDirection(newDir);
+  }
 
   return (
     <Layout
@@ -63,16 +94,21 @@ const Index = (props) => {
       <div className="content-wrapper">
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
-          <div className="pub-filter">
-            <span className="pub-filter-label">Sort By:</span> <a href="/areas-of-research/spacecraft-engineering/publications">Author</a> <a href="/areas-of-research/spacecraft-engineering/publications">Title</a> <a className="active asc" href="/areas-of-research/spacecraft-engineering/publications">Year</a> <a href="/areas-of-research/spacecraft-engineering/publications">Publication #</a>
-          </div>
+          <RenderFilters filters={filters} />
           <div className="main-content-block">
-          <ul>
-            {publicationsData.map((publication, index) => (
-              <li key={index}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
-              </li>
-            ))}
-          </ul>
+            <Datasort
+              data={publicationsData}
+              sortBy={sortBy}
+              direction={direction}
+              render={({ data }) => (
+                <ul>
+                  {data.map((publication) => (
+                    <li key={publication.pub_number}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            />
           </div>
         </div>
       </div>

@@ -382,16 +382,18 @@ a.image-box-link {
         display: inline-block;
         margin-right: 5px;
     }
-    a {
+    button {
         display: inline-block;
         margin: 0 5px;
         text-decoration: none;
         border-bottom: 2px solid transparent;
         font-weight: 600;
         color: $nrl_blue;
+        border: none;
+        text-transform: capitalize;
         &:hover,
         &:focus {
-            border-bottom-color: inherit;
+            text-decoration: underline;
         }
         &.active:before {
             content: "[ ";
@@ -401,9 +403,6 @@ a.image-box-link {
         }
         &.active.desc:after {
             content: " V ]";
-        }
-        &:visited {
-            color: $nrl_blue;
         }
     }
 }
