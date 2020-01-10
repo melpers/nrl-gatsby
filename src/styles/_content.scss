@@ -8,14 +8,24 @@
     max-width: 9rem;
     margin-right: 1rem;
     float: left;
+    h4 {
+        display: none;
+    }
     .sidebar-btn,
     .sidebar-nav-close {
         display: none;
+    }
+    .sidebar-btn {
+        width: 100%;
+        &:focus {
+            border-color: $nrl_medium_gray;
+        }
     }
     .sidebar-menu {
         list-style: none;
         padding: 0;
         margin-top: 0;
+        line-height: 1.4;
         .menu-depth-0 {
             & + .depth-0 {
                 margin-top: 1rem;
@@ -26,7 +36,7 @@
             margin-bottom: 1rem;
         }
         li {
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
             & > ul {
                 margin-top: 0.5rem;
             }
@@ -35,6 +45,8 @@
             font-size: 85%;
             font-weight: 600;
             color: $header_links_color;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         a {
             color: $header_links_color;
@@ -317,9 +329,12 @@ a.image-box-link {
         padding-left: 4rem;
     }
     .sidebar-block {
-        width: auto;
-        margin: 0;
-        position: absolute;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1rem;;
+        position: relative;
+        padding: 0 4rem;
+        float: none;
         .sidebar-btn,
         .sidebar-nav-close {
             display: block;
@@ -329,11 +344,9 @@ a.image-box-link {
             background: #fff;
             border-left: 0;
             bottom: 0;
-            display: none;
             flex-direction: column;
             overflow-y: auto;
             padding: 1rem;
-            position: absolute;
             position: fixed;
             left: 0;
             top: 0;
@@ -343,6 +356,10 @@ a.image-box-link {
                 -webkit-animation: slidein-right .3s ease-in-out;
                 animation: slidein-right .3s ease-in-out;
                 display: flex;
+            }
+            h4 {
+                display: block;
+                margin: 0 0 1rem;
             }
         }
     }
@@ -390,6 +407,7 @@ a.image-box-link {
         border-bottom: 2px solid transparent;
         font-weight: 600;
         color: $nrl_blue;
+        background-color: transparent;
         border: none;
         border-bottom: 1px solid transparent;
         text-transform: capitalize;
@@ -435,8 +453,7 @@ a.image-box-link {
         padding-left: 1rem;
     }
     .sidebar-block {
-        width: auto;
-        margin: -2.5rem 0 0 -2rem;
+        padding: 0 1rem;
     }
     .main-column {
         margin-left: 0;

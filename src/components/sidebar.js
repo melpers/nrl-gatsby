@@ -187,11 +187,12 @@ const Sidebar = ({uri}) => {
 
     return (
         <div className="sidebar-block">
-            <button className="sidebar-btn usa-menu-btn" onClick={toggleOpen}>Sidebar</button>
+            <button className="sidebar-btn" onClick={toggleOpen}>View Sidebar Navigation</button>
             <nav role="navigation" className={"sidebar-nav" + (isOpen ? " is-visible" : "")}>
                 <button className="sidebar-nav-close usa-nav-close" onClick={toggleOpen}>
                     <img src={close} alt="close" />
                 </button>
+                <h4>Sidebar Navigation</h4>
                 { 
                     renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri)
                 }
