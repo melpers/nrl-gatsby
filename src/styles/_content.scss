@@ -384,25 +384,48 @@ a.image-box-link {
     }
     button {
         display: inline-block;
-        margin: 0 5px;
+        margin: 0 23px 0 8px;
+        padding: 1px 0 2px;
         text-decoration: none;
         border-bottom: 2px solid transparent;
         font-weight: 600;
         color: $nrl_blue;
         border: none;
+        border-bottom: 1px solid transparent;
         text-transform: capitalize;
+        position: relative;
+        &.active {
+            background: $nrl_blue;
+            color: #fff;
+            margin: 0 5px 0 0;
+            padding: 1px 18px 2px 8px;
+        }
         &:hover,
         &:focus {
-            text-decoration: underline;
-        }
-        &.active:before {
-            content: "[ ";
+            border-bottom: 1px solid $nrl_blue;
         }
         &.active.asc:after {
-            content: " ^ ]";
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 4px 8px 4px;
+            border-color: transparent transparent #ffffff transparent;
         }
         &.active.desc:after {
-            content: " V ]";
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 4px 0 4px;
+            border-color: #ffffff transparent transparent transparent;
+        }
+        &.active:after {
+            position: absolute;
+            right: 4px;
+            top: 7px;
+            background: $nrl_blue;
+            color: #fff;
         }
     }
 }
