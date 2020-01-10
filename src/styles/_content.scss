@@ -447,6 +447,13 @@ a.image-box-link {
         }
     }
 }
+.publication-list {
+    ul {
+        li {
+            margin-bottom: 0.75rem;
+        }
+    }
+}
 
 @media screen and (max-width: 50em) {
     .title-block {

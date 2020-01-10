@@ -95,19 +95,21 @@ const Index = (props) => {
         <div className="main-column">
           <RenderFilters filters={filters} />
           <div className="main-content-block">
-            <Datasort
-              data={publicationsData}
-              sortBy={sortBy}
-              direction={direction}
-              render={({ data }) => (
-                <ul>
-                  {data.map((publication) => (
-                    <li key={publication.pub_number}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            />
+            <div className="publication-list">
+              <Datasort
+                data={publicationsData}
+                sortBy={sortBy}
+                direction={direction}
+                render={({ data }) => (
+                  <ul>
+                    {data.map((publication) => (
+                      <li key={publication.pub_number}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              />
+            </div>
           </div>
         </div>
       </div>
