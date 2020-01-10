@@ -17,7 +17,16 @@
     }
     .sidebar-btn {
         width: 100%;
-        &:focus {
+        background-color: #fff;
+        -moz-appearance: initial;
+        -webkit-appearance: initial;
+        -ms-appearance: initial;
+        margin: -1rem 0 2rem;
+        color: $nrl_medium_gray;
+        &:focus,
+        &:active,
+        &:hover {
+            color: $nrl_gray;
             border-color: $nrl_medium_gray;
         }
     }
