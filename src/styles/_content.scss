@@ -54,7 +54,6 @@
             font-size: 85%;
             &:hover,
             &:focus {
-                // text-decoration: underline;
                 border-bottom: 2px solid;
             }
         }
@@ -169,7 +168,6 @@ ul.tabs {
             text-decoration: none;
             &:hover,
             &:focus {
-                // text-decoration: underline;
                 border-bottom: 2px solid;
             }
         }
@@ -252,6 +250,7 @@ a.image-box-link {
         color: #fff;
         text-shadow: 1px 1px 1px #000;
         padding: 1em;
+        @include background-color-transition;
         h3 {
             margin: 0 0 5px;
         }
