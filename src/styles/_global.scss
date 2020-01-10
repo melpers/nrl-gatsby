@@ -64,9 +64,7 @@ body {
     }
     button.expanded-text-button {
         width: 100%;
-        &:focus {
-            border-color: $nrl_medium_gray;
-        }
+        @include nrl-button-white;
     }
 }
 
