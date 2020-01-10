@@ -1,5 +1,9 @@
 body {
     font-family: 'Open Sans',Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    p {
+       widows: 3;
+       orphans: 3;
+    }
 }
 .container {
     display: flex;
