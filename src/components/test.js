@@ -165,7 +165,7 @@ function trimChildren(arr, targetUri, parentUri){
         }
     }
 
-    console.log(arr);
+    //console.log(arr);
     return arr;
 }
 
