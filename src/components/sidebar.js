@@ -189,7 +189,7 @@ const Sidebar = ({uri}) => {
         <div className="sidebar-block">
             <button className="sidebar-btn" onClick={toggleOpen}>View Sidebar Navigation</button>
             <nav role="navigation" className={"sidebar-nav" + (isOpen ? " is-visible" : "")}>
-                <button className="sidebar-nav-close usa-nav-close" onClick={toggleOpen}>
+                <button className="sidebar-nav-close usa-nav__close" onClick={toggleOpen}>
                     <img src={close} alt="close" />
                 </button>
                 <h4>Sidebar Navigation</h4>

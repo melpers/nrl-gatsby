@@ -1,4 +1,13 @@
 body {
+    input:not([disabled]):focus,
+    select:not([disabled]):focus,
+    textarea:not([disabled]):focus,
+    button:not([disabled]):focus {
+        outline: 2px solid $nrl_blue;
+    }
+    [href]:focus {
+        outline: none;
+    }
     &.usa-mobile_nav-active {
         overflow: auto;
     }
@@ -13,6 +22,7 @@ body {
         background: $nrl_blue;
         color: #fff;
         z-index: 315;
+        border-bottom: none;
     }
     .usa-focus, :focus {
         outline: none;
@@ -56,7 +66,6 @@ body {
             @include background-color-transition;
             &:focus,
             &:hover {
-                outline: 2px solid $nrl_blue;
                 border-bottom: none;
                 background: url('../images/nrl_logo_white.png') center center no-repeat transparent;
                 background: url('../images/nrl_logo_white.svg'), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
@@ -64,7 +73,7 @@ body {
             }
         }
     }
-    .usa-nav-submenu-item {
+    .usa-nav__submenu-item {
         &.depth-1 {
             padding-left: 15px;
         }
@@ -79,15 +88,21 @@ body {
     }
     .usa-footer-primary-content {
         border-top: none;
+        line-height: 1.12707;
     }
-
+    .usa-unstyled-list {
+        list-style-type: none;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-left: 0;
+    }
     @media screen and (min-width: 64em){
         .usa-header {
             a {
                 color: $header_links_color;
             }
         }
-        .usa-header-extended {
+        .usa-header--extended {
             .usa-navbar {
                 max-width: 100%;
                 padding: 0;
@@ -109,7 +124,7 @@ body {
                 position: inherit;
                 z-index: 305;
             }
-            .usa-nav-inner {
+            .usa-nav__inner {
                 max-width: 100%;
                 padding: 0 !important;
                 position: inherit;
@@ -117,10 +132,10 @@ body {
                     width: auto;
                 }
             }
-            .usa-accordion.usa-nav-primary {
+            .usa-accordion.usa-nav__primary {
                  width: auto;
             }
-            .usa-nav-close + .usa-search {
+            .usa-nav__close + .usa-search {
                  clear: none;
             }
             .usa-search {
@@ -165,8 +180,8 @@ body {
                     }
                 }
             }
-            .usa-nav-primary {
-                .usa-nav-primary-item {
+            .usa-nav__primary {
+                .usa-nav__primary-item {
                     position: inherit;
                     margin-right: 4px;
                     &:last-of-type {
@@ -176,14 +191,14 @@ body {
                         border-bottom: 2px solid;
                     }
                 }
-                .usa-nav-link {
+                .usa-nav__link {
                     color: $header_links_color;
                     font-weight: 600;
                     &.usa-current {
                         color: $nrl_blue;
                     }
                 }
-                .usa-accordion-button {
+                .usa-accordion__button {
                     background-image: none;
                     span {
                         text-transform: uppercase;
@@ -213,7 +228,7 @@ body {
                     -webkit-font-smoothing: auto;
                 }
             }
-            .usa-nav-submenu {
+            .usa-nav__submenu {
                 background-color: $nrl_medium_gray;
                 width: 100%;
                 left: 0;
@@ -224,7 +239,7 @@ body {
                     padding-left: $header-submenu-offset;
                     max-width: 79rem;
                     margin: 0 auto;
-                    .usa-nav-submenu-item {
+                    .usa-nav__submenu-item {
                         display: inline-block;
                         margin: 0 2.5rem 0 0;
                         &:last-of-type {
@@ -232,6 +247,8 @@ body {
                         }
                         a {
                             text-transform: uppercase;
+                            color: #fff;
+                            font-weight: 400;
                             &:hover,
                             &:active,
                             &:focus {
@@ -242,12 +259,12 @@ body {
                     }
                 }
             }
-            .usa-nav-link:active:after,
-            .usa-nav-link:focus:after {
+            .usa-nav__link:active:after,
+            .usa-nav__link:focus:after {
                 height: 0;
             }
             .usa-current:after,
-            .usa-nav-link:hover:after,
+            .usa-nav__link:hover:after,
             [aria-expanded=true]:after {
                 background-color: transparent;
                 height: 0;
@@ -281,8 +298,8 @@ body {
             text-decoration: underline;
             border-bottom: none;
         }
-        .usa-nav-close {
-            margin-right: 1px;
+        .usa-nav__close {
+            margin: -0.75rem -0.5rem 0.5rem auto;
             &:focus {
                 outline: 2px solid $header_button_hover_bg_color;
             }
@@ -296,7 +313,7 @@ body {
         .usa-logo {
             margin-left: 0;
         }
-        .usa-header-extended {
+        .usa-header--extended {
             .usa-navbar {
                 height: auto;
                 border-bottom: none;
@@ -312,10 +329,10 @@ body {
         .usa-navbar {
             border-bottom-color: $header_bottom_border_color;
         }
-        .usa-nav-submenu-item {
+        .usa-nav__submenu-item {
             border-top: none;
         }
-        .usa-nav-primary {
+        .usa-nav__primary {
             button[aria-expanded=false],
             button[aria-expanded=true] {
                 background-position: right 5px center;
@@ -340,7 +357,7 @@ body {
 	            background-repeat: no-repeat;
 	            background-size: .75rem;
             }
-            .usa-nav-primary-item {
+            .usa-nav__primary-item {
                 a {
                     @include background-color-transition;
                 }
@@ -437,7 +454,7 @@ body {
         }
     }
     @media screen and (min-width: 30em) {
-        .usa-footer-big .usa-footer-nav {
+        .usa-footer--big .usa-footer-nav {
             padding: 1rem 0 0;
             border-bottom: none
         }
@@ -454,7 +471,7 @@ body {
     }
     p {
         max-width: 100%;
-        margin-bottom: 0;
+        margin: 0;
         font-size: 80%;
     }
     a {

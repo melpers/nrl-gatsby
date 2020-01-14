@@ -22,9 +22,9 @@ const defaultProps = {
 
 const propsToClasses = props => ({
   [ROOT_CLASS]: true,
-  'usa-header-basic': !props.extended,
-  'usa-header-basic-megamenu': props.mega && !props.extended,
-  'usa-header-extended': props.extended,
+  'usa-header--basic': !props.extended,
+  'usa-header--basic-megamenu': props.mega && !props.extended,
+  'usa-header--extended': props.extended,
 });
 
 const Header = ({ className, children, ...props }) => {
