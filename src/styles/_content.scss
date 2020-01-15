@@ -416,10 +416,12 @@ a.image-box-link {
             color: #fff;
             margin: 0 5px 0 0;
             padding: 1px 18px 2px 8px;
+            outline: none;
         }
         &:hover,
         &:focus {
-            border-bottom: 1px solid $nrl_blue;
+            outline: none !important;
+            border-bottom: 2px solid $nrl_blue;
         }
         &.active.asc:after {
             content: "";
