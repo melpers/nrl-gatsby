@@ -339,6 +339,7 @@ body {
         .usa-nav__primary {
             button[aria-expanded=false],
             button[aria-expanded=true] {
+                outline: none;
                 background-position: right 5px center;
                 @include background-color-transition;
             }
