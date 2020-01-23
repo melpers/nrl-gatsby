@@ -43,3 +43,41 @@ module.exports = {
     });
   },
 };
+
+module.exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+  if(node.internal.type === "MarkdownRemark") {
+      createNodeField({
+          node
+      });
+  }
+}
+
+module.exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const textOnlyTemplate = path.resolve('./src/templates/text-only.js');
+  const textOnlyResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "text-only"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  textOnlyResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: textOnlyTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id
+        }
+    });
+  });
+}

@@ -1,7 +1,7 @@
 ---
 title: Assembly and Integration
 path: /areas-of-research/spacecraft-engineering/core-capabilities/assembly-and-integration
-hero_image: 8250.jpg
+hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
 ---

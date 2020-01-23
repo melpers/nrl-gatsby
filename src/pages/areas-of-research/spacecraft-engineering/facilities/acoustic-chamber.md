@@ -2,7 +2,7 @@
 title: Acoustic Chamber
 order: 3
 path: /areas-of-research/spacecraft-engineering/facilities/acoustic-chamber
-hero_image: 8250.jpg
+hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
 ---
