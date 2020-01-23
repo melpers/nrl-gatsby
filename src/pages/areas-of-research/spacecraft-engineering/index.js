@@ -10,69 +10,69 @@ import ExpandedText from 'components/expandedText';
 
 const Index = (props) => {
   const data = useStaticQuery(graphql`
-  query {
-    markdownRemark(
-        fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/"},
-        frontmatter: {title: {eq: "Spacecraft Engineering"}}
-      ) {
-      frontmatter {
-        title
-        hero_image {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
+    query {
+      markdownRemark(
+          fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/"},
+          frontmatter: {title: {eq: "Spacecraft Engineering"}}
+        ) {
+        frontmatter {
+          title
+          hero_image {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
+          hero_color
+          hero_size
         }
-        hero_color
-        hero_size
-      }
-      html
-    },
-    profileImage: file(relativePath: { eq: "Sandhoo.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+        html
+      },
+      profileImage: file(relativePath: { eq: "Sandhoo.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-    newsImage: file(relativePath: { eq: "highlights-news.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+      },
+      newsImage: file(relativePath: { eq: "highlights-news.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-    newsImageLg: file(relativePath: { eq: "highlights-news-lg.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+      },
+      newsImageLg: file(relativePath: { eq: "highlights-news-lg.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-    videosImage: file(relativePath: { eq: "highlights-videos.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+      },
+      videosImage: file(relativePath: { eq: "highlights-videos.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-    pubsImage: file(relativePath: { eq: "highlights-pubs.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+      },
+      pubsImage: file(relativePath: { eq: "highlights-pubs.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-    researchImage: file(relativePath: { eq: "highlights-research.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+      },
+      researchImage: file(relativePath: { eq: "highlights-research.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
-      }
-    },
-  }
-`)
+      },
+    }
+  `)
 
   return (
     <Layout
