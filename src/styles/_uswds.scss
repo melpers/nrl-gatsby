@@ -100,6 +100,46 @@ body {
         margin-top: 0;
         padding-left: 0;
     }
+    .usa-search {
+        .usa-input {
+            border: 1px solid $search_color;
+            border-right: none;
+            background: $search_background_color;
+            color: $search_color;
+            font-weight: 300;
+            @include background-color-transition;
+            &:focus {
+                outline: none;
+                background-color: $nrl_medium_gray;
+                color: #fff;
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+            &::placeholder {
+                color: $search_color;
+                font-weight: 300;
+            }
+        }
+        .usa-button[type=submit] {
+            background-color: #fff;
+            background-image: url('../images/search_nrl.png');
+            background-image: url('../images/search_nrl.svg'), linear-gradient(transparent, transparent);
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: $nrl_medium_gray;
+            border: 1px solid $search_color;
+            border-left: none;
+            border-radius: 0;
+            @include background-color-transition;
+            &:focus {
+                background-color: $nrl_medium_gray;
+                background-image: url('../images/search.png');
+                background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
+                outline: none;
+            }
+        }
+    }
     @media screen and (min-width: 64em){
         .usa-header {
             a {
@@ -145,44 +185,6 @@ body {
             .usa-search {
                 margin-top: 0;
                 max-width: 120px;
-                .usa-input {
-                    border: 1px solid $search_color;
-                    border-right: none;
-                    background: $search_background_color;
-                    color: $search_color;
-                    font-weight: 300;
-                    @include background-color-transition;
-                    &:focus {
-                        outline: none;
-                        background-color: $nrl_medium_gray;
-                        color: #fff;
-                        &::placeholder {
-                            color: #fff;
-                        }
-                    }
-                    &::placeholder {
-                        color: $search_color;
-                        font-weight: 300;
-                    }
-                }
-                .usa-button[type=submit] {
-                    background-color: #fff;
-                    background-image: url('../images/search_nrl.png');
-                    background-image: url('../images/search_nrl.svg'), linear-gradient(transparent, transparent);
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                    color: $nrl_medium_gray;
-                    border: 1px solid $search_color;
-                    border-left: none;
-                    border-radius: 0;
-                    @include background-color-transition;
-                    &:focus {
-                        background-color: $nrl_medium_gray;
-                        background-image: url('../images/search.png');
-                        background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
-                        outline: none;
-                    }
-                }
             }
             .usa-nav__primary {
                 .usa-nav__primary-item {

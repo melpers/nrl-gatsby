@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import { Search } from 'uswds-react';
 
 import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
-import Breadcrumbs from "components/breadcrumbs";
 
 const NotFound = (props) => {
     const data = useStaticQuery(graphql`
@@ -45,7 +45,10 @@ const NotFound = (props) => {
                     </div>
                 </div>
                 <div className="content-wrapper">
-                    <div className="main-column" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+                    <div className="main-column">
+                        <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+                        <Search small />
+                    </div>
                 </div>
             </Layout>
         </div>
