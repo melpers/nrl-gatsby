@@ -80,4 +80,30 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
     });
   });
+
+  const coreCapabilitiesTemplate = path.resolve('./src/templates/core-capabilities.js');
+  const coreCapabilitiesResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "core-capabilities"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  coreCapabilitiesResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: coreCapabilitiesTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id
+        }
+    });
+  });
+
 }

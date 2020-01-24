@@ -116,12 +116,12 @@
             }
         }
     }
-    &.first-float {
-        & > p:first-of-type {
+    &.image-float {
+        .gatsby-resp-image-wrapper {
             float: left;
             width: 100%;
-            max-width: 33%;
-            margin: 0 2% 5px 0;
+            max-width: 33% !important;
+            margin: 0 2% 5px 0 !important;
         }
     }
 }

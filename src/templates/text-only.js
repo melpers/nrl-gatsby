@@ -20,6 +20,7 @@ export const query = graphql`
                     }
                   }
                 }
+                template
               }
             html
         },
@@ -42,7 +43,7 @@ const TextOnly = (props) => {
           </div>
         </div>
       </div>
-      <div className="content-wrapper template-text-only">
+      <div className={"content-wrapper template-" + props.data.markdownRemark.frontmatter.template}>
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
           <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />

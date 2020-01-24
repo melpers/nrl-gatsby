@@ -39,10 +39,14 @@ body {
         // text-decoration: underline;
         border-bottom: 2px solid;
     }
-    a.gatsby-resp-image-link:focus,
-    a.gatsby-resp-image-link:hover {
+    a.gatsby-resp-image-link,
+    a.gatsby-resp-image-link {
         border-bottom: none;
-        outline: 2px solid;
+        outline: 1px solid;
+        &:focus,
+        &:hover {
+            outline: 2px solid;
+        }
     }
     .grid-container {
         max-width: 79rem;
