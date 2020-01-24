@@ -1,8 +1,3 @@
-.filler {
-    border-top: 15px solid $footer_border_color;
-    margin-top: 10px;
-}
-
 .sidebar-block {
     width: 9rem;
     max-width: 9rem;
@@ -69,73 +64,37 @@
         font-weight: 400;
         margin-bottom: 1rem;
     }
-}
-
-.page-areas-of-research {
-    .main-column {
+    .block-list {
         column-count: 2;
         column-gap: 20px;
-        .area-block {
+        .list-block {
             -webkit-column-break-inside: avoid;
             page-break-inside: avoid;
             break-inside: avoid;
-        }
-        h2 {
-            color: $nrl_gold;
-            font-size: 120%;
-            margin: 0 0 5px;
-            a {
-                text-decoration: none;
-                color: inherit;
-                &:hover,
-                &:focus {
-                    border-bottom: 2px solid;
+            h2 {
+                color: $nrl_gold;
+                font-size: 120%;
+                margin: 0 0 5px;
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    &:hover,
+                    &:focus {
+                        border-bottom: 2px solid;
+                    }
                 }
             }
-        }
-        ul {
-            margin: 0 0 1em;
-            padding: 0;
-            list-style-type: none;
+            ul {
+                margin: 0 0 1em;
+                padding: 0;
+                list-style-type: none;
+            }
         }
     }
 }
 
-.page-spacecraft-engineering {
-    h2 {
-        border-bottom: 2px solid $nrl_blue_grey;
-    }
-}
-.page-core-capabilities {
-    .main-column {
-        ul {
-            list-style-type: none;
-            column-count: 3;
-            column-gap: 20px;
-            font-size: 90%;
-            padding-left: 10px;
-            li {
-                text-indent: -8px;
-                margin-bottom: 5px;
-                &:before {
-                    content: "- ";
-                    text-indent: -8px;
-                }
-            }
-        }
-    }
-}
-.page-assembly-and-integration,
-.page-acoustic-chamber {
-    .main-column > p:first-of-type {
-        float: left;
-        width: 100%;
-        max-width: 33%;
-        margin: 0 2% 5px 0;
-    }
-}
-.page-facilities {
-    .main-column {
+.md-content {
+    &.list-style-dash {
         ul {
             list-style-type: none;
             column-count: 2;
@@ -150,6 +109,19 @@
                     text-indent: -8px;
                 }
             }
+        }
+        &.three-col-list {
+            ul {
+                column-count: 3;
+            }
+        }
+    }
+    &.first-float {
+        & > p:first-of-type {
+            float: left;
+            width: 100%;
+            max-width: 33%;
+            margin: 0 2% 5px 0;
         }
     }
 }
@@ -212,20 +184,6 @@ ul.tabs {
         }
     }
 }
-@media screen and (max-width: 680px) {
-    .page-core-capabilities {
-        .main-column {
-            ul {
-                column-count: 2;
-            }
-        }
-    }
-    .page-areas-of-research {
-        .main-column {
-            column-count: 1;
-        }
-    }
-}
 
 a.image-box-link {
     display: inline-block;
@@ -260,129 +218,37 @@ a.image-box-link {
     }
 }
 
-.page-spacecraft-engineering {
-    .highlights-block {
+.highlights-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100%;
+    .article-preview-block {
+        width: 59%;
+    }
+    .section-grid {
+        width: 39%;
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: space-between;
-        align-items: stretch;
-        align-content: stretch;
-        width: 100%;
-        .article-preview-block {
-            width: 59%;
-        }
-        .section-grid {
-            width: 39%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            .image-box-wrapper {
-                width: 48%;
-                height: 48%;
-                margin-bottom: 2.5%;
-                .image-box {
-                    .gatsby-image-wrapper > div:first-of-type {
-                        padding-bottom: 100% !important;
-                    }
-                    .image-box-content {
-                        padding: 0.5em;
-                        h3 {
-                            margin: 0 0 0;
-                            font-weight: 300;
-                            font-size: 85%;
-                        }
-                    }
+        .image-box-wrapper {
+            width: 48%;
+            height: 48%;
+            margin-bottom: 2.5%;
+            .image-box {
+                .gatsby-image-wrapper > div:first-of-type {
+                    padding-bottom: 100% !important;
                 }
-            }
-        }
-    }
-}
-
-@-webkit-keyframes slidein-right { 
-    0% {
-        -webkit-transform:translateX(-15rem);
-        transform:translateX(-15rem)
-    }
-    to
-    {
-        -webkit-transform:translateX(0);
-        transform:translateX(0)
-    }
-}
-@keyframes slidein-right { 
-    0% {
-        -webkit-transform:translateX(-15rem);
-        transform:translateX(-15rem)
-    }
-    to
-    {
-        -webkit-transform:translateX(0);
-        transform:translateX(0)
-    }
-}
-
-@media screen and (max-width: 63.99em) {
-    .title-block {
-        padding-left: 4rem;
-    }
-    .sidebar-block {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 0 1rem;;
-        position: relative;
-        padding: 0 4rem;
-        float: none;
-        .sidebar-btn,
-        .sidebar-nav-close {
-            display: block;
-        }
-        .sidebar-nav {
-            display: none;
-            background: #fff;
-            border-left: 0;
-            bottom: 0;
-            flex-direction: column;
-            overflow-y: auto;
-            padding: 1rem;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 15rem;
-            z-index: 500;
-            &.is-visible {
-                -webkit-animation: slidein-right .3s ease-in-out;
-                animation: slidein-right .3s ease-in-out;
-                display: flex;
-            }
-            h4 {
-                display: block;
-                margin: 0 0 1rem;
-            }
-        }
-    }
-    .main-column {
-        margin-left: 0;
-        padding: 0 4rem;
-    }
-    .page-spacecraft-engineering {
-        .highlights-block {
-            flex-direction: column;
-            .article-preview-block {
-                width: 100%;
-                margin-bottom: 1em;
-            }
-            .section-grid {
-                width: 100%;
-                .image-box-wrapper {
-                    .image-box {
-                        .image-box-content {
-                            padding: 0.75em;
-                            h3 {
-                                font-size: 90%;
-                            }
-                        }
+                .image-box-content {
+                    padding: 0.5em;
+                    h3 {
+                        margin: 0 0 0;
+                        font-weight: 300;
+                        font-size: 85%;
                     }
                 }
             }
@@ -456,6 +322,95 @@ a.image-box-link {
     }
 }
 
+@-webkit-keyframes slidein-right { 
+    0% {
+        -webkit-transform:translateX(-15rem);
+        transform:translateX(-15rem)
+    }
+    to
+    {
+        -webkit-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+@keyframes slidein-right { 
+    0% {
+        -webkit-transform:translateX(-15rem);
+        transform:translateX(-15rem)
+    }
+    to
+    {
+        -webkit-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+
+@media screen and (max-width: 63.99em) {
+    .title-block {
+        padding-left: 4rem;
+    }
+    .sidebar-block {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1rem;;
+        position: relative;
+        padding: 0 4rem;
+        float: none;
+        .sidebar-btn,
+        .sidebar-nav-close {
+            display: block;
+        }
+        .sidebar-nav {
+            display: none;
+            background: #fff;
+            border-left: 0;
+            bottom: 0;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 15rem;
+            z-index: 500;
+            &.is-visible {
+                -webkit-animation: slidein-right .3s ease-in-out;
+                animation: slidein-right .3s ease-in-out;
+                display: flex;
+            }
+            h4 {
+                display: block;
+                margin: 0 0 1rem;
+            }
+        }
+    }
+    .main-column {
+        margin-left: 0;
+        padding: 0 4rem;
+    }
+
+    .highlights-block {
+        flex-direction: column;
+        .article-preview-block {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        .section-grid {
+            width: 100%;
+            .image-box-wrapper {
+                .image-box {
+                    .image-box-content {
+                        padding: 0.75em;
+                        h3 {
+                            font-size: 90%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 50em) {
     .title-block {
         padding-left: 1rem;
@@ -470,13 +425,11 @@ a.image-box-link {
 }
 
 @media screen and (max-width: 37.5em) {
-    .page-spacecraft-engineering {
-        .highlights-block {
-            .article-preview-block {
-                .image-box {
-                    .image-box-content {
-                        position: relative;
-                    }
+    .highlights-block {
+        .article-preview-block {
+            .image-box {
+                .image-box-content {
+                    position: relative;
                 }
             }
         }
@@ -488,6 +441,23 @@ a.image-box-link {
         .gatsby-image-wrapper {
             margin: 0 auto;
             float: none;
+        }
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .md-content {
+        &.list-style-dash {
+            &.three-col-list {
+                ul {
+                    column-count: 2;
+                }
+            }
+        }
+    }
+    .main-column {
+        .block-list {
+            column-count: 1;
         }
     }
 }
