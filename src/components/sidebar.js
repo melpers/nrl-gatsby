@@ -154,7 +154,18 @@ const Sidebar = ({uri}) => {
 
     const data = useStaticQuery(graphql`
          query {
-            allMarkdownRemark(sort: {fields: [frontmatter___path], order: ASC}, filter: {frontmatter: {path: {ne: null}}}) {
+            allMarkdownRemark(
+                sort: {
+                    fields: [frontmatter___path],
+                    order: ASC
+                }, 
+                filter: {
+                    frontmatter: {
+                        path: {ne: null},
+                        sidebar_exclude: {ne: true}
+                    }
+                }
+            ) {
                 edges {
                     node {
                         frontmatter {
