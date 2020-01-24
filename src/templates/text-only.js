@@ -42,9 +42,11 @@ const TextOnly = (props) => {
           </div>
         </div>
       </div>
-      <div className="content-wrapper">
+      <div className="content-wrapper template-text-only">
         <Sidebar uri={props.uri}></Sidebar>
-        <div className="main-column" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+        <div className="main-column">
+          <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+        </div>
       </div>
     </Layout>
   );
