@@ -101,9 +101,14 @@
             column-gap: 20px;
             font-size: 90%;
             padding-left: 10px;
+            display: inline-block;
+            width: 100%;
             li {
                 text-indent: -8px;
-                margin-bottom: 5px;
+                padding-bottom: 5px;
+                -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
                 &:before {
                     content: "- ";
                     text-indent: -8px;
