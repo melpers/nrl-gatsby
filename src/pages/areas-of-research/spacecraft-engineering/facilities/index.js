@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 
 import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
@@ -8,27 +8,46 @@ import Breadcrumbs from "components/breadcrumbs";
 
 const Index = (props) => {
   const data = useStaticQuery(graphql`
-  query {
-    markdownRemark(
-        fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/facilities/"},
-        frontmatter: {title: {eq: "Facilities"}}
+    query {
+      markdownRemark(
+          fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/facilities/"},
+          frontmatter: {title: {eq: "Facilities"}}
+        ) {
+        frontmatter {
+          title
+          hero_image {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          hero_color
+          hero_size
+        }
+        html
+      },
+      allMarkdownRemark(
+        filter: {
+          frontmatter: {template: {eq: "facilities"}}, 
+          fileAbsolutePath: {regex: "/pages/areas-of-research/spacecraft-engineering/facilities/"}
+        },
+        sort: {
+          fields: frontmatter___title, 
+          order: ASC
+        }
       ) {
-      frontmatter {
-        title
-        hero_image {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
+        edges {
+          node {
+            frontmatter {
+              title
+              path
             }
           }
         }
-        hero_color
-        hero_size
       }
-      html
     }
-  }
-`)
+  `)
 
   return (
     <Layout
@@ -48,7 +67,16 @@ const Index = (props) => {
       <div className="content-wrapper">
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
-          <div className="md-content list-style-dash" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <div className="md-content list-style-dash">
+            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+            <ul>
+              {data.allMarkdownRemark.edges.map((result, idx) => (
+                <li key={idx}>
+                  <Link to={ result.node.frontmatter.path }>{ result.node.frontmatter.title }</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </Layout>

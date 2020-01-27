@@ -1,48 +1,6 @@
 ---
 publications:
   - 
-    author: "Alpha, Art"
-    title: "Hello World!"
-    journal: "Better Hello Worlds."
-    year: 2019
-    pub-number: "19-1234-0001"
-  - 
-    author: "Beta, Bobo"
-    title: "Hello Universe!"
-    journal: "Better Hello Worlds."
-    year: 2019
-    pub-number: "19-1234-0002"
-  - 
-    author: "Chaplin, Charlie"
-    title: "A Day in the Life of Me."
-    journal: "Lifestyles of Journal Writers."
-    year: 2018
-    pub-number: "18-4321-1234"
-  - 
-    author: "Delta, Dave"
-    title: "Dingos and how to Dance with them."
-    journal: "Ethical Animal Studies."
-    year: 2017
-    pub-number: "17-1111-2222"
-  - 
-    author: "Delta, Diane"
-    title: "Dancing with Dingos."
-    journal: "Ethical Animal Studies."
-    year: 2016
-    pub-number: "16-1111-3333"
-  - 
-    author: "Echo, Edward"
-    title: "Eating for Fun and Profit."
-    journal: "Lifestyles of Journal Writers."
-    year: 2016
-    pub-number: "16-1111-3332"
-  - 
-    author: "Foxtrot, Freddie"
-    title: "Finding Foxes at the Local Ice Rink."
-    journal: "Ethical Animal Studies."
-    year: 2018
-    pub-number: "18-1234-4321"
-  - 
     author: "McDonald, Michael"
     title: "Recent Progress in Research and Development of Hallow Cathodes for Electric Propulsion."
     journal: "Reviews of Modern Plasma Physics."

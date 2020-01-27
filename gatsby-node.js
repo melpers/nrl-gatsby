@@ -56,31 +56,6 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const textOnlyTemplate = path.resolve('./src/templates/text-only.js');
-  const textOnlyResponse = await graphql(`
-    query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "text-only"}}}) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-            id
-          }
-        }
-      }
-    }
-  `);
-  textOnlyResponse.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-        component: textOnlyTemplate,
-        path: edge.node.frontmatter.path,
-        context: {
-            id: edge.node.id
-        }
-    });
-  });
-
   const coreCapabilitiesTemplate = path.resolve('./src/templates/core-capabilities.js');
   const coreCapabilitiesResponse = await graphql(`
     query {
@@ -99,6 +74,31 @@ module.exports.createPages = async ({ graphql, actions }) => {
   coreCapabilitiesResponse.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({
         component: coreCapabilitiesTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id
+        }
+    });
+  });
+
+  const facilitiesTemplate = path.resolve('./src/templates/facilities.js');
+  const facilitiesResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "facilities"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  facilitiesResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: facilitiesTemplate,
         path: edge.node.frontmatter.path,
         context: {
             id: edge.node.id

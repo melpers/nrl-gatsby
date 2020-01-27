@@ -1,12 +1,12 @@
 ---
 title: Acoustic Chamber
-order: 3
 path: /areas-of-research/spacecraft-engineering/facilities/acoustic-chamber
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+template: facilities
 ---
-![Acoustic Chamber in Use](Acoustic_Chamber.jpg)
+![Acoustic Chamber](acoustic_chamber.jpg)
 
 The acoustic reverberation chamber provides the capability to simulate the vibration and high-intensity acoustic-noise environment experienced by spacecraft structures and components during the launch phase of flight.
 
