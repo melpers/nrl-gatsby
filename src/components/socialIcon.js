@@ -22,6 +22,5 @@ const SocialIcon = ({ data }) => {
     </a>
   )
 }
-  
-  export default SocialIcon;
-  
+
+export default SocialIcon;
