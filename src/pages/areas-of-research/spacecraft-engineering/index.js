@@ -99,7 +99,6 @@ const Index = (props) => {
 
           <p>The Spacecraft Engineering Division (SED) designs, builds, and operates pioneering and innovative spacecraft and space systems. The SED functions as a prototype laboratory for new and operationally relevant space based capabilities. From cradle to grave, the division provides expertise in mission design, systems design and engineering, and hardware expertise for every aspect of a space system. The division has a history of transitioning advanced technologies into operations and industry, applying expertise in systems integration, design and verification, dynamics and control systems, electronics and software, and mission operations to develop advanced space technologies.</p>
 
-
           <h2>Highlights</h2>
           <div className="highlights-block">
             <div className="article-preview-block">
