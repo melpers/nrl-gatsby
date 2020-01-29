@@ -40,15 +40,12 @@
             font-size: 85%;
             font-weight: 600;
             color: $header_links_color;
-            display: block;
             margin-bottom: 0.5rem;
-            line-height: 23px;
         }
         a {
             color: $header_links_color;
             text-decoration: none;
             font-size: 85%;
-            line-height: 22px;
             &:hover,
             &:focus {
                 border-bottom: 2px solid;
