@@ -41,6 +41,20 @@
             font-weight: 600;
             color: $header_links_color;
             margin-bottom: 0.5rem;
+            cursor: default;
+            &:focus,
+            &:hover {
+                border-bottom: none;
+            }
+        }
+        li.has-submenu {
+            .sidebar-current-page {
+                cursor: pointer;
+                &:focus,
+                &:hover {
+                    border-bottom: 2px solid;
+                }
+            }
         }
         a {
             color: $header_links_color;
@@ -298,7 +312,7 @@ a.image-box-link {
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 4px 8px 4px;
+            border-width: 0 4px 6.9px 4px;
             border-color: transparent transparent #ffffff transparent;
         }
         &.active.desc:after {
@@ -306,7 +320,7 @@ a.image-box-link {
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 8px 4px 0 4px;
+            border-width: 6.9px 4px 0 4px;
             border-color: #ffffff transparent transparent transparent;
         }
         &.active:after {
@@ -349,6 +363,43 @@ a.image-box-link {
     }
 }
 
+@media screen and (min-width: 64em) {
+    .sidebar-block {
+        .sidebar-menu {
+            li.has-submenu {
+                .sidebar-current-page {
+                    &:after {
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 4px 0 4px 6.9px;
+                        border-color: transparent transparent transparent $header_links_color;
+                        display: inline-block;
+                        margin-left: 5px;
+                    }
+                    & + .menu-depth-1 {
+                        display: none;
+                    }
+                    &.submenu-open {
+                        &:after {
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 6.9px 4px 0 4px;
+                            border-color: $header_links_color transparent transparent transparent;
+                        }
+                        & + .menu-depth-1 {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 63.99em) {
     .title-block {
         padding-left: 4rem;
@@ -385,6 +436,20 @@ a.image-box-link {
             h4 {
                 display: block;
                 margin: 0 0 1rem;
+            }
+        }
+        .sidebar-menu {
+            li.has-submenu {
+                .sidebar-current-page {
+                    cursor: default;
+                    border-bottom: none !important;
+                    &:after {
+                        display: none;
+                    }
+                    & + .menu-depth-1 {
+                        display: block;
+                    }
+                }
             }
         }
     }

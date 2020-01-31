@@ -120,13 +120,20 @@ const Sidebar = ({uri}) => {
         setOpen(!isOpen);
     }
 
+    const [submenuOpen, setSubmenuOpen] = useState(false);
+    const toggleSubmenuOpen = (e) => {
+        e.preventDefault();
+        !submenuOpen ? document.querySelector('.sidebar-current-page').classList.add('submenu-open') : document.querySelector('.sidebar-current-page').classList.remove('submenu-open');
+        setSubmenuOpen(!submenuOpen);
+    }
+
     function renderArray(arr, uri, depth){
         depth = typeof depth !== 'undefined' ? depth + 1 : 0;
         const menuItems = arr.map((node) => {
             let link;
             if (node.path === uri) {
                 link = (
-                    <span className="sidebar-current-page">{node.navTitle ? node.navTitle : node.title}</span>
+                    <a href="#menu" className="sidebar-current-page" onClick={toggleSubmenuOpen}>{node.navTitle ? node.navTitle : node.title}</a>
                 );
             }
             else {
@@ -139,10 +146,7 @@ const Sidebar = ({uri}) => {
                 subMenu = renderArray(node.children, uri, depth);
             }
             return (
-                <li key={node.title}>
-                    {link}
-                    {subMenu}
-                </li>
+                subMenu ? <li className="has-submenu" key={node.title}>{link}{subMenu}</li> : <li key={node.title}>{link}{subMenu}</li>
             );
         })
         return (
