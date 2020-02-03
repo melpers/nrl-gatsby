@@ -130,21 +130,30 @@ const Sidebar = ({uri}) => {
     function renderArray(arr, uri, depth){
         depth = typeof depth !== 'undefined' ? depth + 1 : 0;
         const menuItems = arr.map((node) => {
+            let subMenu;
+            if (node.children && node.children.length > 0) {
+                subMenu = renderArray(node.children, uri, depth);
+            }
+
             let link;
             if (node.path === uri) {
-                link = (
-                    <a href="#menu" className="sidebar-current-page" onClick={toggleSubmenuOpen}>{node.navTitle ? node.navTitle : node.title}</a>
-                );
+                if (subMenu) {
+                    link = (
+                        <a href="#menu" className="sidebar-current-page" onClick={toggleSubmenuOpen}>{node.navTitle ? node.navTitle : node.title}</a>
+                    );
+                }
+                else {
+                    link = (
+                        <a href="#menu" className="sidebar-current-page" tabindex="-1">{node.navTitle ? node.navTitle : node.title}</a>
+                    );
+                }
             }
             else {
                 link = (
                     <Link to={node.path} onClick={toggleOpen}>{node.navTitle ? node.navTitle : node.title}</Link>
                 );
             }
-            let subMenu;
-            if (node.children && node.children.length > 0) {
-                subMenu = renderArray(node.children, uri, depth);
-            }
+
             return (
                 subMenu ? <li className="has-submenu" key={node.title}>{link}{subMenu}</li> : <li key={node.title}>{link}{subMenu}</li>
             );
