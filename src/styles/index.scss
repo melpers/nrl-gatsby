@@ -1,8 +1,9 @@
 @import 'variables';
 @import 'mixins';
 @import 'uswds'; // Overrides for the default USWDS syles
-@import 'global'; // Site-wide styles
-@import 'hero'; // hero image styles
-@import 'content'; // main content
-@import 'footer'; // footer styles
+@import 'global'; // General site-wide styles
+@import 'hero'; // Hero image styles
+@import 'content'; // Main content
+@import 'sidebar';
+@import 'footer';
 @import '404'; // 404 page
