@@ -7,14 +7,8 @@
         display: none;
         text-align: center;
     }
-    .sidebar-btn,
     .sidebar-nav-close {
         display: none;
-    }
-    .sidebar-btn {
-        width: 100%;
-        margin: -1rem 0 2rem;
-        @include nrl-button-white;
     }
     .sidebar-menu {
         list-style: none;
@@ -67,7 +61,38 @@
         }
     }
 }
-
+.sidebar-btn {
+    display: none;
+    color: $nrl_medium_gray;
+    background-color: #fff;
+    -webkit-appearance: initial;
+    -moz-appearance: initial;
+    appearance: initial;
+    border: 1px solid $nrl_light_gray;
+    padding: 1px 4px;
+    position: absolute;
+    left: 25px;
+    height: 26px;
+    max-height: 50px;
+    overflow: hidden;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin:    0 0;
+    -ms-transform-origin:     0 0;
+    -o-transform-origin:      0 0;
+    transform-origin: 0 0;
+    -webkit-transform: rotate(90deg); 
+    -moz-transform:    rotate(90deg); 
+    -ms-transform:     rotate(90deg); 
+    -o-transform:      rotate(90deg); 
+    transform: rotate(90deg);
+    &:focus,
+    &:active,
+    &:hover {
+        color: #fff;
+        background-color: $nrl_blue;
+        outline: none;
+    }
+}
 .main-column {
     margin-left: 11rem;
     padding-right: 6rem;
@@ -388,14 +413,15 @@ a.image-box-link {
     .title-block {
         padding-left: 4rem;
     }
+    .sidebar-btn {
+        display: block;
+    }
     .sidebar-block {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 0 1rem;;
+        width: auto;
+        margin: 0;
         position: relative;
-        padding: 0 4rem;
+        padding: 0;
         float: none;
-        .sidebar-btn,
         .sidebar-nav-close {
             display: block;
         }

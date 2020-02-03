@@ -19,6 +19,7 @@
     "serve": "gatsby serve",
     "federalist": "npm run build -- --prefix-paths"
   },
+  "browserslist": [">0.25%", "not dead"],
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "^2.18.21",
