@@ -23,6 +23,9 @@ body {
     border-top: 15px solid $footer_border_color;
     margin-top: 10px;
 }
+.no-break {
+    white-space: nowrap;
+}
 .title-block {
     background: $nrl_medium_gray;
     margin-bottom: 2.5rem;

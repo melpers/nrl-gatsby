@@ -98,10 +98,6 @@ ul.tabs {
     }
 }
 
-.no-break {
-    white-space: nowrap;
-}
-
 .leadership-bio-block {
     .gatsby-image-wrapper {
         width: 100%;
@@ -200,64 +196,6 @@ a.image-box-link {
                     }
                 }
             }
-        }
-    }
-}
-
-.pub-filter {
-    margin-bottom: 2em;
-    font-size: 90%;
-    white-space: nowrap;
-    .pub-filter-label {
-        display: inline-block;
-        margin-right: 5px;
-    }
-    button {
-        display: inline-block;
-        margin: 0 23px 0 8px;
-        padding: 1px 0 0;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
-        font-weight: 600;
-        color: $nrl_blue;
-        background-color: transparent;
-        border: none;
-        border-bottom: 2px solid transparent;
-        text-transform: capitalize;
-        position: relative;
-        &.active {
-            background: $nrl_blue;
-            color: #fff;
-            margin: 0 5px 0 0;
-            padding: 1px 18px 0 8px;
-            outline: none;
-        }
-        &:hover,
-        &:focus {
-            outline: none !important;
-            border-bottom: 2px solid $nrl_blue;
-        }
-        &.active.asc:after {
-            content: "";
-            @include triangle-up(4, #fff);
-        }
-        &.active.desc:after {
-            content: "";
-            @include triangle-down(4, #fff);
-        }
-        &.active:after {
-            position: absolute;
-            right: 4px;
-            top: 7px;
-            background: $nrl_blue;
-            color: #fff;
-        }
-    }
-}
-.publication-list {
-    ul {
-        li {
-            margin-bottom: 0.75rem;
         }
     }
 }
