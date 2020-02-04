@@ -1,5 +1,5 @@
 ---
-title: Electromagnetic Interference and Electromagnetic Compatibility (EMI/EMC) Test Facility
+title: EMI/EMC Test Facility
 path: /areas-of-research/spacecraft-engineering/facilities/emi-emc
 hero_image: ../8250.jpg
 hero_color: yellow
