@@ -36,7 +36,6 @@ body {
     a:focus,
     a:hover {
         outline: none;
-        // text-decoration: underline;
         border-bottom: 2px solid;
     }
     a.gatsby-resp-image-link,
@@ -227,7 +226,6 @@ body {
                         &:focus {
                             background-color: $header_button_hover_bg_color;
                             color: $header_button_hover_color;
-                            // text-decoration: underline;
                             border-bottom: none;
                             background-image: none;
                         }
