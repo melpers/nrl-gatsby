@@ -106,4 +106,29 @@ module.exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const placeholderTemplate = path.resolve('./src/templates/placeholder.js');
+  const placeholderResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "placeholder"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  placeholderResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: placeholderTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id
+        }
+    });
+  });
+
 }

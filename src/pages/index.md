@@ -1,7 +1,7 @@
 ---
 title: Home
 path: /
-hero_image: nrl_hero_home.jpg
+hero_image: ../images/nrl_hero_home.jpg
 hero_color: light-blue
 hero_size: large
 ---
