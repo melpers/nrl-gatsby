@@ -44,6 +44,33 @@ module.exports = {
   },
 };
 
+module.exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      active: Boolean
+      code: Int
+      code_name: String
+      email: String
+      fax: String
+      hero_color: String
+      hero_size: String
+      name: String
+      navTitle: String
+      order: Int
+      path: String
+      phone: String
+      sidebar_exclude: Boolean
+      template: String
+      title: String
+    }
+  `
+  createTypes(typeDefs)
+}
+
 module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if(node.internal.type === "MarkdownRemark") {
