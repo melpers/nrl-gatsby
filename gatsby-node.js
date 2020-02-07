@@ -139,6 +139,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             frontmatter {
               path
+              code
             }
             id
           }
@@ -151,7 +152,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
         component: divisionLandingTemplate,
         path: edge.node.frontmatter.path,
         context: {
-            id: edge.node.id
+            id: edge.node.id,
+            code: edge.node.frontmatter.code
         }
     });
   });
