@@ -24,6 +24,7 @@ const Index = (props) => {
           }
           hero_color
           hero_size
+          code_name
         }
         html
       },
@@ -52,7 +53,7 @@ const Index = (props) => {
   return (
     <Layout
       pageMeta={{
-        title: props.data.markdownRemark.frontmatter.title,
+        title: props.data.markdownRemark.frontmatter.title + " | " + props.data.markdownRemark.frontmatter.code_name,
       }}
     >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
