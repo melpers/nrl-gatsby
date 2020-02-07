@@ -1,0 +1,11 @@
+---
+divisions:
+  - 
+    code: 8000
+    name: Test Division 1
+  -
+    code: 8100
+    name: Test Division 2
+  -
+    code: 8250
+    name: Spacecraft Engineering

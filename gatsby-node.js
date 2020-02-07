@@ -131,4 +131,29 @@ module.exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const divisionLandingTemplate = path.resolve('./src/templates/division-landing.js');
+  const divisionLandingResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "division-landing"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  divisionLandingResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: divisionLandingTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id
+        }
+    });
+  });
+
 }
