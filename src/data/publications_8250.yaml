@@ -1,6 +1,7 @@
 ---
-division: 
+metadata: 
   - 
+    template: publications
     code: 8250
 publications:
   - 

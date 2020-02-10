@@ -25,7 +25,12 @@ export const query = graphql`
               }
             html
         },
-        dataYaml(division: {elemMatch: {code: {eq: $code}}}) {
+        dataYaml(metadata: {
+            elemMatch: {
+                code: { eq: $code },
+                template: { eq: "publications" }
+            }
+        }) {
             id
             publications {
               year
@@ -33,9 +38,6 @@ export const query = graphql`
               pub_number
               journal
               author
-            }
-            division {
-              code
             }
           }
     }
