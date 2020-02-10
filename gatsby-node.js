@@ -185,4 +185,31 @@ module.exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const publicationsTemplate = path.resolve('./src/templates/publications.js');
+  const publicationsResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "publications"}}}) {
+        edges {
+          node {
+            frontmatter {
+              path
+              code
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  publicationsResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+        component: publicationsTemplate,
+        path: edge.node.frontmatter.path,
+        context: {
+            id: edge.node.id,
+            code: edge.node.frontmatter.code
+        }
+    });
+  });
+
 }
