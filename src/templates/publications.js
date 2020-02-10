@@ -33,13 +33,13 @@ export const query = graphql`
         }) {
             id
             publications {
-              year
-              title
-              pub_number
-              journal
-              author
+                year
+                title
+                pub_number
+                journal
+                author
             }
-          }
+        }
     }
 `
 
