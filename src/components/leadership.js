@@ -15,7 +15,7 @@ const Leadership = (props) => {
   const leaderData = props.data.node.frontmatter;
 
   return (
-        <div class="leadership-block-wrapper">
+        <div className="leadership-block-wrapper">
             <ExpandedText>
                 <div className="leadership-bio-block">
                     <Img fluid={leaderData.picture.childImageSharp.fluid} />

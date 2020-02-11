@@ -111,7 +111,7 @@ const DivisionLanding = (props) => {
 
           <h2>Leadership</h2>
           {props.data.leadership.edges.map((node, idx) => (
-                <Leadership key={node.id} data={node} />
+                <Leadership key={idx} data={node} />
           ))}
 
         </div>

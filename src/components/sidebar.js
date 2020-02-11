@@ -144,7 +144,7 @@ const Sidebar = ({uri}) => {
                 }
                 else {
                     link = (
-                        <a href="#menu" className="sidebar-current-page" tabindex="-1">{node.navTitle ? node.navTitle : node.title}</a>
+                        <a href="#menu" className="sidebar-current-page" tabIndex="-1">{node.navTitle ? node.navTitle : node.title}</a>
                     );
                 }
             }

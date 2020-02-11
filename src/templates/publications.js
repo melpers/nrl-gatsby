@@ -103,7 +103,9 @@ const Index = (props) => {
                 render={({ data }) => (
                   <ul>
                     {data.map((publication) => (
-                      <li key={publication.pub_number}>{publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal + " (Publication # " + publication.pub_number + ")"}
+                      <li key={publication.pub_number}>
+                        {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
+                        <span className='pub-number'>{" (Publication # " + publication.pub_number + ")"}</span>
                       </li>
                     ))}
                   </ul>
