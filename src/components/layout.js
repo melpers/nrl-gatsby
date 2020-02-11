@@ -1,5 +1,5 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import React, { useEffect } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { SkipNav } from 'uswds-react';
 
 import { Helmet } from 'react-helmet'
@@ -13,41 +13,66 @@ import './layout.css';
 
 const mainContent = 'main-content';
 
-const Layout = ({ pageMeta, children }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            keywords
-            header {
-              navigation {
-                title
-                items {
-                  text
-                  link
-                  type
-                  depth
-                }
+// forEach method
+var forEach = function (array, callback, scope) {
+  for (var i = 0; i < array.length; i++) {
+    callback.call(scope, i, array[i]); // passes back stuff we need
+  }
+};
+
+// Requst from Darka to make sure no orphans are displayed. See https://en.wikipedia.org/wiki/Widows_and_orphans
+function cleanupOrphans(str){
+  // If we already have a non-breaking space in the paragraph somewhere, let's not replace any more spaces.
+  if (!str.includes("&nbsp;")){
+    var pos = str.trim().lastIndexOf(' ');
+    str = str.substring(0,pos) + "&nbsp;" + str.substring(pos+1);
+  }
+  return str;
+}
+
+const Layout = ({ pageMeta, children }) => {
+  useEffect(() => {
+    let paragraphs = document.querySelectorAll('.main-column p');
+    forEach(paragraphs, function (index, value) {
+      // console.log(index, value); // passes index + value back!
+      paragraphs[index].innerHTML = cleanupOrphans(paragraphs[index].innerHTML);
+    });
+  });
+
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          keywords
+          header {
+            navigation {
+              title
+              items {
+                text
+                link
+                type
+                depth
               }
             }
-            footer {
-              navigation {
-                title
-                items {
-                  text
-                  link
-                  type
-                }
+          }
+          footer {
+            navigation {
+              title
+              items {
+                text
+                link
+                type
               }
             }
           }
         }
       }
-    `}
-    render={data => (
+    }
+  `)
+
+  return (
       <ThemeContext.Consumer>
         {theme => (
           <React.Fragment>
@@ -82,8 +107,7 @@ const Layout = ({ pageMeta, children }) => (
           </React.Fragment>
         )}
       </ThemeContext.Consumer>
-    )}
-  />
-);
+    )
+}
 
 export default Layout;
