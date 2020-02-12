@@ -22,7 +22,7 @@ var forEach = function (array, callback, scope) {
 
 // Requst from Darka to make sure no orphans are displayed. See https://en.wikipedia.org/wiki/Widows_and_orphans
 function cleanupOrphans(str){
-  var pos = str.trim().lastIndexOf(' ');
+  var pos = str.lastIndexOf(' ');
   return str.substring(0,pos) + "&nbsp;" + str.substring(pos+1);
 }
 
@@ -31,7 +31,7 @@ const Layout = ({ pageMeta, children }) => {
     let paragraphs = document.querySelectorAll('.main-column p');
     forEach(paragraphs, function (index, value) {
       // console.log(index, value); // passes index + value back!
-      let str = paragraphs[index].innerHTML;
+      let str = paragraphs[index].innerHTML.trim();
       // If we already have a non-breaking space in the paragraph somewhere, let's not replace any more spaces.
       // Also do not replace anything if there is HTML in the paragraph, as this may break things.
       if (!str.includes("&nbsp;") && !str.includes("</")){
