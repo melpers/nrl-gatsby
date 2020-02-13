@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Img from "gatsby-image/withIEPolyfill";
+import { Link } from 'gatsby';
+import Img from 'gatsby-image/withIEPolyfill';
 import ExpandedText from 'components/expandedText';
 
 function formatPhone(phoneNumber){
@@ -18,7 +19,9 @@ const Leadership = (props) => {
         <div className="leadership-block-wrapper">
             <ExpandedText>
                 <div className="leadership-bio-block">
-                    <Img fluid={leaderData.picture.childImageSharp.fluid} />
+                    <Link to={leaderData.picture.publicURL}>
+                        <Img fluid={leaderData.picture.childImageSharp.fluid} />
+                    </Link>
                     <div className="leadership-bio-content">
                     <h3>{leaderData.name}</h3>
                     <p className="bio-title">{leaderData.title}</p>
