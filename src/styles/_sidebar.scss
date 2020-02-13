@@ -63,17 +63,20 @@
 }
 .sidebar-btn {
     display: none;
-    color: $nrl_medium_gray;
-    background-color: #fff;
+    color: #fff;
+    background-color: $nrl_medium_gray;
     -webkit-appearance: initial;
     -moz-appearance: initial;
     appearance: initial;
     border: 1px solid $nrl_light_gray;
-    padding: 1px 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 1px 10px;
     position: absolute;
-    left: 25px;
-    height: 26px;
+    left: 35px;
+    height: 36px;
     max-height: 50px;
+    font-weight: 300;
     overflow: hidden;
     -webkit-transform-origin: 0 0;
     -moz-transform-origin:    0 0;
@@ -90,8 +93,10 @@
     &:hover {
         color: #fff;
         background-color: $nrl_blue;
-        outline: none;
     }
+}
+body .sidebar-btn:not([disabled]):focus {
+    outline: none;
 }
 
 @media screen and (min-width: 64em) {
