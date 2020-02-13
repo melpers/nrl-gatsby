@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
 import ExpandedText from 'components/expandedText';
+import ExternalLink from 'components/externalLink';
 
 function formatPhone(phoneNumber){
     let newNumber = phoneNumber.replace(/\s|\(|\)/g, "");
@@ -19,9 +19,9 @@ const Leadership = (props) => {
         <div className="leadership-block-wrapper">
             <ExpandedText>
                 <div className="leadership-bio-block">
-                    <Link to={leaderData.picture.publicURL}>
-                        <Img fluid={leaderData.picture.childImageSharp.fluid} />
-                    </Link>
+                    <ExternalLink to={leaderData.picture.publicURL}>
+                        <Img fluid={leaderData.picture.childImageSharp.fluid} alt={leaderData.name} />
+                    </ExternalLink>
                     <div className="leadership-bio-content">
                     <h3>{leaderData.name}</h3>
                     <p className="bio-title">{leaderData.title}</p>
