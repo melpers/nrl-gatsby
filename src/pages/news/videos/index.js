@@ -35,6 +35,7 @@ export const query = graphql`
                 node {
                     frontmatter {
                     title
+                    date
                     teaser
                     teaser_image {
                         childImageSharp {

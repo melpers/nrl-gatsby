@@ -79,3 +79,13 @@ body {
         }
     }
 }
+@media screen and (max-width: 699px) {
+    .teaser-block {
+        .image-wrapper {
+            width: 100%;
+            max-width: 80%;
+            float: none;
+            margin: 0 auto 1rem;
+        }
+    }
+}
