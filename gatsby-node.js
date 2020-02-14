@@ -6,7 +6,7 @@ const uswdsRoot = 'node_modules/uswds';
 const shims = 'shims';
 
 module.exports = {
-  onCreateWebpackConfig: ({ stage, actions }) => {
+  onCreateWebpackConfig: ({ scategorye, actions }) => {
     actions.setWebpackConfig({
       resolve: {
         alias: {
@@ -259,7 +259,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   videoResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let slug = `${_.kebabCase(edge.node.frontmatter.title)}/`
-    console.log(slug);
     createPage({
         component: videoTemplate,
         path: `/news/videos/${slug}`,
@@ -268,4 +267,50 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
     });
   });
+
+  const categoryTemplate = path.resolve("src/templates/categories.js");
+  let categories = [];
+
+  const categoriesResponse = await graphql(`
+  {
+    allMarkdownRemark (
+      filter: { 
+        frontmatter: { categories: { ne: null } }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            categories
+          }
+        }
+      }
+    }
+  }
+`);
+const newsPosts = categoriesResponse.data.allMarkdownRemark.edges;
+// Iterate through each post, putting all found categories into `categories`
+_.each(newsPosts, edge => {
+  if (_.get(edge, "node.frontmatter.categories")) {
+    categories = categories.concat(edge.node.frontmatter.categories)
+  }
+});
+
+// Eliminate duplicate categories
+categories = _.uniq(categories)
+
+// Make category pages
+categories.forEach(category => {
+  let slug = `/news/categories/${_.kebabCase(category)}/`
+  console.log(slug);
+  createPage({
+    path: slug,
+    component: categoryTemplate,
+    context: {
+      category,
+      title: (category.charAt(0).toUpperCase() + category.slice(1))
+    },
+  })
+})
+
 }
