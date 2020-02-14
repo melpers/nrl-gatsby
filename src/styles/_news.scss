@@ -36,7 +36,7 @@ body {
     }
 }
 
-.news-teaser-block {
+.teaser-block {
     border: 1px solid $nrl_light_gray;
     background-color: #eee;
     padding: 1rem;
@@ -70,5 +70,12 @@ body {
     }
     .teaser-date {
         margin-bottom: 0.5rem;
+    }
+    .teaser-content {
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
     }
 }

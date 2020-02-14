@@ -233,7 +233,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   newsResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let slug = `${_.kebabCase(edge.node.frontmatter.title)}/`
-    console.log(slug);
     createPage({
         component: newsTemplate,
         path: `/news/releases/${slug}`,
@@ -243,4 +242,30 @@ module.exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const videoTemplate = path.resolve('./src/templates/video.js');
+  const videoResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "video"}}}) {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  videoResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    let slug = `${_.kebabCase(edge.node.frontmatter.title)}/`
+    console.log(slug);
+    createPage({
+        component: videoTemplate,
+        path: `/news/videos/${slug}`,
+        context: {
+            id: edge.node.id,
+        }
+    });
+  });
 }

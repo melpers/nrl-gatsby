@@ -45,7 +45,7 @@ module.exports = {
           title: 'News & Media',
           items: [
             { text: 'News', link: '/news', type: 'internal', depth: '0' },
-            { text: 'Videos', link: '/videos', type: 'internal', depth: '0' },
+            { text: 'Videos', link: '/news/videos', type: 'internal', depth: '0' },
           ],
         },
         {

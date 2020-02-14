@@ -5,12 +5,12 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
-import NewsTeaser from "components/newsTeaser";
+import VideoTeaser from "components/videoTeaser";
 
 export const query = graphql`
     query {
         markdownRemark (
-            frontmatter: {title: {eq: "News Releases"}}
+            frontmatter: {title: {eq: "Videos"}}
           ) {
             frontmatter {
                 title
@@ -28,14 +28,12 @@ export const query = graphql`
             html
         },
         allMarkdownRemark(
-            filter: {frontmatter: {template: {eq: "news"}}}, 
+            filter: {frontmatter: {template: {eq: "video"}}}, 
             sort: {order: DESC, fields: frontmatter___date}
         ) {
             edges {
                 node {
                     frontmatter {
-                    author
-                    date
                     title
                     teaser
                     teaser_image {
@@ -52,7 +50,7 @@ export const query = graphql`
     }
 `
 
-const NewsReleases = (props) => {
+const Videos = (props) => {
   return (
     <Layout
       pageMeta={{
@@ -73,7 +71,7 @@ const NewsReleases = (props) => {
         <div className="main-column">
           <div className="md-content image-float" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
           {props.data.allMarkdownRemark.edges.map((teaser, idx) => (
-            <NewsTeaser teaser={teaser} key={idx} />
+            <VideoTeaser teaser={teaser} key={idx} />
           ))}
         </div>
       </div>
@@ -81,4 +79,4 @@ const NewsReleases = (props) => {
   );
 };
 
-export default NewsReleases;
+export default Videos;
