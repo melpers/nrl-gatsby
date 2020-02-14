@@ -1,5 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
+const _ = require("lodash");
+// const webpack = require('webpack');
 
 const uswdsRoot = 'node_modules/uswds';
 const shims = 'shims';
@@ -66,6 +67,9 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       sidebar_exclude: Boolean
       template: String
       title: String
+      date: Date
+      teaser: String
+      categories: [String]
     }
   `
   createTypes(typeDefs)
@@ -208,6 +212,33 @@ module.exports.createPages = async ({ graphql, actions }) => {
         context: {
             id: edge.node.id,
             code: edge.node.frontmatter.code
+        }
+    });
+  });
+
+  const newsTemplate = path.resolve('./src/templates/news.js');
+  const newsResponse = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "news"}}}) {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+  newsResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    let slug = `${_.kebabCase(edge.node.frontmatter.title)}/`
+    console.log(slug);
+    createPage({
+        component: newsTemplate,
+        path: `/news/releases/${slug}`,
+        context: {
+            id: edge.node.id,
         }
     });
   });
