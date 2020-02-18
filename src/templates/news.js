@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
+import kebabCase from "lodash/kebabCase";
 
 export const query = graphql`
     query ($id: String!) {
@@ -53,6 +54,12 @@ const Facilities = (props) => {
                 <span>By: {props.data.markdownRemark.frontmatter.author} | {new Date(props.data.markdownRemark.frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
             </div>
             <div className="md-content image-center" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+            <div className="article-categories">
+              <span className="article-categories-label">Categories: </span>
+              {props.data.markdownRemark.frontmatter.categories.map((cat, idx) => (
+                <Link className="article-category-link" key={idx} to={`/news/categories/${kebabCase(cat)}/`}>{cat}</Link>
+              ))}
+            </div>
         </div>
       </div>
     </Layout>

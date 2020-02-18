@@ -79,6 +79,21 @@ body {
         }
     }
 }
+.article-categories {
+    color: $nrl_medium_gray;
+    font-style: italic;
+    margin-top: 1rem;
+    .article-category-link {
+        white-space: nowrap;
+        margin-right: 0.5rem;
+        &:after {
+            content: ",";
+        }
+        &:last-of-type:after {
+            content: "";
+        }
+    }
+}
 @media screen and (max-width: 699px) {
     .teaser-block {
         .image-wrapper {
