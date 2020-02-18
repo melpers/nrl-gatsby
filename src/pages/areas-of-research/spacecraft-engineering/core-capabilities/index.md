@@ -1,6 +1,6 @@
 ---
 title: Core Capabilities
-order: 2
+navOrder: 2
 path: /areas-of-research/spacecraft-engineering/core-capabilities
 hero_image: ../8250.jpg
 hero_color: yellow

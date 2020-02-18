@@ -32,7 +32,7 @@ function treeParse(pages){
                         "title": page.title,
                         "navTitle": page.navTitle,
                         "path": page.path,
-                        "order": page.order,
+                        "navOrder": page.navOrder,
                         "depth": j,
                         "children": {}
                     }
@@ -50,7 +50,7 @@ function objToArr(obj){
         tempObj.title = obj[key].title;
         tempObj.path = obj[key].path;
         tempObj.navTitle = obj[key].navTitle;
-        tempObj.order = obj[key].order;
+        tempObj.navOrder = obj[key].navOrder;
         tempObj.depth = obj[key].depth;
         if (typeof obj[key].children === "object") {
             tempObj.children = objToArr(obj[key].children);
@@ -61,8 +61,8 @@ function objToArr(obj){
 }
 
 function compare(a, b) {
-    let optA = a.order;
-    let optB = b.order;
+    let optA = a.navOrder;
+    let optB = b.navOrder;
     let comparison = 0;
     if (optA > optB) {
         comparison = 1;
@@ -185,7 +185,7 @@ const Sidebar = ({uri}) => {
                             path
                             title
                             navTitle
-                            order
+                            navOrder
                         }
                     }
                 }
