@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from "gatsby";
 
 import Layout from 'components/layout';
-// import HeroImage from 'components/heroImage';
+import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
 import NewsTeaser from "components/newsTeaser";
@@ -32,6 +32,22 @@ export const query = graphql`
                     }
                 }
             }
+        },
+        markdownRemark(
+            fileAbsolutePath: {regex: "/pages/news/"},
+            frontmatter: {title: {eq: "Categories"}}
+        ) {
+          frontmatter {
+              hero_image {
+                  childImageSharp {
+                      fluid(maxWidth: 1200) {
+                          ...GatsbyImageSharpFluid
+                      }
+                  }
+              }
+              hero_color
+              hero_size
+          }
         }
     }
 `
@@ -43,7 +59,7 @@ const Category = (props) => {
         title: "Test",
       }}
     >
-      {/* <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/> */}
+      <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
       <div className="title-block">
         <div className="content-wrapper">
           <div className="title-content">

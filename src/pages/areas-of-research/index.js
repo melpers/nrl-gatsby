@@ -25,7 +25,6 @@ const Index = (props) => {
         hero_color
         hero_size
       }
-      html
     }
   }
 `)
