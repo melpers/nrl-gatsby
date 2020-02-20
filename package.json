@@ -1,23 +1,19 @@
 {
-  "name": "federalist-gatsby-uswds-template",
-  "description": "Description A template for Federalist that uses Gatsby and USWDS 2.0",
-  "license": "CC0-1.0",
-  "version": "0.1.0",
-  "author": "davemcorwin",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/18f/federalist-gatsby-uswds-template.git"
-  },
+  "name": "nrl-gatsby",
+  "description": "A site that uses Gatsby and USWDS 2.0. Based on federalist-uswds-gatsby.",
+  "version": "1.0.0",
   "engines": {
     "node": ">=8.0.0 <11.0.0"
   },
   "scripts": {
-    "clean": "rimraf .cache public",
+    "clean": "rimraf .cache public _site",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "federalist": "npm run build -- --prefix-paths"
+    "federalist": "npm run federalist:build && npm run federalist:copy",
+    "federalist:build": "gatsby build --prefix-paths",
+    "federalist:copy": "mkdir -p _site && rm -rf _site/* && cp -r public/* _site/"
   },
   "browserslist": [
     ">0.25%",
