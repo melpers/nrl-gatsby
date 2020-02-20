@@ -6,14 +6,12 @@
     "node": ">=8.0.0 <11.0.0"
   },
   "scripts": {
-    "clean": "rimraf .cache public _site",
+    "clean": "rimraf .cache public",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "federalist": "npm run federalist:build && npm run federalist:copy",
-    "federalist:build": "gatsby build --prefix-paths",
-    "federalist:copy": "mkdir -p _site && rm -rf _site/* && cp -r public/* _site/"
+    "federalist": "npm run build -- --prefix-paths"
   },
   "browserslist": [
     ">0.25%",
