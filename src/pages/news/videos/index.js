@@ -28,7 +28,7 @@ export const query = graphql`
             html
         },
         allMarkdownRemark(
-            filter: {frontmatter: {template: {eq: "video"}}}, 
+            filter: {frontmatter: {template: {eq: "news-video"}}}, 
             sort: {order: DESC, fields: frontmatter___date}
         ) {
             edges {

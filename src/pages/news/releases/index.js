@@ -6,6 +6,7 @@ import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
 import NewsTeaser from "components/newsTeaser";
+import Debug from 'components/debug';
 
 export const query = graphql`
     query {
@@ -28,7 +29,7 @@ export const query = graphql`
             html
         },
         allMarkdownRemark(
-            filter: {frontmatter: {template: {eq: "news"}}}, 
+            filter: {frontmatter: {template: {eq: "news-article"}}}, 
             sort: {order: DESC, fields: frontmatter___date}
         ) {
             edges {
@@ -76,6 +77,7 @@ const NewsReleases = (props) => {
             <NewsTeaser teaser={teaser} key={idx} />
           ))}
         </div>
+        <Debug data={props} />
       </div>
     </Layout>
   );

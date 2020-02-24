@@ -219,7 +219,7 @@ const Sidebar = ({uri}) => {
                     </button>
                     <h4>Sidebar Navigation</h4>
                     { 
-                        renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse(data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri)
+                        renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse( data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri)
                     }
                 </nav>
             </div>
@@ -228,3 +228,21 @@ const Sidebar = ({uri}) => {
 }
 
 export default Sidebar
+
+
+  // TODO: Change sidebar.js to use 
+  /*
+    allSitePage(sort: {fields: path, order: ASC}, filter: {context: {sidebar_exclude: {ne: true}}}) {
+    edges {
+      node {
+        path
+        context {
+          sidebar_exclude
+          title
+          navTitle
+          navOrder
+        }
+      }
+    }
+  }
+  */

@@ -61,6 +61,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       hero_size: String
       name: String
       navTitle: String
+      navOrder: Int
       order: Int
       path: String
       phone: String
@@ -87,14 +88,33 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const coreCapabilitiesTemplate = path.resolve('./src/templates/core-capabilities.js');
-  const coreCapabilitiesResponse = await graphql(`
+  /* **** BASE TEMPLATES ****
+   * This sets up the most commonly needed context information for most templates.
+   * Any exceptions created below need to be added to the template filter.
+   * 
+   * Cannot just pass in ID to get this information later, due to needing it for the Sidebar
+   * and not all pages having markdown to pull from, for example Categories below.
+   * 
+   * Only pages that do not need this context should be created w/o base templates, i.e. the 404 page.
+   * These types of pages should probably also be explicity excluded from the sidebar (sidebar_exclude: true).
+   ************************** */
+  const baseResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "core-capabilities"}}}) {
+      allMarkdownRemark(filter: {
+        frontmatter: {
+          template: {nin: [null, "news-article", "news-video", "division-landing", "publications"]},
+          sidebar_exclude: {ne: true},
+          path: {ne: null}
+        }}) {
         edges {
           node {
             frontmatter {
               path
+              title
+              sidebar_exclude
+              navOrder
+              navTitle
+              template
             }
             id
           }
@@ -102,75 +122,37 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  coreCapabilitiesResponse.data.allMarkdownRemark.edges.forEach(edge => {
+  baseResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    let baseTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
     createPage({
-        component: coreCapabilitiesTemplate,
+        component: baseTemplate,
         path: edge.node.frontmatter.path,
         context: {
-            id: edge.node.id
+            id: edge.node.id,
+            sidebar_exclude: edge.node.sidebar_exclude,
+            title: edge.node.frontmatter.title,
+            navTitle: edge.node.frontmatter.navTitle,
+            navOrder: edge.node.frontmatter.navOrder
         }
     });
   });
 
-  const facilitiesTemplate = path.resolve('./src/templates/facilities.js');
-  const facilitiesResponse = await graphql(`
+  /* **** BASE + CODE TEMPLATES ****
+   * As base above plus 1 additional context item for the code of the branch.
+   ************************** */
+  const baseCodeResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "facilities"}}}) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-            id
-          }
-        }
-      }
-    }
-  `);
-  facilitiesResponse.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-        component: facilitiesTemplate,
-        path: edge.node.frontmatter.path,
-        context: {
-            id: edge.node.id
-        }
-    });
-  });
-
-  const placeholderTemplate = path.resolve('./src/templates/placeholder.js');
-  const placeholderResponse = await graphql(`
-    query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "placeholder"}}}) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-            id
-          }
-        }
-      }
-    }
-  `);
-  placeholderResponse.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-        component: placeholderTemplate,
-        path: edge.node.frontmatter.path,
-        context: {
-            id: edge.node.id
-        }
-    });
-  });
-
-  const divisionLandingTemplate = path.resolve('./src/templates/division-landing.js');
-  const divisionLandingResponse = await graphql(`
-    query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "division-landing"}}}) {
+      allMarkdownRemark(filter: {frontmatter: {template: {in: ["division-landing", "publications"]}}}) {
         edges {
           node {
             frontmatter {
               path
               code
+              sidebar_exclude
+              title
+              navTitle
+              navOrder
+              template
             }
             id
           }
@@ -178,48 +160,27 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  divisionLandingResponse.data.allMarkdownRemark.edges.forEach(edge => {
+  baseCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
+    let baseCodeTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
     createPage({
-        component: divisionLandingTemplate,
+        component: baseCodeTemplate,
         path: edge.node.frontmatter.path,
         context: {
             id: edge.node.id,
-            code: edge.node.frontmatter.code
+            code: edge.node.frontmatter.code,
+            sidebar_exclude: edge.node.sidebar_exclude,
+            title: edge.node.frontmatter.title,
+            navTitle: edge.node.frontmatter.navTitle,
+            navOrder: edge.node.frontmatter.navOrder
         }
     });
   });
 
-  const publicationsTemplate = path.resolve('./src/templates/publications.js');
-  const publicationsResponse = await graphql(`
-    query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "publications"}}}) {
-        edges {
-          node {
-            frontmatter {
-              path
-              code
-            }
-            id
-          }
-        }
-      }
-    }
-  `);
-  publicationsResponse.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-        component: publicationsTemplate,
-        path: edge.node.frontmatter.path,
-        context: {
-            id: edge.node.id,
-            code: edge.node.frontmatter.code
-        }
-    });
-  });
-
-  const newsTemplate = path.resolve('./src/templates/news.js');
+  // **** NEWS RELEASES ****
+  const newsTemplate = path.resolve('./src/templates/news-article.js');
   const newsResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "news"}}}) {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "news-article"}}}) {
         edges {
           node {
             frontmatter {
@@ -238,14 +199,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
         path: `/news/releases/${slug}`,
         context: {
             id: edge.node.id,
+            sidebar_exclude: true
         }
     });
   });
 
-  const videoTemplate = path.resolve('./src/templates/video.js');
+  // **** VIDEOS ****
+  const videoTemplate = path.resolve('./src/templates/news-video.js');
   const videoResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {eq: "video"}}}) {
+      allMarkdownRemark(filter: {frontmatter: {template: {eq: "news-video"}}}) {
         edges {
           node {
             frontmatter {
@@ -264,53 +227,58 @@ module.exports.createPages = async ({ graphql, actions }) => {
         path: `/news/videos/${slug}`,
         context: {
             id: edge.node.id,
+            sidebar_exclude: true
         }
     });
   });
 
+  // **** CATEGORIES ****
   const categoryTemplate = path.resolve("src/templates/categories.js");
   let categories = [];
 
   const categoriesResponse = await graphql(`
-  {
-    allMarkdownRemark (
-      filter: { 
-        frontmatter: { categories: { ne: null } }
-      }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            categories
+    {
+      allMarkdownRemark (
+        filter: { 
+          frontmatter: { categories: { ne: null } }
+        }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              categories
+            }
           }
         }
       }
     }
-  }
-`);
-const newsPosts = categoriesResponse.data.allMarkdownRemark.edges;
-// Iterate through each post, putting all found categories into `categories`
-_.each(newsPosts, edge => {
-  if (_.get(edge, "node.frontmatter.categories")) {
-    categories = categories.concat(edge.node.frontmatter.categories)
-  }
-});
+  `);
 
-// Eliminate duplicate categories
-categories = _.uniq(categories)
+  const newsPosts = categoriesResponse.data.allMarkdownRemark.edges;
+  // Iterate through each post, putting all found categories into `categories`
+  _.each(newsPosts, edge => {
+    if (_.get(edge, "node.frontmatter.categories")) {
+      categories = categories.concat(edge.node.frontmatter.categories)
+    }
+  });
 
-// Make category pages
-categories.forEach(category => {
-  let slug = `/news/categories/${_.kebabCase(category)}/`
-  console.log(slug);
-  createPage({
-    path: slug,
-    component: categoryTemplate,
-    context: {
-      category,
-      title: (category.charAt(0).toUpperCase() + category.slice(1))
-    },
+  // Eliminate duplicate categories
+  categories = _.uniq(categories)
+
+  // Make category pages
+  categories.forEach(category => {
+    let slug = `/news/categories/${_.kebabCase(category)}/`;
+    let title = category.charAt(0).toUpperCase() + category.slice(1);
+    let navTitle = title.replace(" and ", " & ");
+    createPage({
+      path: slug,
+      component: categoryTemplate,
+      context: {
+        category,
+        title,
+        navTitle
+      },
+    })
   })
-})
 
 }

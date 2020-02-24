@@ -11,7 +11,7 @@ import VideoTeaser from "components/videoTeaser";
 export const query = graphql`
     query ($category: String!) {
         allMarkdownRemark(
-            filter: {frontmatter: {categories: {in: [$category]}, template: {regex: "/news|video/"}}},
+            filter: {frontmatter: {categories: {in: [$category]}, template: {in: ["news-article", "news-video"]}}},
             sort: {order: DESC, fields: frontmatter___date}
         ) {
             edges {
@@ -72,7 +72,7 @@ const Category = (props) => {
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
           {props.data.allMarkdownRemark.edges.map((teaser, idx) => (
-              teaser.node.frontmatter.template === "news" ? <NewsTeaser teaser={teaser} key={idx} /> : <VideoTeaser teaser={teaser} key={idx} />
+              teaser.node.frontmatter.template === "news-article" ? <NewsTeaser teaser={teaser} key={idx} /> : <VideoTeaser teaser={teaser} key={idx} />
           ))}
         </div>
       </div>
