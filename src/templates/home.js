@@ -34,7 +34,7 @@ const Home = (props) => {
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}>
         <div className="hero-text-wrapper">
           <div className="hero-text-block">
-            <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+            <h1 dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></h1>
           </div>
         </div>
       </HeroImage>
