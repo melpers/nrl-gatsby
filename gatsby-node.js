@@ -102,8 +102,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     query {
       allMarkdownRemark(filter: {
         frontmatter: {
-          template: {nin: [null, "news-article", "news-video", "division-landing", "publications", "capabilities-landing", "facilities-landing"]},
-          sidebar_exclude: {ne: true},
+          template: {nin: [null, "news-article", "news-video", "division-landing", "publications", "capabilities-landing", "facilities-landing", "error-404"]},
           path: {ne: null}
         }}) {
         edges {
@@ -124,6 +123,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   baseResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let baseTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
+    console.log(baseTemplate);
     createPage({
         component: baseTemplate,
         path: edge.node.frontmatter.path,
@@ -231,6 +231,34 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
     });
   });
+
+  // **** MISC SIDEBAR EXCLUDE ****
+  const excludeCodeResponse = await graphql(`
+  query {
+    allMarkdownRemark(filter: {frontmatter: {template: {in: ["error-404"]}}}) {
+      edges {
+        node {
+          frontmatter {
+            path
+            template
+          }
+          id
+        }
+      }
+    }
+  }
+`);
+excludeCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
+  let excludeCodeTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
+  createPage({
+      component: excludeCodeTemplate,
+      path: edge.node.frontmatter.path,
+      context: {
+          id: edge.node.id,
+          sidebar_exclude: true,
+      }
+  });
+});
 
   // **** CATEGORIES ****
   const categoryTemplate = path.resolve("src/templates/categories.js");

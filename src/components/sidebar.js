@@ -9,7 +9,13 @@ function treeParse(pages){
     let pagesObj = {};
     let path = "";
     for (var i = 0, len = pages.length; i < len; i++) {
-        let page = pages[i].node.frontmatter;
+        let page = pages[i].node;
+        // remove trailing slash unless it's the home page
+        if (page.path.length > 1) {
+            if(page.path.substr(-1) === '/') {
+                page.path = page.path.substr(0, page.path.length - 1);
+            }
+        }
         path = page.path.split("/");
         if (path.length === 2 && path[0] === "" && path[1] === "") {
             // Shift the redundant second index off for the first node
@@ -29,10 +35,10 @@ function treeParse(pages){
                     pagesObj,
                     indexPath,
                     {
-                        "title": page.title,
-                        "navTitle": page.navTitle,
+                        "title": page.context.title,
+                        "navTitle": page.context.navTitle,
                         "path": page.path,
-                        "navOrder": page.navOrder,
+                        "navOrder": page.context.navOrder,
                         "depth": j,
                         "children": {}
                     }
@@ -167,22 +173,23 @@ const Sidebar = ({uri}) => {
 
     const data = useStaticQuery(graphql`
          query {
-            allMarkdownRemark(
+            allSitePage(
                 sort: {
-                    fields: [frontmatter___path],
+                    fields: path, 
                     order: ASC
-                }, 
+                },
                 filter: {
-                    frontmatter: {
-                        path: {ne: null},
-                        sidebar_exclude: {ne: true}
-                    }
+                    context: {
+                        sidebar_exclude: {ne: true},
+                        title: {ne: null}
+                    },
+                    path: {ne: null}
                 }
             ) {
                 edges {
                     node {
-                        frontmatter {
-                            path
+                        path
+                        context {
                             title
                             navTitle
                             navOrder
@@ -202,11 +209,13 @@ const Sidebar = ({uri}) => {
     }
 
     // For stepping through the parts. 
-    // const pages = data.allMarkdownRemark.edges;
-    // const navTree = treeParse(pages);
-    // const navArr = objToArr(navTree);
-    // const filteredArr = findParentNode(navArr, parentUri);
-    // const trimmedArr = trimAndSortChildren(filteredArr, uri, parentUri);
+    /*
+        const pages = data.allSitePage.edges;
+        const navTree = treeParse(pages);
+        const navArr = objToArr(navTree);
+        const filteredArr = findParentNode(navArr, parentUri);
+        const trimmedArr = trimAndSortChildren(filteredArr, uri, parentUri);
+    */
     // replace below: renderArray(trimmedArr, uri )
 
     return (
@@ -219,7 +228,8 @@ const Sidebar = ({uri}) => {
                     </button>
                     <h4>Sidebar Navigation</h4>
                     { 
-                        renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse( data.allMarkdownRemark.edges )), parentUri ), uri, parentUri ), uri)
+                        renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse( data.allSitePage.edges )), parentUri ), uri, parentUri ), uri)
+                        /* renderArray(trimmedArr, uri ) */
                     }
                 </nav>
             </div>
@@ -228,21 +238,3 @@ const Sidebar = ({uri}) => {
 }
 
 export default Sidebar
-
-
-  // TODO: Change sidebar.js to use 
-  /*
-    allSitePage(sort: {fields: path, order: ASC}, filter: {context: {sidebar_exclude: {ne: true}}}) {
-    edges {
-      node {
-        path
-        context {
-          sidebar_exclude
-          title
-          navTitle
-          navOrder
-        }
-      }
-    }
-  }
-  */
