@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { cleanPreviewUri } from 'utils/clean-preview-uri';
 import close from 'uswds_images/close.svg';
@@ -119,6 +119,9 @@ function trimAndSortChildren(arr, targetUri, parentUri){
 }
 
 const Sidebar = ({uri}) => {
+    // How many sub-menu items can be present before we collapse the sub-menu?
+    const subMenuSize = 7;
+
     const [isOpen, setOpen] = useState(false);
     const toggleOpen = () => {
         !isOpen ? document.body.classList.add('usa-mobile_nav-active') : document.body.classList.remove('usa-mobile_nav-active');
@@ -132,6 +135,13 @@ const Sidebar = ({uri}) => {
         !submenuOpen ? document.querySelector('.sidebar-current-page').classList.add('submenu-open') : document.querySelector('.sidebar-current-page').classList.remove('submenu-open');
         setSubmenuOpen(!submenuOpen);
     }
+
+    useEffect(() => {
+        if (document.querySelectorAll('ul.sidebar-menu li.has-submenu ul.menu-depth-1 li').length <= subMenuSize) {
+            document.querySelector('.sidebar-current-page').classList.add('submenu-open');
+            setSubmenuOpen(true);
+        }
+      }, []);
 
     function renderArray(arr, uri, depth){
         depth = typeof depth !== 'undefined' ? depth + 1 : 0;
@@ -209,14 +219,11 @@ const Sidebar = ({uri}) => {
     }
 
     // For stepping through the parts. 
-    /*
-        const pages = data.allSitePage.edges;
-        const navTree = treeParse(pages);
-        const navArr = objToArr(navTree);
-        const filteredArr = findParentNode(navArr, parentUri);
-        const trimmedArr = trimAndSortChildren(filteredArr, uri, parentUri);
-    */
-    // replace below: renderArray(trimmedArr, uri )
+    const pages = data.allSitePage.edges;
+    const navTree = treeParse(pages);
+    const navArr = objToArr(navTree);
+    const filteredArr = findParentNode(navArr, parentUri);
+    const trimmedArr = trimAndSortChildren(filteredArr, uri, parentUri);
 
     return (
         <React.Fragment>
@@ -228,8 +235,8 @@ const Sidebar = ({uri}) => {
                     </button>
                     <h4>Sidebar Navigation</h4>
                     { 
-                        renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse( data.allSitePage.edges )), parentUri ), uri, parentUri ), uri)
-                        /* renderArray(trimmedArr, uri ) */
+                        /* renderArray( trimAndSortChildren( findParentNode( objToArr( treeParse( data.allSitePage.edges )), parentUri ), uri, parentUri ), uri) */
+                        renderArray(trimmedArr, uri )
                     }
                 </nav>
             </div>
