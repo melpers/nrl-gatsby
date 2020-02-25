@@ -4,6 +4,7 @@ path: /about
 hero_image: ../../images/nrl_hero_about.jpg
 hero_color: light-blue
 hero_size: small
+template: basic
 ---
 ##The Naval Research Laboratory##
 The U.S. Naval Research Laboratory provides the advanced scientific capabilities required to bolster our country’s position of global naval leadership. Here, in an environment where the nation’s best scientists and engineers are inspired to pursue their passion, everyone is focused on research that yields immediate and long-range applications in the defense of the United States.

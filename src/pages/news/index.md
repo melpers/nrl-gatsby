@@ -4,6 +4,6 @@ path: /news
 hero_image: ../../images/header_faceted.jpg
 hero_color: yellow
 hero_size: small
-template: placeholder
+template: basic
 ---
 News Page Placeholder.

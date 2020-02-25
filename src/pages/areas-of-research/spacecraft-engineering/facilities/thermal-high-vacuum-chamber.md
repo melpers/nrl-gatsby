@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/facilities/thermal-high-vacuum-c
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: facilities
 ---
 ![The Thermal High-Vacuum Chamber facility](thermal_vacuum_chamber.jpg)

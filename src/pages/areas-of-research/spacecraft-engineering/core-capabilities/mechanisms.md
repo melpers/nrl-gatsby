@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/mechanisms
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: core-capabilities
 ---
 ![Mechanisms Team](8212.jpg)

@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/electronics-so
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: core-capabilities
 ---
 ![An Electronics and Software team member](8240.jpg)

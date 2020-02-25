@@ -5,10 +5,11 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
+import NewsTeaser from "components/newsTeaser";
 
 export const query = graphql`
     query ($id: String!) {
-        markdownRemark (id: {eq: $id}) {
+        markdownRemark (id: {eq: $id}){
             frontmatter {
                 title
                 hero_size
@@ -21,14 +22,35 @@ export const query = graphql`
                   }
                 }
                 template
-                code_name
               }
             html
         },
+        allMarkdownRemark(
+            filter: {frontmatter: {template: {eq: "news-article"}}}, 
+            sort: {order: DESC, fields: frontmatter___date}
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                    author
+                    date
+                    title
+                    teaser
+                    teaser_image {
+                        childImageSharp {
+                            fluid(maxWidth: 548) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                      }
+                    }
+                }
+            }
+        }
     }
 `
 
-const Placeholder = (props) => {
+const NewsLanding = (props) => {
   return (
     <Layout
       pageMeta={{
@@ -48,10 +70,13 @@ const Placeholder = (props) => {
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
           <div className="md-content image-float" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+          {props.data.allMarkdownRemark.edges.map((teaser, idx) => (
+            <NewsTeaser teaser={teaser} key={idx} />
+          ))}
         </div>
       </div>
     </Layout>
   );
 };
 
-export default Placeholder;
+export default NewsLanding;

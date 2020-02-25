@@ -5,7 +5,7 @@ path: /areas-of-research/spacecraft-engineering/research
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-template: placeholder
+template: basic
 code: 8250
 code_name: Spacecraft Engineering
 ---

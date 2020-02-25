@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/facilities/assembly-test-area
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: facilities
 ---
 ![Assembly and Test facility](assembly_and_test.jpg)

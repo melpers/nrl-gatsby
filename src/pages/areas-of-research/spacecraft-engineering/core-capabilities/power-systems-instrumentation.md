@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/power-systems-
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: core-capabilities
 ---
 ![Power Systems and Instrumentation Team](8244.jpg)

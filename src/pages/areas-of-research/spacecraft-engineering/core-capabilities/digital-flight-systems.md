@@ -4,6 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/digital-flight
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
+code: 8250
 template: core-capabilities
 ---
 ![Satellite Inspection](8242.jpg)

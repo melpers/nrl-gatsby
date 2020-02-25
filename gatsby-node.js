@@ -102,7 +102,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     query {
       allMarkdownRemark(filter: {
         frontmatter: {
-          template: {nin: [null, "news-article", "news-video", "division-landing", "publications"]},
+          template: {nin: [null, "news-article", "news-video", "division-landing", "publications", "capabilities-landing", "facilities-landing"]},
           sidebar_exclude: {ne: true},
           path: {ne: null}
         }}) {
@@ -142,7 +142,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
    ************************** */
   const baseCodeResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {in: ["division-landing", "publications"]}}}) {
+      allMarkdownRemark(filter: {frontmatter: {template: {in: ["division-landing", "publications", "capabilities-landing", "facilities-landing"]}}}) {
         edges {
           node {
             frontmatter {

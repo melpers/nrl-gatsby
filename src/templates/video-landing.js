@@ -5,14 +5,11 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
-import NewsTeaser from "components/newsTeaser";
-import Debug from 'components/debug';
+import VideoTeaser from "components/videoTeaser";
 
 export const query = graphql`
-    query {
-        markdownRemark (
-            frontmatter: {title: {eq: "News Releases"}}
-          ) {
+    query ($id: String!) {
+        markdownRemark (id: {eq: $id}) {
             frontmatter {
                 title
                 hero_size
@@ -29,15 +26,14 @@ export const query = graphql`
             html
         },
         allMarkdownRemark(
-            filter: {frontmatter: {template: {eq: "news-article"}}}, 
+            filter: {frontmatter: {template: {eq: "news-video"}}}, 
             sort: {order: DESC, fields: frontmatter___date}
         ) {
             edges {
                 node {
                     frontmatter {
-                    author
-                    date
                     title
+                    date
                     teaser
                     teaser_image {
                         childImageSharp {
@@ -53,7 +49,7 @@ export const query = graphql`
     }
 `
 
-const NewsReleases = (props) => {
+const VideoLanding = (props) => {
   return (
     <Layout
       pageMeta={{
@@ -74,13 +70,12 @@ const NewsReleases = (props) => {
         <div className="main-column">
           <div className="md-content image-float" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
           {props.data.allMarkdownRemark.edges.map((teaser, idx) => (
-            <NewsTeaser teaser={teaser} key={idx} />
+            <VideoTeaser teaser={teaser} key={idx} />
           ))}
         </div>
-        <Debug data={props} />
       </div>
     </Layout>
   );
 };
 
-export default NewsReleases;
+export default VideoLanding;
