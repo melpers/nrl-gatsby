@@ -137,7 +137,8 @@ const Sidebar = ({uri}) => {
     }
 
     useEffect(() => {
-        if (document.querySelectorAll('ul.sidebar-menu li.has-submenu ul.menu-depth-1 li').length <= subMenuSize) {
+        let children = document.querySelectorAll('ul.sidebar-menu li.has-submenu ul.menu-depth-1 li');
+        if (children.length > 0 && children.length <= subMenuSize) {
             document.querySelector('.sidebar-current-page').classList.add('submenu-open');
             setSubmenuOpen(true);
         }
