@@ -1,5 +1,5 @@
 @mixin nrl-button-white(){
-    color: $nrl_medium_gray;
+    color: $nrl_gray;
     background-color: #fff;
     -webkit-appearance: initial;
     -moz-appearance: initial;
@@ -10,7 +10,7 @@
     &:active,
     &:hover {
         color: $nrl_gray;
-        border: 2px solid $nrl_medium_gray;
+        border: 2px solid $nrl_gray;
         padding: 0;
         outline: none;
     }

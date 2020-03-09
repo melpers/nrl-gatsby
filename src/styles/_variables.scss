@@ -2,30 +2,30 @@
 $nrl_navy_blue:               #162956;
 $nrl_blue:                    #2E5590;
 $nrl_light_blue:              #6da9cf;
-$nrl_light_blue_alt:          #00bef3;
-$nrl_blue_grey:               #6f84ae;
-$nrl_light_gray:              #ccc;
-$nrl_medium_gray:             #535c69;
 $nrl_gray:                    #4c4f59;
 $nrl_yellow:                  #fab208;
-$nrl_gold:                    #87701D;
+
+// $nrl_blue_grey:               #6f84ae;
+$nrl_light_gray:              #ccc;
+$nrl_medium_gray:             #535c69;
+$nrl_gold:                    #87701D; // For use with text on white background
 
 // Content
 $desktop-left-offset:           175px;
 
 // Header
 $header_background_color:       #fff;
-$header_links_color:            $nrl_medium_gray;
+$header_links_color:            $nrl_gray;
 $header_bottom_border_color:    $nrl_gold;
 $header_menu_highligh_color:    $nrl_gold;
 $header_button_hover_color:     #fff;
 $header_button_hover_bg_color:  $nrl_blue;
-$header_button_active_bg_color: $nrl_medium_gray;
+$header_button_active_bg_color: $nrl_gray;
 $search_background_color:       #fff;
-$search_color:                  $nrl_medium_gray;
+$search_color:                  $nrl_gray;
 $focus_color:                   $nrl_light_blue;
 $header-submenu-offset:         $desktop-left-offset + 32px;
 
 // Footer
 $footer_border_color:         #79b7da;
-$footer_links_color:            $nrl_medium_gray;
+$footer_links_color:            $nrl_gray;

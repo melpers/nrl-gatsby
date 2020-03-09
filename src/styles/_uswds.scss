@@ -113,7 +113,7 @@ body {
             @include background-color-transition;
             &:focus {
                 outline: none;
-                background-color: $nrl_medium_gray;
+                background-color: $nrl_gray;
                 color: #fff;
                 &::placeholder {
                     color: #fff;
@@ -130,13 +130,13 @@ body {
             background-image: url('../images/search_nrl.svg'), linear-gradient(transparent, transparent);
             background-position: center center;
             background-repeat: no-repeat;
-            color: $nrl_medium_gray;
+            color: $nrl_gray;
             border: 1px solid $search_color;
             border-left: none;
             border-radius: 0;
             @include background-color-transition;
             &:focus {
-                background-color: $nrl_medium_gray;
+                background-color: $nrl_gray;
                 background-image: url('../images/search.png');
                 background-image: url('../images/search.svg'), linear-gradient(transparent, transparent);
                 outline: none;
@@ -237,7 +237,7 @@ body {
                 }
             }
             .usa-nav__submenu {
-                background-color: $nrl_medium_gray;
+                background-color: $nrl_gray;
                 width: 100%;
                 left: 0;
                 right: 0;
