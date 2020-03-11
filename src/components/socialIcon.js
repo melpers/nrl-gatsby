@@ -5,7 +5,7 @@ const SocialIcon = ({ data }) => {
 
   const socialURLs = {
     "facebook": "https://www.facebook.com/USNRL",
-    "linked-in": "http://www.linkedin.com/company/naval-research-laboratory",
+    "linked-in": "http://www.linkedin.com/company/usnrl",
     "twitter": "https://twitter.com/usnrl/",
     "youtube": "https://www.youtube.com/user/USNRL"
   }

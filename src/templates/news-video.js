@@ -25,6 +25,14 @@ export const query = graphql`
                     }
                   }
                 }
+                teaser
+                teaser_image {
+                  publicURL
+                  internal {
+                    mediaType
+                  }
+                }
+                teaser_image_alt
               }
             html
         },
@@ -36,6 +44,13 @@ const NewsVideo = (props) => {
     <Layout
       pageMeta={{
         title: props.data.markdownRemark.frontmatter.title,
+        seoImage: props.data.markdownRemark.frontmatter.teaser_image.publicURL,
+        seoImageType: props.data.markdownRemark.frontmatter.teaser_image.internal.mediaType,
+        seoImageAlt: props.data.markdownRemark.frontmatter.teaser_image_alt,
+        // seoImageHeight: "800",
+        // seoImageWidth: "1200",
+        description: props.data.markdownRemark.frontmatter.teaser,
+        seoVideo: props.data.markdownRemark.frontmatter.youtube_id,
       }}
     >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>

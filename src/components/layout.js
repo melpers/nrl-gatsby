@@ -9,6 +9,7 @@ import Footer from 'components/footer';
 import AppContainer from 'components/appContainer';
 import { Location } from '@reach/router'
 
+import truncate from "lodash/truncate";
 import './layout.css';
 
 const mainContent = 'main-content';
@@ -47,6 +48,7 @@ const Layout = ({ pageMeta, children }) => {
           title
           description
           keywords
+          siteUrl
           header {
             navigation {
               title
@@ -73,6 +75,9 @@ const Layout = ({ pageMeta, children }) => {
     }
   `)
 
+  const seoImageURL = data.site.siteMetadata.siteUrl + pageMeta.seoImage;
+  const seoVideoURL = "https://www.youtube.com/watch?v=" + pageMeta.seoVideo;
+
   return (
       <ThemeContext.Consumer>
         {theme => (
@@ -88,6 +93,17 @@ const Layout = ({ pageMeta, children }) => {
               {/* iOS Safari */}
               <meta name="apple-mobile-web-app-capable" content="yes" />
               <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+              {/* OG Tags */}
+              <meta name="og:title" content={pageMeta.title ? `${pageMeta.title}` : `${data.site.siteMetadata.title}`} />
+              <meta name="og:description" content={truncate(pageMeta.description ? `${pageMeta.description}` : `${data.site.siteMetadata.description}`, {'length': 300})} />
+              {pageMeta.seoImage ? <meta name="og:image" content={`${seoImageURL}`} /> : "" }
+              {pageMeta.seoImageType ? <meta name="og:image:type" content={`${pageMeta.seoImageType}`} /> : "" }
+              {pageMeta.seoImageAlt ? <meta name="og:image:alt" content={`${pageMeta.seoImage}`} /> : "" }
+              {pageMeta.seoImageHeight ? <meta name="og:image:height" content={`${pageMeta.seoImageType}`} /> : "" }
+              {pageMeta.seoImageWidth ? <meta name="og:image:width" content={`${pageMeta.seoImageType}`} /> : "" }
+              {pageMeta.seoVideo ? <meta name="og:video" content={`${seoVideoURL}`} /> : "" }
+              {/* Twitter Card Tags */}
+              <meta name="twitter:description" content={truncate(pageMeta.description ? `${pageMeta.description}` : `${data.site.siteMetadata.description}`, {'length': 200})} />
             </Helmet>
             <Location>
               {({ location }) => {
