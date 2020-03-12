@@ -123,7 +123,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   baseResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let baseTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
-    console.log(baseTemplate);
     createPage({
         component: baseTemplate,
         path: edge.node.frontmatter.path,

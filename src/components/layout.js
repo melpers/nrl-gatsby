@@ -31,7 +31,7 @@ const Layout = ({ pageMeta, children }) => {
   useEffect(() => {
     let paragraphs = document.querySelectorAll('.main-column p');
     forEach(paragraphs, function (index, value) {
-      // console.log(index, value); // passes index + value back!
+      // passes index + value back
       let str = paragraphs[index].innerHTML.trim();
       // If we already have a non-breaking space in the paragraph somewhere, let's not replace any more spaces.
       // Also do not replace anything if there is HTML in the paragraph, as this may break things.
@@ -107,9 +107,9 @@ const Layout = ({ pageMeta, children }) => {
               {/* OG Article Tags */}
               {pageMeta.ogArticlePublishedTime ? <meta name="article:published_time" content={`${pageMeta.ogArticlePublishedTime}`} /> : "" }
               {pageMeta.ogArticleAuthor ? <meta name="article:author" content={`${pageMeta.ogArticleAuthor}`} /> : "" }
-              {pageMeta.ogArticleTags.map((cat, idx) => (
+              {pageMeta.ogArticleTags ? pageMeta.ogArticleTags.map((cat, idx) => (
                 <meta name="article:tag" content={`${cat}`} />
-              ))}
+              )) : ""}
             </Helmet>
             <Location>
               {({ location }) => {
