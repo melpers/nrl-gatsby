@@ -50,6 +50,9 @@ const NewsArticle = (props) => {
         // seoImageHeight: "800",
         // seoImageWidth: "1200",
         description: props.data.markdownRemark.frontmatter.teaser,
+        ogArticlePublishedTime: props.data.markdownRemark.frontmatter.date,
+        ogArticleAuthor: props.data.markdownRemark.frontmatter.author,
+        ogArticleTags: props.data.markdownRemark.frontmatter.categories,
       }}
     >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>

@@ -104,6 +104,12 @@ const Layout = ({ pageMeta, children }) => {
               {pageMeta.seoVideo ? <meta name="og:video" content={`${seoVideoURL}`} /> : "" }
               {/* Twitter Card Tags */}
               <meta name="twitter:description" content={truncate(pageMeta.description ? `${pageMeta.description}` : `${data.site.siteMetadata.description}`, {'length': 200})} />
+              {/* OG Article Tags */}
+              {pageMeta.ogArticlePublishedTime ? <meta name="article:published_time" content={`${pageMeta.ogArticlePublishedTime}`} /> : "" }
+              {pageMeta.ogArticleAuthor ? <meta name="article:author" content={`${pageMeta.ogArticleAuthor}`} /> : "" }
+              {pageMeta.ogArticleTags.map((cat, idx) => (
+                <meta name="article:tag" content={`${cat}`} />
+              ))}
             </Helmet>
             <Location>
               {({ location }) => {
