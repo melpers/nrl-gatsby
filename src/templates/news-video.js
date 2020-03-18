@@ -51,6 +51,7 @@ const NewsVideo = (props) => {
         // seoImageWidth: "1200",
         description: props.data.markdownRemark.frontmatter.teaser,
         seoVideo: props.data.markdownRemark.frontmatter.youtube_id,
+        ogArticleTags: props.data.markdownRemark.frontmatter.categories,
       }}
     >
       <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
