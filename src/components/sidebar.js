@@ -36,9 +36,9 @@ function treeParse(pages){
                     indexPath,
                     {
                         "title": page.context.title,
-                        "navTitle": page.context.navTitle,
+                        "nav_title": page.context.nav_title,
                         "path": page.path,
-                        "navOrder": page.context.navOrder,
+                        "nav_order": page.context.nav_order,
                         "depth": j,
                         "children": {}
                     }
@@ -55,8 +55,8 @@ function objToArr(obj){
         let tempObj = {};
         tempObj.title = obj[key].title;
         tempObj.path = obj[key].path;
-        tempObj.navTitle = obj[key].navTitle;
-        tempObj.navOrder = obj[key].navOrder;
+        tempObj.nav_title = obj[key].nav_title;
+        tempObj.nav_order = obj[key].nav_order;
         tempObj.depth = obj[key].depth;
         if (typeof obj[key].children === "object") {
             tempObj.children = objToArr(obj[key].children);
@@ -67,8 +67,8 @@ function objToArr(obj){
 }
 
 function compare(a, b) {
-    let optA = a.navOrder;
-    let optB = b.navOrder;
+    let optA = a.nav_order;
+    let optB = b.nav_order;
     let comparison = 0;
     if (optA > optB) {
         comparison = 1;
@@ -156,18 +156,18 @@ const Sidebar = ({uri}) => {
             if (node.path === uri) {
                 if (subMenu) {
                     link = (
-                        <a href="#menu" className="sidebar-current-page" onClick={toggleSubmenuOpen}>{node.navTitle ? node.navTitle : node.title}</a>
+                        <a href="#menu" className="sidebar-current-page" onClick={toggleSubmenuOpen}>{node.nav_title ? node.nav_title : node.title}</a>
                     );
                 }
                 else {
                     link = (
-                        <a href="#menu" className="sidebar-current-page" tabIndex="-1">{node.navTitle ? node.navTitle : node.title}</a>
+                        <a href="#menu" className="sidebar-current-page" tabIndex="-1">{node.nav_title ? node.nav_title : node.title}</a>
                     );
                 }
             }
             else {
                 link = (
-                    <Link to={node.path} onClick={toggleOpen}>{node.navTitle ? node.navTitle : node.title}</Link>
+                    <Link to={node.path} onClick={toggleOpen}>{node.nav_title ? node.nav_title : node.title}</Link>
                 );
             }
 
@@ -202,8 +202,8 @@ const Sidebar = ({uri}) => {
                         path
                         context {
                             title
-                            navTitle
-                            navOrder
+                            nav_title
+                            nav_order
                         }
                     }
                 }

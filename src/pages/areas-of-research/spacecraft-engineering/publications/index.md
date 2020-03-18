@@ -1,6 +1,6 @@
 ---
 title: Publications
-navOrder: 4
+nav_order: 4
 path: /areas-of-research/spacecraft-engineering/publications
 hero_image: ../8250.jpg
 hero_color: yellow

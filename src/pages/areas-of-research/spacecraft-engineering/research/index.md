@@ -1,6 +1,6 @@
 ---
 title: Research
-navOrder: 5
+nav_order: 5
 path: /areas-of-research/spacecraft-engineering/research
 hero_image: ../8250.jpg
 hero_color: yellow

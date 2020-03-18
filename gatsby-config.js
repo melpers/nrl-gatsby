@@ -51,9 +51,11 @@ module.exports = {
         {
           title: 'Doing Business',
           items: [
-            { text: 'Doing Business Link 1', link: '/', type: 'internal', depth: '0' },
-            { text: 'Doing Business Link 2', link: '/', type: 'internal', depth: '0' },
-            { text: 'Doing Business Link 3', link: '/', type: 'internal', depth: '0' },
+            { text: 'Doing Business', link: '/doing-business', type: 'internal', depth: '0' },
+            { text: 'Tech Transfer', link: '/techtransfer', type: 'internal', depth: '0' },
+            { text: 'NRL Supply', link: '/doing-business/supply-division', type: 'internal', depth: '0' },
+            { text: 'Contracting', link: '/doing-business/contracting-division', type: 'internal', depth: '0' },
+            { text: 'Small Business', link: '/doing-business/small-business', type: 'internal', depth: '0' },
           ],
         },
         {

@@ -60,8 +60,8 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       hero_color: String
       hero_size: String
       name: String
-      navTitle: String
-      navOrder: Int
+      nav_title: String
+      nav_order: Int
       order: Int
       path: String
       phone: String
@@ -111,8 +111,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
               path
               title
               sidebar_exclude
-              navOrder
-              navTitle
+              nav_order
+              nav_title
               template
             }
             id
@@ -130,8 +130,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
             id: edge.node.id,
             sidebar_exclude: edge.node.sidebar_exclude,
             title: edge.node.frontmatter.title,
-            navTitle: edge.node.frontmatter.navTitle,
-            navOrder: edge.node.frontmatter.navOrder
+            nav_title: edge.node.frontmatter.nav_title,
+            nav_order: edge.node.frontmatter.nav_order
         }
     });
   });
@@ -149,8 +149,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
               code
               sidebar_exclude
               title
-              navTitle
-              navOrder
+              nav_title
+              nav_order
               template
             }
             id
@@ -169,8 +169,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
             code: edge.node.frontmatter.code,
             sidebar_exclude: edge.node.sidebar_exclude,
             title: edge.node.frontmatter.title,
-            navTitle: edge.node.frontmatter.navTitle,
-            navOrder: edge.node.frontmatter.navOrder
+            nav_title: edge.node.frontmatter.nav_title,
+            nav_order: edge.node.frontmatter.nav_order
         }
     });
   });
@@ -296,14 +296,14 @@ excludeCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
   categories.forEach(category => {
     let slug = `/news/categories/${_.kebabCase(category)}/`;
     let title = category.charAt(0).toUpperCase() + category.slice(1);
-    let navTitle = title.replace(" and ", " & ");
+    let nav_title = title.replace(" and ", " & ");
     createPage({
       path: slug,
       component: categoryTemplate,
       context: {
         category,
         title,
-        navTitle
+        nav_title
       },
     })
   })

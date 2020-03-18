@@ -1,6 +1,6 @@
 ---
 title: Facilities
-navOrder: 3
+nav_order: 3
 path: /areas-of-research/spacecraft-engineering/facilities
 hero_image: ../8250.jpg
 hero_color: yellow
