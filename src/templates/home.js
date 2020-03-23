@@ -1,11 +1,9 @@
 import React from 'react';
 import { graphql } from "gatsby";
-// import { graphql, Link } from "gatsby";
 
 import Layout from 'components/layout';
-import HeroImage from 'components/heroImage';
+// import HeroImage from 'components/heroImage';
 import Carousel from 'components/carousel';
-// import ExternalLink from 'components/externalLink';
 
 export const query = graphql`
     query ($id: String!) {
