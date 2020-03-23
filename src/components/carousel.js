@@ -10,7 +10,7 @@ const Carousel = ({slides}) => {
         <div className="carousel-wrapper">
             <Slider 
                 arrows={false}
-                autoplay={true}
+                autoplay={false}
                 autoplaySpeed={5000}
                 dots
             >

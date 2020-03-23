@@ -25,7 +25,7 @@
     .carousel-content {
         background-color: rgba(0,0,0,0.5);
         border: 1px solid #000;
-        padding: 1rem;
+        padding: 0.3rem 1rem;
         font-weight: 400;
         position: absolute;
         top: 4.5rem;
@@ -40,16 +40,25 @@
     }
     .carousel-dots {
         position: relative;
-        margin: -33px 0 5px;
-        height: 24px;
+        margin: -35px 0 5px;
+        height: 26px;
         overflow: hidden;
         z-index: 4;
         li {
             button {
-                outline: 1px dotted;
-                background: #ccc;
+                background: #fff;
                 border: 3px solid #fff;
                 border-radius: 20px;
+                &:hover,
+                &:active,
+                &:focus {
+                    background: $nrl_medium_gray;
+                }
+                &:before {
+                    opacity: 0 !important;
+                    color : transparent !important;
+                    display: none !important;
+                }
             }
             &.carousel-dots-active {
                 button {
@@ -57,6 +66,7 @@
                     &:before {
                         opacity: 0 !important;
                         color : transparent !important;
+                        display: none !important;
                     }
                 }
             }
