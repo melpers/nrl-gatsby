@@ -8,6 +8,10 @@ const onClientEntry = () => {
     } catch (e) {
       // do nothing
     }
+    // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+    if (!(`IntersectionObserver` in window)) {
+      require(`intersection-observer`);
+    }
 }
 
 export { wrapRootElement, onClientEntry }

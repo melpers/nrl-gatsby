@@ -157,6 +157,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
+    `gatsby-background-image`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {

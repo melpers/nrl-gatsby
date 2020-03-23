@@ -6,7 +6,7 @@ const ExpandedText = ({children}) => {
 
     return (
         <div className="expanded-text-wrapper">
-            <div className={isOpen ? "expanded-text expanded-text-open" : "expanded-text"}>
+            <div className={"expanded-text" + (isOpen ? " expanded-text-open" : "")}>
                 {children}
             </div>
             <button className="expanded-text-button" type="button" onClick={toggleOpen}><span>{isOpen ? "Read Less" : "Read More"}</span></button>

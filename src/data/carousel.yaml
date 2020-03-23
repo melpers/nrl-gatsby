@@ -1,0 +1,23 @@
+---
+metadata: 
+  - 
+    template: carousel
+carousel:
+  - 
+    image: ../images/nrl_hero_home.jpg
+    copy: "As a specialized laboratory for the U.S. Navy, we are driven to discover. Our research takes us from the depths of the ocean to the edges of the galaxy, producing powerful results that benefit both military and civilians alike."
+  - 
+    image: ../pages/news/releases/Solar_Orbiter_artist_impression_20190916_1_1280.jpg
+    copy: "NRL-built Camera Provides View into Sun’s Polar Regions."
+    link: /news/releases/nrl-built-camera-provides-view-into-suns-polar-regions/
+    link_type: internal
+  - 
+    image: ../pages/news/releases/2D_Crystals_656x438.jpg
+    copy: "NRL Researchers’ Golden Touch Enhances Quantum Technology."
+    link: /news/releases/nrl-researchers-golden-touch-enhances-quantum-technology/
+    link_type: internal
+  # - 
+  #   image: ../images/nrl_hero_home.jpg
+  #   copy: "This is slide 1. Lorum Ipsum and whatnot. External Link."
+  #   link: https://google.com
+  #   link_type: external

@@ -1,0 +1,95 @@
+.carousel-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    border-bottom: 5px solid $nrl_yellow;
+    margin-bottom: 5px;
+    .gatsby-image-wrapper {
+        padding-top: 60%;
+        position: relative;
+        max-height: 671px;
+        min-height: 350px;
+    }
+    .carousel-frame-block {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        opacity: 0 !important;
+    }
+    .carousel-frame-block-active {
+        opacity: 1 !important;
+    }
+    .carousel-content {
+        background-color: rgba(0,0,0,0.5);
+        border: 1px solid #000;
+        padding: 1rem;
+        font-weight: 400;
+        position: absolute;
+        top: 4.5rem;
+        left: $desktop-left-offset + 30px;
+        max-width: 23rem;
+        z-index: 3;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        p {
+            margin: 0.5rem 0;
+        }
+    }
+    .carousel-dots {
+        position: relative;
+        margin: -33px 0 5px;
+        height: 24px;
+        overflow: hidden;
+        z-index: 4;
+        li {
+            button {
+                outline: 1px dotted;
+                background: #ccc;
+                border: 3px solid #fff;
+                border-radius: 20px;
+            }
+            &.carousel-dots-active {
+                button {
+                    background: #000;
+                    &:before {
+                        opacity: 0 !important;
+                        color : transparent !important;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 70em){
+    .carousel-wrapper {
+        .gatsby-image-wrapper {
+            padding-top: 0;
+            height: 671px;
+            max-height: 671px;
+        }
+    }
+}
+
+@media screen and (max-width: 69.99em) {
+    .carousel-wrapper {
+        .carousel-content {
+            top: 2.5rem;
+            left: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .carousel-wrapper {
+        .carousel-content {
+            padding: 1.1rem 1.25rem 2rem;
+            top: auto;
+            bottom: 0;
+            left: auto;
+            max-width: 100%;
+        }
+    }
+}

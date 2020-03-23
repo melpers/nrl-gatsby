@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "gatsby": "^2.19.16",
+    "gatsby": "^2.19.49",
+    "gatsby-background-image": "^0.10.2",
     "gatsby-image": "^2.2.40",
     "gatsby-plugin-canonical-urls": "^2.1.20",
     "gatsby-plugin-catch-links": "^2.1.25",
@@ -37,6 +38,8 @@
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.3.14",
     "gatsby-transformer-yaml": "^2.2.25",
+    "infinite-react-carousel": "^1.2.11",
+    "intersection-observer": "^0.7.0",
     "lodash": "^4.17.15",
     "netlify-cms-app": "^2.11.21",
     "node-sass": "^4.13.1",
