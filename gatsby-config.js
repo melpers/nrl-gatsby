@@ -46,6 +46,7 @@ module.exports = {
           items: [
             { text: 'News', link: '/news', type: 'internal', depth: '0' },
             { text: 'Videos', link: '/news/videos', type: 'internal', depth: '0' },
+            { text: 'Photo Gallery', link: '/news/photo-gallery', type: 'internal', depth: '0' },
           ],
         },
         {
