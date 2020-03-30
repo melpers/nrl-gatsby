@@ -40,6 +40,7 @@ export const query = graphql`
                     }
                 }
                 name
+                extension
               }
             }
           }
@@ -70,7 +71,8 @@ const GalleryPage = (props) => {
                 images={props.data.allFile.edges.map(({ node }) => ({
                     ...node.childImageSharp.fluid,
                     alt: `${node.name}`,
-                    id: `${node.childImageSharp.id}`
+                    id: `${node.childImageSharp.id}`,
+                    caption: `${node.name}.${node.extension}`
                 }))}
             />
         </div>

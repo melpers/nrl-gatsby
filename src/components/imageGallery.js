@@ -3,7 +3,10 @@ import { Link } from "gatsby";
 
 import Img from 'gatsby-image/withIEPolyfill';
 import { chunk, sum } from 'lodash';
+
+// https://jossmac.github.io/react-images/#/
 import Carousel, { Modal, ModalGateway } from 'react-images';
+
 // https://github.com/ReactTraining/react-media
 import Media from 'react-media';
 
@@ -74,7 +77,7 @@ const ImageGallery = ({images}) => {
                         }))}
                         currentIndex={modalCurrentIndex}
                         // formatters={carouselFormatters}
-                        components={{ FooterCount: () => null }}
+
                     />
                     </Modal>
                 )}
