@@ -7,8 +7,8 @@ backend:
   use_graphql: true
   preview_context: federalist/build
 
-media_folder: static/images/cms
-public_folder: /images/cms
+media_folder: static/images
+public_folder: /images
 publish_mode: editorial_workflow
 logo_url: https://federalist.18f.gov/assets/images/federalist-logo.png
 
