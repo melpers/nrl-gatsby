@@ -13,7 +13,7 @@ publish_mode: editorial_workflow
 logo_url: https://federalist.18f.gov/assets/images/federalist-logo.png
 
 collections:
-  - name: News Releases
+  - name: releases
     label: News Releases
     label_singular: News Release
     folder: src/pages/news/releases
@@ -40,5 +40,5 @@ collections:
       - { label: "Hero Color", name: "hero_color", widget: "hidden", default: "yellow" }
       - { label: "Hero Size", name: "hero_size", widget: "hidden", default: "small" }
       - { label: "Template", name: "template", widget: "hidden", default: "news-article" }
-      - { label: "Slug", name: "slug", widget: "hidden", default: {{slug}} }
+      - { label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}" }
       - { label: 'Body', name: 'body', widget: 'markdown' }
