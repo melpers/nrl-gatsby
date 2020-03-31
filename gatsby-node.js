@@ -66,6 +66,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       path: String
       phone: String
       sidebar_exclude: Boolean
+      slug: String
       template: String
       title: String
       date: Date
@@ -184,6 +185,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             frontmatter {
               title
+              slug
             }
             id
           }
@@ -192,7 +194,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   newsResponse.data.allMarkdownRemark.edges.forEach(edge => {
-    let slug = `${_.kebabCase(edge.node.frontmatter.title)}/`
+    let slug = `${ edge.node.frontmatter.slug === null ? _.kebabCase(edge.node.frontmatter.title) : edge.node.frontmatter.slug }/`;
+    console.log(slug);
+    //slug = edge.node.frontmatter.slug ? edge.node.frontmatter.slug : `${_.kebabCase(edge.node.frontmatter.title)}/`
     createPage({
         component: newsTemplate,
         path: `/news/releases/${slug}`,

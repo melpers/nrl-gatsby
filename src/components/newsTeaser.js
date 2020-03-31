@@ -6,7 +6,8 @@ const _ = require("lodash");
 
 const NewsTeaser = ({teaser}) => {
     const teaserData = teaser.node.frontmatter;
-    let slug = "/news/releases/" + _.kebabCase(teaserData.title) + "/";
+    // let slug = "/news/releases/" + _.kebabCase(teaserData.title) + "/";
+    let slug = `${ "/news/releases/" + (teaserData.slug === null ? _.kebabCase(teaserData.title) : teaserData.slug) }/`;
     return (
         <div className="teaser-block">
             <div className="image-wrapper">

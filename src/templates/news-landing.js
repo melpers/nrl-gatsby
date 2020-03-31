@@ -32,17 +32,18 @@ export const query = graphql`
             edges {
                 node {
                     frontmatter {
-                    author
-                    date
-                    title
-                    teaser
-                    teaser_image {
+                      author
+                      date
+                      title
+                      teaser
+                      teaser_image {
                         childImageSharp {
                             fluid(maxWidth: 548) {
                                 ...GatsbyImageSharpFluid_withWebp
                             }
                         }
                       }
+                      slug
                     }
                 }
             }

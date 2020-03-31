@@ -7,22 +7,23 @@ backend:
   use_graphql: true
   preview_context: federalist/build
 
-media_folder: static/images
-public_folder: /images
+media_folder: static/images/cms
+public_folder: /images/cms
 publish_mode: editorial_workflow
 logo_url: https://federalist.18f.gov/assets/images/federalist-logo.png
 
 collections:
-  - name: cms-test
-    label: CMS Test Posts
-    label_singular: CMS Test Post
-    folder: src/pages/cms-test
+  - name: News Releases
+    label: News Releases
+    label_singular: News Release
+    folder: src/pages/news/releases
     create: true
-    preview_path: 'cms-test/{{slug}}'
+    preview_path: 'news/releases/{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'string' }
       - {
           label: 'Date',
           name: 'date',
@@ -31,4 +32,13 @@ collections:
           dateFormat: 'MMMM D, YYYY',
           timeFormat: false
         }
+      - { label: 'Teaser', name: 'teaser', widget: 'string' }
+      - { label: 'Teaser Image', name: 'teaser_image', widget: 'image', allow_multiple: false }
+      - { label: 'Teaser Image Alt', name: 'teaser_image_alt', widget: 'string' }
+      - { label: 'Categories', name: 'categories', widget: 'select', multiple: true, options: ["General","Material Science","Meteorology","Navy","Ocean and Atmospheric Science","Oceanography","Space","Space Science","Technology","Testing"] }
+      - { label: "Hero Image", name: "hero_image", widget: "hidden", default: "../../../images/header_faceted.jpg" }
+      - { label: "Hero Color", name: "hero_color", widget: "hidden", default: "yellow" }
+      - { label: "Hero Size", name: "hero_size", widget: "hidden", default: "small" }
+      - { label: "Template", name: "template", widget: "hidden", default: "news-article" }
+      - { label: "Slug", name: "slug", widget: "hidden", default: {{slug}} }
       - { label: 'Body', name: 'body', widget: 'markdown' }
