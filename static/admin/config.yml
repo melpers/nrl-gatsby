@@ -32,6 +32,7 @@ collections:
           dateFormat: 'MMMM D, YYYY',
           timeFormat: false
         }
+      - { label: "URL SLug", name: "slug", widget: "string" }
       - { label: 'Teaser', name: 'teaser', widget: 'string' }
       - { label: 'Teaser Image', name: 'teaser_image', widget: 'image', allow_multiple: false }
       - { label: 'Teaser Image Alt', name: 'teaser_image_alt', widget: 'string' }
@@ -40,5 +41,4 @@ collections:
       - { label: "Hero Color", name: "hero_color", widget: "hidden", default: "yellow" }
       - { label: "Hero Size", name: "hero_size", widget: "hidden", default: "small" }
       - { label: "Template", name: "template", widget: "hidden", default: "news-article" }
-      - { label: "Slug", name: "slug", widget: "hidden", default: "{{field.title}}" }
       - { label: 'Body', name: 'body', widget: 'markdown' }
