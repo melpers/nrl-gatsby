@@ -34,7 +34,7 @@ collections:
         }
       - { label: "URL SLug", name: "slug", widget: "string" }
       - { label: 'Teaser', name: 'teaser', widget: 'string' }
-      - { label: 'Teaser Image', name: 'teaser_image', widget: 'image', allow_multiple: false }
+      - { label: 'Teaser Image', name: 'teaser_image', widget: 'string' }
       - { label: 'Teaser Image Alt', name: 'teaser_image_alt', widget: 'string' }
       - { label: 'Categories', name: 'categories', widget: 'select', multiple: true, options: ["General","Material Science","Meteorology","Navy","Ocean and Atmospheric Science","Oceanography","Space","Space Science","Technology","Testing"] }
       - { label: "Hero Image", name: "hero_image", widget: "hidden", default: "../../../images/header_faceted.jpg" }
