@@ -195,7 +195,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   newsResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let slug = `${ edge.node.frontmatter.slug === null ? _.kebabCase(edge.node.frontmatter.title) : edge.node.frontmatter.slug }/`;
-    console.log("*** Slug: " + slug);
     createPage({
         component: newsTemplate,
         path: `/news/releases/${slug}`,
