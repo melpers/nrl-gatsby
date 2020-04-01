@@ -11,7 +11,6 @@ import { Location } from '@reach/router'
 
 import truncate from "lodash/truncate";
 import './layout.css';
-import Debug from './debug';
 
 const mainContent = 'main-content';
 
@@ -121,7 +120,6 @@ const Layout = ({ pageMeta, children }) => {
                     <div className="usa-overlay" />
                     <Header {...data.site.siteMetadata} />
                     <main id={mainContent}>
-                      <Debug data={location} />
                       {children}
                     </main>
                     <Footer {...data.site.siteMetadata} />
