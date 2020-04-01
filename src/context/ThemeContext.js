@@ -22,6 +22,7 @@ class ThemeProvider extends React.Component {
                     let pageName = "";
 
                     let route = location.pathname;
+                    console.log('route: ' + route);
                     // Adjust the URI for the Federalist preview URLs
                     route = cleanPreviewUri(route);
 
