@@ -29,13 +29,14 @@ const ImageGallery = ({images}) => {
             <Media 
                 queries={{
                     small: "(max-width: 599px)",
-                    medium: "(min-width: 600px) and (max-width: 799px)",
-                    large: "(min-width: 800px)"
+                    medium: "(min-width: 600px)"
+                    // medium: "(min-width: 600px) and (max-width: 799px)",
+                    // large: "(min-width: 800px)"
                 }}
                 onChange={matches => {
                     matches.small && setItemsPerRow(2);
                     matches.medium && setItemsPerRow(3);
-                    matches.large && setItemsPerRow(4);
+                    // matches.large && setItemsPerRow(4);
                 }}
             >
             </Media>
