@@ -1,0 +1,7 @@
+{
+    "name": "gatsby-source-dvids-images",
+    "private": true,
+    "description": "A source plugin for using the DVIDS search API to fetch images. This implementation will pull all images from the UNIT defined in the settings, as well as all images associated with the UNIT's Press Releases.",
+    "version": "0.1.0"
+  }
+  

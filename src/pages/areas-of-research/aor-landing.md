@@ -37,7 +37,7 @@ template: aor-landing
 - Optical Sciences / Quantum Research
 
 ##Power & Energy##
-- Biomoleculer Science & Engineering
+- [Biomoleculer Science & Engineering](/areas-of-research/biomoleculer-science-engineering)
 - Electronic Sciences & Technology
 - Plasma Physics
 

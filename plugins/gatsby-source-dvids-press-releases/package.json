@@ -1,0 +1,6 @@
+{
+    "name": "gatsby-source-dvids-press-releases",
+    "private": true,
+    "description": "A source plugin for using the DVIDS asset API to fetch all press releases of the UNIT defined in the settings.",
+    "version": "0.1.0"
+}

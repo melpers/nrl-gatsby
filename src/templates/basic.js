@@ -20,6 +20,7 @@ export const query = graphql`
                     }
                   }
                 }
+                image_float
                 template
                 code_name
               }
@@ -29,6 +30,7 @@ export const query = graphql`
 `
 
 const Basic = (props) => {
+    const imageFloatClass = props.data.markdownRemark.frontmatter.image_float ? "image-float-" + props.data.markdownRemark.frontmatter.image_float : "";
   return (
     <Layout
       pageMeta={{
@@ -47,7 +49,7 @@ const Basic = (props) => {
       <div className={"content-wrapper template-" + props.data.markdownRemark.frontmatter.template}>
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
-          <div className="md-content image-float" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+          <div className={"md-content image-float " + imageFloatClass} dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
         </div>
       </div>
     </Layout>

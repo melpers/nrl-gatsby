@@ -70,6 +70,19 @@
             max-width: 33% !important;
             margin: 0 2% 5px 0 !important;
         }
+        &.image-float-right {
+            .gatsby-resp-image-wrapper {
+                float: right;
+                margin: 0 0 5px 2% !important;
+            }
+        }
+        &.image-float-center {
+            .gatsby-resp-image-wrapper {
+                float: none;
+                max-width: 80% !important;
+                margin: 0 auto 5px !important; 
+            }
+        }
     }
 }
 
@@ -269,6 +282,22 @@ a.image-box-link {
             .image-box {
                 .image-box-content {
                     position: relative;
+                }
+            }
+        }
+    }
+    .md-content {
+        &.image-float {
+            .gatsby-resp-image-wrapper {
+                float: none;
+                max-width: 80% !important;
+                margin: 0 auto 5px !important; 
+            }
+            &.image-float-right {
+                .gatsby-resp-image-wrapper {
+                    float: none;
+                    max-width: 80% !important;
+                    margin: 0 auto 5px !important; 
                 }
             }
         }

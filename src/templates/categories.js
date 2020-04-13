@@ -7,9 +7,10 @@ import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
 import NewsTeaser from "components/newsTeaser";
 import VideoTeaser from "components/videoTeaser";
+import NewsDvidsTeaser from "components/newsDvidsTeaser";
 
 export const query = graphql`
-    query ($category: String!) {
+    query ($category: String!, $categoryRegex: String!) {
         allMarkdownRemark(
             filter: {frontmatter: {categories: {in: [$category]}, template: {in: ["news-article", "news-video"]}}},
             sort: {order: DESC, fields: frontmatter___date}
@@ -24,12 +25,37 @@ export const query = graphql`
                         teaser
                         teaser_image {
                             childImageSharp {
-                                fluid(maxWidth: 548) {
+                                fluid( maxWidth: 884, maxHeight: 576, srcSetBreakpoints: [ 884, 442 ] ) {
                                     ...GatsbyImageSharpFluid_withWebp
                                 }
                             }
                         }
                     }
+                }
+            }
+        },
+        allDvidsPressReleases (
+            filter: { keywords: {regex: $categoryRegex} }
+        ) {
+            edges {
+                node {
+                    title
+                    description
+                    date_published
+                    formatted_credit
+                    teaser_image {
+                        description
+                        dvidsImage {
+                            childImageSharp {
+                                fluid( maxWidth: 884, maxHeight: 576, srcSetBreakpoints: [ 884, 442 ] ) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
+                            }
+                            publicURL
+                        }
+                    }
+                    slug
+                    id
                 }
             }
         },
@@ -73,6 +99,9 @@ const Category = (props) => {
         <div className="main-column">
           {props.data.allMarkdownRemark.edges.map((teaser, idx) => (
               teaser.node.frontmatter.template === "news-article" ? <NewsTeaser teaser={teaser} key={idx} /> : <VideoTeaser teaser={teaser} key={idx} />
+          ))}
+          {props.data.allDvidsPressReleases.edges.map((teaser, idx) => (
+            <NewsDvidsTeaser teaser={teaser} key={idx} />
           ))}
         </div>
       </div>

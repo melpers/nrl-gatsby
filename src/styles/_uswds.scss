@@ -165,7 +165,7 @@ body {
             }
             .usa-nav {
                 border-top: none;
-                padding-top: 53px;
+                padding-top: 15px;
                 width: auto;
                 float: none;
                 position: inherit;
@@ -181,13 +181,14 @@ body {
             }
             .usa-accordion.usa-nav__primary {
                  width: auto;
+                 margin-top: 38px;
             }
             .usa-nav__close + .usa-search {
                  clear: none;
             }
             .usa-search {
-                margin-top: 0;
-                max-width: 120px;
+                margin-top: -38px;
+                max-width: 200px;
             }
             .usa-nav__primary {
                 .usa-nav__primary-item {

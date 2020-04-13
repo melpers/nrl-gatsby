@@ -1,6 +1,6 @@
-// require("dotenv").config({
-//   path: `.env`,
-// })
+require("dotenv").config({
+  path: `.env`,
+})
 
 const path = require('path');
 
@@ -102,13 +102,20 @@ module.exports = {
   // Note: it must *not* have a trailing slash.
   pathPrefix: process.env.BASEURL || '/',
   plugins: [
-    // {
-    //   resolve: 'gatsby-source-dvids',
-    //   options: {
-    //       unit: 'NRL',
-    //       key: process.env.DVIDS_KEY
-    //   }
-    // },
+    {
+      resolve: 'gatsby-source-dvids-images',
+      options: {
+          unit: 'NRL',
+          key: process.env.DVIDS_KEY
+      }
+    },
+    {
+        resolve: 'gatsby-source-dvids-press-releases',
+        options: {
+            unit: 'NRL',
+            key: process.env.DVIDS_KEY
+        }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -137,36 +144,36 @@ module.exports = {
         path: path.join(__dirname, `src`, `emergency`),
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-remote-images`,
-    //   /*
-    //       * NOTE: When you have nested results the image path does not work with a "results.image" format.
-    //       * You need to set the nodeType to the parent of the field you need to reference for the path.
-    //       * i.e. given this query:
-    //           alldvidsImage {
-    //               edges {
-    //                   node {
-    //                       results {
-    //                       image
-    //                       }
-    //                   }
-    //               }
-    //           }
-    //       * you need to set the options like so:
-    //           nodeType: 'results',
-    //           imagePath: 'image',
-    //       * and NOT like
-    //           nodeType: 'dvidsImage',
-    //           imagePath: 'results.image',
-    //   */
-    //   options: {
-    //       nodeType: 'DvidsImage',
-    //       imagePath: 'image_url',
-    //       // OPTIONAL: Name you want to give new image field on the node.
-    //       // Defaults to 'localImage'.
-    //       name: 'dvidsImage',
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      /*
+          * NOTE: When you have nested results the image path does not work with a "results.image" format.
+          * You need to set the nodeType to the parent of the field you need to reference for the path.
+          * i.e. given this query:
+              alldvidsImage {
+                  edges {
+                      node {
+                          results {
+                          image
+                          }
+                      }
+                  }
+              }
+          * you need to set the options like so:
+              nodeType: 'results',
+              imagePath: 'image',
+          * and NOT like
+              nodeType: 'dvidsImage',
+              imagePath: 'results.image',
+      */
+      options: {
+          nodeType: 'DvidsImage',
+          imagePath: 'image_url',
+          // OPTIONAL: Name you want to give new image field on the node.
+          // Defaults to 'localImage'.
+          name: 'dvidsImage',
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

@@ -11,7 +11,7 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import Media from 'react-media';
 
 const ImageGallery = ({images}) => {
-    const [itemsPerRow, setItemsPerRow] = useState(4);
+    const [itemsPerRow, setItemsPerRow] = useState(3);
     // Split images into groups of the given size
     const rows = chunk(images, itemsPerRow);
 
@@ -54,7 +54,12 @@ const ImageGallery = ({images}) => {
                             openModal((rowIndex * itemsPerRow) + imageIndexInRow);
                         }}
                     >
-                        <div className="gallery-img-wrapper" style={{width: `${(image.aspectRatio / rowAspectRatioSum) * 100}%`}}>
+                        <div className="gallery-img-wrapper" style={
+                            {
+                                width: `${(image.aspectRatio / rowAspectRatioSum) * 100}%`,
+                                maxWidth: `${(row.length / itemsPerRow) * 100}%` //Sets a limit on width when there are fewer than the max number of items per row.
+                            }
+                        }>
                             <Img
                                 key={image.src}
                                 fluid={image}

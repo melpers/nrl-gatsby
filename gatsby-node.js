@@ -1,6 +1,5 @@
 const path = require('path');
 const _ = require("lodash");
-// const webpack = require('webpack');
 
 const uswdsRoot = 'node_modules/uswds';
 const shims = 'shims';
@@ -59,6 +58,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       fax: String
       hero_color: String
       hero_size: String
+      image_float: String
       name: String
       nav_title: String
       nav_order: Int
@@ -72,6 +72,42 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       date: Date
       teaser: String
       categories: [String]
+    }
+    type DvidsPressReleases implements Node {
+        dvids_id: String
+        title: String
+        slug: String
+        description: String
+        body: String
+        keywords: String
+        date_published: Date
+        date: Date
+        category: String
+        unit_name: String
+        branch: String
+        timestamp: Date
+        url: String
+        formatted_credit: String
+        related_video: [dvidsVideo]
+        teaser_image___NODE: Node!
+        related_images___NODE: Node!
+    }
+    type dvidsVideo {
+        id: String
+        type: String
+        title: String
+        description: String
+        keywords: String
+        date_published: Date
+        date: Date
+        category: String
+        unit_id: String
+        unit_name: String
+        branch: String
+        timestamp: Date
+        image: String
+        url: String
+        aspect_ratio: String
     }
   `
   createTypes(typeDefs)
@@ -205,6 +241,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+    // **** DVIDS NEWS RELEASES ****
+    const allDvidsPressReleases = path.resolve('./src/templates/dvids-releases.js');
+    const newsDvidsResponse = await graphql(`
+        query {
+            allDvidsPressReleases {
+                edges {
+                    node {
+                        id
+                        slug
+                        title
+                    }
+                }
+            }
+        }
+    `);
+    newsDvidsResponse.data.allDvidsPressReleases.edges.forEach(edge => {
+      createPage({
+          component: allDvidsPressReleases,
+          path: `/news/dvids-releases/${edge.node.slug}`,
+          context: {
+              id: edge.node.id,
+              sidebar_exclude: true
+          }
+      });
+    });
+
   // **** VIDEOS ****
   const videoTemplate = path.resolve('./src/templates/news-video.js');
   const videoResponse = await graphql(`
@@ -283,11 +345,38 @@ excludeCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
     }
   `);
 
+  const keywordsResponse = await graphql(`
+  {
+    allDvidsPressReleases (
+        filter: {
+            keywords: {ne: "null"}
+        }
+    ) {
+        edges {
+          node {
+            keywords
+          }
+        }
+      }
+  }
+  `);
+
   const newsPosts = categoriesResponse.data.allMarkdownRemark.edges;
   // Iterate through each post, putting all found categories into `categories`
   _.each(newsPosts, edge => {
     if (_.get(edge, "node.frontmatter.categories")) {
       categories = categories.concat(edge.node.frontmatter.categories)
+    }
+  });
+
+  const dvidsPosts = keywordsResponse.data.allDvidsPressReleases.edges;
+  // Iterate through each post, putting all found categories into `categories`
+  _.each(dvidsPosts, edge => {
+    if (_.get(edge, "node.keywords")) {
+      keywordsArray = _.split(edge.node.keywords, ",");
+      keywordsArray.forEach (keyword => {
+        categories = categories.concat(_.trim(keyword));
+      })
     }
   });
 
@@ -299,11 +388,13 @@ excludeCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let slug = `/news/categories/${_.kebabCase(category)}/`;
     let title = category.charAt(0).toUpperCase() + category.slice(1);
     let nav_title = title.replace(" and ", " & ");
+    let categoryRegex = "/" + category + "/"
     createPage({
       path: slug,
       component: categoryTemplate,
       context: {
         category,
+        categoryRegex,
         title,
         nav_title
       },

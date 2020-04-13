@@ -5,11 +5,11 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
-import ImageGallery from "components/imageGallery";
+import NewsDvidsTeaser from "components/newsDvidsTeaser";
 
 export const query = graphql`
     query ($id: String!) {
-        markdownRemark (id: {eq: $id}) {
+        markdownRemark (id: {eq: $id}){
             frontmatter {
                 title
                 hero_size
@@ -22,34 +22,41 @@ export const query = graphql`
                   }
                 }
                 template
-                code_name
               }
             html
         },
-        allDvidsImage (
+        allDvidsPressReleases (
             filter: {
-                unit_name: {eq: "U.S. Naval Research Laboratory"}
+                teaser_image: {dvids_id: {ne: null}
             }
-        ) {
+        }) {
             edges {
                 node {
+                    title
                     description
-                    dvidsImage {
-                        childImageSharp {
-                            id
-                            fluid {
-                                ...GatsbyImageSharpFluid
-                                originalImg
+                    date_published
+                    formatted_credit
+                    teaser_image {
+                        description
+                        dvidsImage {
+                            childImageSharp {
+                                fluid( maxWidth: 884, maxHeight: 576, srcSetBreakpoints: [ 884, 442 ] ) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
                             }
+                            publicURL
                         }
                     }
+                    slug
+                    id
                 }
             }
         }
     }
 `
 
-const GalleryPage = (props) => {
+const NewsLanding = (props) => {
+  const teasers = props.data.allDvidsPressReleases;
   return (
     <Layout
       pageMeta={{
@@ -68,19 +75,14 @@ const GalleryPage = (props) => {
       <div className={"content-wrapper template-" + props.data.markdownRemark.frontmatter.template}>
         <Sidebar uri={props.uri}></Sidebar>
         <div className="main-column">
-            <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-            <ImageGallery
-                images={props.data.allDvidsImage.edges.map(({ node }) => ({
-                    ...node.dvidsImage.childImageSharp.fluid,
-                    alt: `${node.description}`,
-                    id: `${node.dvidsImage.childImageSharp.id}`,
-                    caption: `${node.description}`
-                }))}
-            />
+          <div className="md-content image-float" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+          {teasers.edges.map((teaser, idx) => (
+            <NewsDvidsTeaser teaser={teaser} key={idx} />
+          ))}
         </div>
       </div>
     </Layout>
   );
 };
 
-export default GalleryPage;
+export default NewsLanding;
