@@ -55,71 +55,92 @@ export const query = graphql`
               }
             html
         },
-        leadership: allMarkdownRemark(filter: {frontmatter: {template: {eq: "leadership"}, code: {eq: $code}}}) {
-          edges {
-            node {
-              frontmatter {
-                name
-                title
-                email
-                fax
-                phone
-                picture {
-                  childImageSharp {
-                    fluid(maxWidth: 800) {
-                      ...GatsbyImageSharpFluid_withWebp
+        leadership: allMarkdownRemark(
+            filter: {frontmatter: {template: {eq: "leadership"}, code: {eq: $code}}},
+            sort: {fields: frontmatter___order, order: ASC}
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        name
+                        title
+                        email
+                        fax
+                        phone
+                        picture {
+                        childImageSharp {
+                            fluid(maxWidth: 800) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                            publicURL
+                        }
                     }
-                  }
-                  publicURL
+                    html
+                    id
                 }
-              }
-              html
-              id
             }
-          }
-        }
+        },
+        footer: markdownRemark(frontmatter: {template: {eq: "division-landing-footer"}, code: {eq: $code}}) {
+            html
+        },
     }
 `
 const DivisionLanding = (props) => {
-  return (
-    <Layout
-      pageMeta={{
-        title: props.data.division.frontmatter.title,
-      }}
-    >
-      <HeroImage frontmatter={props.data.division.frontmatter}/>
-      <div className="title-block">
-        <div className="content-wrapper">
-          <div className="title-content">
-            <h1>{props.data.division.frontmatter.title}</h1>
-            <Breadcrumbs uri={props.uri} title={props.data.division.frontmatter.title}></Breadcrumbs>
-          </div>
-        </div>
-      </div>
-      <div className={"content-wrapper template-" + props.data.division.frontmatter.template}>
-        <Sidebar uri={props.uri}></Sidebar>
-        <div className="main-column">
+    return (
+        <Layout
+        pageMeta={{
+            title: props.data.division.frontmatter.title,
+        }}
+        >
+            <HeroImage frontmatter={props.data.division.frontmatter}/>
+            <div className="title-block">
+                <div className="content-wrapper">
+                <div className="title-content">
+                    <h1>{props.data.division.frontmatter.title}</h1>
+                    <Breadcrumbs uri={props.uri} title={props.data.division.frontmatter.title}></Breadcrumbs>
+                </div>
+                </div>
+            </div>
+            <div className={"content-wrapper template-" + props.data.division.frontmatter.template}>
+                <Sidebar uri={props.uri}></Sidebar>
+                <div className="main-column">
 
-          <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.division.html }} />
+                <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.division.html }} />
 
-          <DivisionHighlights 
-            code={props.data.division.frontmatter.code}
-            news_image={props.data.division.frontmatter.news_image}
-            publications_image={props.data.division.frontmatter.publications_image}
-            research_image={props.data.division.frontmatter.research_image}
-            videos_image={props.data.division.frontmatter.videos_image}
-          />
+                {props.data.division.frontmatter.news_image ? 
+                    <DivisionHighlights 
+                        code={props.data.division.frontmatter.code}
+                        news_image={props.data.division.frontmatter.news_image}
+                        publications_image={props.data.division.frontmatter.publications_image}
+                        research_image={props.data.division.frontmatter.research_image}
+                        videos_image={props.data.division.frontmatter.videos_image}
+                    />
+                    :
+                    ""
+                }
 
-          <h2>Leadership</h2>
-          {props.data.leadership.edges.map((node, idx) => (
-                <Leadership key={idx} data={node} />
-          ))}
+                {props.data.leadership ? 
+                    <React.Fragment>
+                        <h2>Leadership</h2>
+                        {props.data.leadership.edges.map((node, idx) => (
+                            <Leadership key={idx} data={node} />
+                        ))}
+                    </React.Fragment>
+                    :
+                    ""
+                }
 
-        </div>
-      </div>
+                {props.data.footer ? 
+                    <div className="md-content-footer" dangerouslySetInnerHTML={{ __html: props.data.footer.html }} />
+                    :
+                    ""
+                }
 
-    </Layout>
-  );
+                </div>
+            </div>
+        </Layout>
+    );
 };
 
 export default DivisionLanding;
