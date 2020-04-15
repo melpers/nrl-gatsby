@@ -1,0 +1,12 @@
+---
+metadata: 
+  - 
+    template: publications
+    code: "example0000"
+publications:
+  - 
+    author: "Example file only"
+    title: "Needed to set the code as a string"
+    journal: "Do not delete"
+    year: 2020
+    pub-number: "0000"

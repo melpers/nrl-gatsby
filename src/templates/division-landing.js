@@ -9,7 +9,7 @@ import DivisionHighlights from 'components/divisionHighlights';
 import Leadership from 'components/leadership';
 
 export const query = graphql`
-    query ($id: String!, $code: Int!) {
+    query ($id: String!, $code: String!) {
         division: markdownRemark (id: {eq: $id}) {
             frontmatter {
                 title

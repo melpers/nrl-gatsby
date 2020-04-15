@@ -47,12 +47,19 @@ module.exports = {
 module.exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type dataYaml implements Node {
+        metadata: yamlMetadata
+    }
+    type yamlMetadata {
+        code: String
+        template: String
+    }
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
     }
     type Frontmatter {
       active: Boolean
-      code: Int
+      code: String
       code_name: String
       email: String
       fax: String
@@ -198,8 +205,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   baseCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let baseCodeTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
-    // The CSV importer saves code as a string, so we need to cast it to an Int
-    let pub_code = edge.node.frontmatter.code.toString();
     createPage({
         component: baseCodeTemplate,
         path: edge.node.frontmatter.path,
@@ -210,7 +215,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
             title: edge.node.frontmatter.title,
             nav_title: edge.node.frontmatter.nav_title,
             nav_order: edge.node.frontmatter.nav_order,
-            pub_code: pub_code
         }
     });
   });
