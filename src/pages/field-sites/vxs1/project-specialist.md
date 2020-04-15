@@ -12,8 +12,8 @@ image_float: right
 Project Specialist. A non-aeronautically designated individual (military or civilian) embarked in a government aircraft for the purpose of operating aircraft systems, operating specially designed equipment, or observing aircraft or crew performance, etc. when required in conjunction with assigned duties or contractual responsibilities. Project specialists are not responsible for normal aircrew duties.
 To be properly qualified to fly aboard NRL aircraft, you will need two things:
 
-A current Class II FAA up-chit and
-Documentation of successfully completing the NP4 survival swim and physiology training course.
+A current [Class II FAA up-chit](https://www.faa.gov/pilots/amelocator/) and
+Documentation of successfully completing the [NP4 survival swim and physiology training course](https://www.nrl.navy.mil/vxs1/project-specialist/np4-training).
 
 Your branch head should initiate the Project Specialist designation by providing the following information to the Project Swim/Phys Coordinator (202-767-2271) who will make a reservation for you to attend training:
 
@@ -32,7 +32,7 @@ The purpose of aviation physiology training is to familiarize all prospective an
 
 NP4, is required for all project specialists and is valid for 48 months in the same category aircraft.
 
-View the ASTC PAX Training Schedule
+[View the ASTC PAX Training Schedule](http://www.med.navy.mil/sites/nmotc/nsti/Pages/ASTCPatuxentRiver.aspx)
 
 Note: The first time that you complete this training, you will need to attend class III swim training and the NP4 training. After that, you will only need to attend the second day of training (NP4). If you have been previously qualified, but feel that you may need more practice with the swim strokes, etc., please attend both days.
 

@@ -36,6 +36,14 @@
 }
 
 .md-content {
+    a {
+        border-bottom: 2px solid;
+    }
+    .image-gallery-block {
+        a {
+            border-bottom: none;
+        }
+    }
     &.list-style-dash {
         ul {
             list-style-type: none;
