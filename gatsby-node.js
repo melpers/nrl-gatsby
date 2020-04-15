@@ -198,6 +198,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `);
   baseCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
     let baseCodeTemplate = path.resolve('./src/templates/' + edge.node.frontmatter.template + '.js');
+    // The CSV importer saves code as a string, so we need to cast it to an Int
+    let pub_code = edge.node.frontmatter.code.toString();
     createPage({
         component: baseCodeTemplate,
         path: edge.node.frontmatter.path,
@@ -207,7 +209,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
             sidebar_exclude: edge.node.sidebar_exclude,
             title: edge.node.frontmatter.title,
             nav_title: edge.node.frontmatter.nav_title,
-            nav_order: edge.node.frontmatter.nav_order
+            nav_order: edge.node.frontmatter.nav_order,
+            pub_code: pub_code
         }
     });
   });
