@@ -51,7 +51,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
         metadata: yamlMetadata
     }
     type yamlMetadata {
-        code: String
+        code: Int
         template: String
     }
     type MarkdownRemark implements Node {
@@ -59,7 +59,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
     }
     type Frontmatter {
       active: Boolean
-      code: String
+      code: Int
       code_name: String
       email: String
       fax: String

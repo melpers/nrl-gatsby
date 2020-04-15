@@ -8,7 +8,7 @@ import Breadcrumbs from 'components/breadcrumbs';
 import Datasort from 'react-data-sort';
 
 export const query = graphql`
-    query ($id: String!, $code: String!) {
+    query ($id: String!, $code: Int!) {
         markdownRemark (id: {eq: $id}) {
             frontmatter {
                 title
@@ -39,24 +39,12 @@ export const query = graphql`
                 journal
                 author
             }
-        },
-        allPublicationsCsv (filter: {code: {eq: $code}}) {
-            edges {
-                node {
-                    author
-                    journal
-                    pub_number
-                    title
-                    year
-                }
-            }
         }
     }
 `
 
 const Index = (props) => {
-//   let publicationsData = props.data.dataYaml.publications;
-  let publicationsData = props.data.allPublicationsCsv.edges;
+  let publicationsData = props.data.dataYaml.publications;
   const [sortBy, setSortBy] = useState("year");
   const [direction, setDirection] = useState("desc");
   const filters = ["author", "year", "title", "pub_number"];
@@ -114,17 +102,11 @@ const Index = (props) => {
                 direction={direction}
                 render={({ data }) => (
                   <ul>
-                    {/* {data.map((publication) => (
-                      <li key={publication.pub_number}>
+                    {data.map((publication) => (
+                    <li key={publication.pub_number}>
                         {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
                         <span className='pub-number'>{" (Publication # " + publication.pub_number + ")"}</span>
-                      </li>
-                    ))} */}
-                    {data.map((publication) => (
-                      <li key={publication.node.pub_number}>
-                        {publication.node.author + " (" + publication.node.year + ") " + publication.node.title + " " + publication.node.journal}
-                        <span className='pub-number'>{" (Publication # " + publication.node.pub_number + ")"}</span>
-                      </li>
+                    </li>
                     ))}
                   </ul>
                 )}

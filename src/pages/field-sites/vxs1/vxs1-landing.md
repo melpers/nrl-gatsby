@@ -5,7 +5,7 @@ nav_title: VXS-1
 hero_image: ./vxs1-header.jpg
 hero_color: yellow
 hero_size: small
-code: 99991
+code: 1600
 code_name: Scientific Development Squadron (VXS) 1
 template: division-landing
 ---
