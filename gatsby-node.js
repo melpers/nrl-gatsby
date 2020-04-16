@@ -123,9 +123,9 @@ module.exports.createSchemaCustomization = ({ actions }) => {
 module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if(node.internal.type === "MarkdownRemark") {
-      createNodeField({
-          node
-      });
+    createNodeField({
+      node
+    });
   }
 }
 

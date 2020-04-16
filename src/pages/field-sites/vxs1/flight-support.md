@@ -23,6 +23,11 @@ These aircraft are the sole airborne platforms for numerous projects such as bat
 
 **Maintenance Branch** - Responsible for the maintenance, record keeping, reporting, and management of the assigned science and technology (S&T) modified NP-3C aircraft in accordance with applicable specifications and directives. The branch ensures compliance with maintenance, safety, and security procedures as well as adherence to established programs to prevent fuel, hydraulic, and oil contamination and foreign object damage; and to ensure effective corrosion control. The Maintenance Branch maintains liaison with other support branches to ensure aircraft can meet research requirements.
 
+![RC-12M Picture](RC-12M.jpg)
+
 **Safety/NATOPS/Training Branch**  - Ensures compliance with governing safety directives and Navy programs for aviation commands to include aircraft mishap reporting procedures and required proficiency drills. The Branch administers the Naval Air Training and Operating Procedures Standardization (NATOPS) Program for all assigned Code military and flight support aircrew and project specialists to include ground and in-flight evaluations. Branch personnel ensure compliance with all general military training requirements as well as command specified training.
 
+![NP-3C Picture](NP-3C.jpg)
+
 **Configurations Branch** - Coordinates with research project sponsor technical staff, Maintenance Branch and the Operations/Projects Branch to achieve integration of research project equipment onto assigned aircraft. Branch personnel coordinate with customer technical staff to identify specific equipment needs (space, weight, power, etc.). Additionally, branch personnel interact with Naval Air Systems Command (NAVAIR) counterparts to arrange and obtain equipment installation approvals and flight clearances as well as with organic and external service providers to facilitate the installation and/or removal of specialized project equipment and support infrastructure. The branch provides long-range planning capabilities to avoid conflict among future projects and to enable satisfaction of even the most demanding project requirements. The Configurations Branch maintains liaison with other codes to ensure assigned personnel can meet anticipated research requirements.
+

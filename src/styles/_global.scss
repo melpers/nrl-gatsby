@@ -1,101 +1,101 @@
 * {
-    font-family: Arial,sans-serif;
+  font-family: Arial,sans-serif;
 }
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
-    #main-content {
-        position: relative;
-    }
+  #main-content {
+    position: relative;
+  }
 }
 .content-wrapper {
-    padding: 0 2em;
-    margin: 0 auto;
-    max-width: 79rem;
+  padding: 0 2em;
+  margin: 0 auto;
+  max-width: 79rem;
 }
 .filler {
-    border-top: 15px solid $footer_border_color;
-    margin-top: 10px;
+  border-top: 15px solid $footer_border_color;
+  margin-top: 10px;
 }
 .no-break {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 .title-block {
-    background: $nrl_gray;
-    margin-bottom: 2.5rem;
-    .content-wrapper {
-        .title-content {
-            padding-left: $desktop-left-offset;
-            h1 {
-                margin: 0;
-                font-weight: 300;
-                font-size: 1.8em;
-                color: #fff;
-                line-height: 40px;
-                display: inline-block;
-                margin-right: 20px;
-            }
-        }
+  background: $nrl_gray;
+  margin-bottom: 2.5rem;
+  .content-wrapper {
+    .title-content {
+      padding-left: $desktop-left-offset;
+      h1 {
+        margin: 0;
+        font-weight: 300;
+        font-size: 1.8em;
+        color: #fff;
+        line-height: 40px;
+        display: inline-block;
+        margin-right: 20px;
+      }
     }
+  }
 }
 
 .expanded-text-wrapper {
-    margin-top: 1rem;
-    .expanded-text {
-        max-height: 250px;
-        padding-bottom: 5px;
-        overflow: hidden;
-        position: relative;
-        &:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30%;
-            background: transparent;
-            background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-            background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-            background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-        }
-        &.expanded-text-open {
-            max-height: 100%;
-            &:after {
-                height: 0;
-                display: none;
-            }
-        }
+  margin-top: 1rem;
+  .expanded-text {
+    max-height: 250px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: transparent;
+      background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+      background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+      background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
     }
-    button.expanded-text-button {
-        width: 100%;
-        @include nrl-button-white;
+    &.expanded-text-open {
+      max-height: 100%;
+      &:after {
+        height: 0;
+        display: none;
+      }
     }
+  }
+  button.expanded-text-button {
+    width: 100%;
+    @include nrl-button-white;
+  }
 }
 
 @media screen and (max-width: 63.99em) {
-    .title-block {
-        .content-wrapper {
-            .title-content {
-                padding-left: 0;
-            }
-        }
+  .title-block {
+    .content-wrapper {
+      .title-content {
+        padding-left: 0;
+      }
     }
+  }
 }
 
 @media screen and (max-width: 37.5em) {
-    .expanded-text-wrapper {
-        .expanded-text {
-            max-height: 300px;
-        }
+  .expanded-text-wrapper {
+    .expanded-text {
+      max-height: 300px;
     }
+  }
 }
 
 @media screen and (max-width: 31.25em) {
-    .expanded-text-wrapper {
-        .expanded-text {
-            max-height: 500px;
-        }
+  .expanded-text-wrapper {
+    .expanded-text {
+      max-height: 500px;
     }
+  }
 }

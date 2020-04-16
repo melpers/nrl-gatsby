@@ -1,53 +1,53 @@
 @mixin nrl-button-white(){
+  color: $nrl_gray;
+  background-color: #fff;
+  -webkit-appearance: initial;
+  -moz-appearance: initial;
+  appearance: initial;
+  border: 1px solid $nrl_light_gray;
+  padding: 1px;
+  &:focus,
+  &:active,
+  &:hover {
     color: $nrl_gray;
-    background-color: #fff;
-    -webkit-appearance: initial;
-    -moz-appearance: initial;
-    appearance: initial;
-    border: 1px solid $nrl_light_gray;
-    padding: 1px;
-    &:focus,
-    &:active,
-    &:hover {
-        color: $nrl_gray;
-        border: 2px solid $nrl_gray;
-        padding: 0;
-        outline: none;
-    }
+    border: 2px solid $nrl_gray;
+    padding: 0;
+    outline: none;
+  }
 }
 
 @mixin background-color-transition(){
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 @mixin triangle-down($size, $color) {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: (($size * 1.73) + px) ($size +px) 0 ($size +px);
-    border-color: $color transparent transparent transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: (($size * 1.73) + px) ($size +px) 0 ($size +px);
+  border-color: $color transparent transparent transparent;
 }
 @mixin triangle-left($size, $color) {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: ($size +px) (($size * 1.73) + px) ($size +px) 0;
-    border-color: transparent $color transparent transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: ($size +px) (($size * 1.73) + px) ($size +px) 0;
+  border-color: transparent $color transparent transparent;
 }
 @mixin triangle-right($size, $color) {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: ($size +px) 0 ($size +px) (($size * 1.73) + px);
-    border-color: transparent transparent transparent $color;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: ($size +px) 0 ($size +px) (($size * 1.73) + px);
+  border-color: transparent transparent transparent $color;
 }
 @mixin triangle-up($size, $color) {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 ($size +px) (($size * 1.73) + px) ($size +px);
-    border-color: transparent transparent $color transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 ($size +px) (($size * 1.73) + px) ($size +px);
+  border-color: transparent transparent $color transparent;
 }

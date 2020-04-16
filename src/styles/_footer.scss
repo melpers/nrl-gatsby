@@ -1,108 +1,108 @@
 // See also _uswds.scss
 .nrl-footer {
+  color: $footer_links_color;
+  padding: 10px 0;
+  section {
+    margin-top: 0;
+  }
+  p {
+    max-width: 100%;
+    margin: 0;
+    font-size: 80%;
+  }
+  a {
     color: $footer_links_color;
-    padding: 10px 0;
-    section {
-        margin-top: 0;
+    text-decoration: none;
+    font-size: 80%;
+    &:visited,
+    &:active,
+    &:hover {
+      color: $footer_links_color;
+      border-bottom: 2px solid;
     }
-    p {
-        max-width: 100%;
-        margin: 0;
-        font-size: 80%;
+  }
+  .usa-unstyled-list {
+    li {
+      display: inline-block;
+      margin-right: 5px;
     }
-    a {
-        color: $footer_links_color;
-        text-decoration: none;
-        font-size: 80%;
-        &:visited,
-        &:active,
-        &:hover {
-            color: $footer_links_color;
-            border-bottom: 2px solid;
-        }
+  }
+  .social-block {
+    display: inline-block;
+    height: 24px;
+    margin-bottom: 15px;
+    a.social-icon {
+      display: inline-block;
+      margin-right: 5px;
+      &:visited,
+      &:active,
+      &:hover,
+      &:focus {
+        border-bottom: none;
+        outline: 1px dotted;
+      }
     }
-    .usa-unstyled-list {
-        li {
-            display: inline-block;
-            margin-right: 5px;
-        }
-    }
-    .social-block {
-        display: inline-block;
-        height: 24px;
-        margin-bottom: 15px;
-        a.social-icon {
-            display: inline-block;
-            margin-right: 5px;
-            &:visited,
-            &:active,
-            &:hover,
-            &:focus {
-                border-bottom: none;
-                outline: 1px dotted;
-            }
-        }
-    }
+  }
 }
 
 .footer-inner-wrapper {
-    position: relative;
-    padding-left: $desktop-left-offset;
-    background-color: #fff;
-    margin-bottom: 20px;
+  position: relative;
+  padding-left: $desktop-left-offset;
+  background-color: #fff;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 63.99em) {
-    .footer-inner-wrapper {
-        padding-left: 4rem;
-    }
-    .icons-demo-block {
-        position: relative;
-        bottom: auto;
-        left: auto;
-    }
+  .footer-inner-wrapper {
+    padding-left: 4rem;
+  }
+  .icons-demo-block {
+    position: relative;
+    bottom: auto;
+    left: auto;
+  }
 }
 @media screen and (max-width: 50em) {
-    .footer-inner-wrapper {
-        padding: 0.5rem 1rem;
-    }
+  .footer-inner-wrapper {
+    padding: 0.5rem 1rem;
+  }
 }
 
 div.page-home {
-    footer {
-        .footer-wrapper {
-            padding-top: 50px;
-            .help-block {
-                display: block;
-                margin-bottom: 20px;
-                text-align: center;
-                a {
-                    display: inline-block;
-                    padding: 5px;
-                    margin: 0 10px;
-                    vertical-align: middle;
-                    img {
-                        max-width: 223px;
-                    }
-                    &:visited,
-                    &:active,
-                    &:hover,
-                    &:focus {
-                        border-bottom: none;
-                        outline: 1px dotted;
-                    }
-                }
-            }
+  footer {
+    .footer-wrapper {
+      padding-top: 50px;
+      .help-block {
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
+        a {
+          display: inline-block;
+          padding: 5px;
+          margin: 0 10px;
+          vertical-align: middle;
+          img {
+            max-width: 223px;
+          }
+          &:visited,
+          &:active,
+          &:hover,
+          &:focus {
+            border-bottom: none;
+            outline: 1px dotted;
+          }
         }
-        @media screen and (max-width: 650px) {
-            .footer-wrapper {
-                .help-block {
-                    a {
-                        display: block;
-                        margin: 10px 0;
-                    }
-                }
-            }
-        }
+      }
     }
+    @media screen and (max-width: 650px) {
+      .footer-wrapper {
+        .help-block {
+          a {
+            display: block;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
 }

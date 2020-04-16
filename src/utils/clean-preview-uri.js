@@ -4,13 +4,13 @@
 *   Returns: /areas-of-research/spacecraft-engineering
 */
 const cleanPreviewUri = (uri) => {
-    // if the uri starts with the preview string, remove the first 4 chunks
-    if (uri.startsWith("/preview/")){
-        uri = uri.replace(/([^/]*\/){5}/, '/')
-    }
+  // if the uri starts with the preview string, remove the first 4 chunks
+  if (uri.startsWith("/preview/")){
+    uri = uri.replace(/([^/]*\/){5}/, '/')
+  }
 
-    // remove trailing slash
-    uri = uri.replace(/\/$/, "");
+  // remove trailing slash
+  uri = uri.replace(/\/$/, "");
 
    return uri;
 };

@@ -1,18 +1,18 @@
 .image-gallery-block {
-    .gallery-img-wrapper {
-        display: inline-block;
-        padding: 4px;
-        line-height: 0;
+  .gallery-img-wrapper {
+    display: inline-block;
+    padding: 4px;
+    line-height: 0;
+  }
+  a {
+    &:focus,
+    &:hover,
+    &:active {
+      border-bottom: none;
+      filter: brightness(110%);
+      .gatsby-image-wrapper {
+        outline: 2px solid $nrl_gray;
+      }
     }
-    a {
-        &:focus,
-        &:hover,
-        &:active {
-            border-bottom: none;
-            filter: brightness(110%);
-            .gatsby-image-wrapper {
-                outline: 2px solid $nrl_gray;
-            }
-        }
-    }
+  }
 }

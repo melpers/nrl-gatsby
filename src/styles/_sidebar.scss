@@ -1,188 +1,188 @@
 .sidebar-block {
-    width: 9rem;
-    max-width: 9rem;
-    margin-right: 1rem;
-    float: left;
-    h4 {
-        display: none;
-        text-align: center;
+  width: 9rem;
+  max-width: 9rem;
+  margin-right: 1rem;
+  float: left;
+  h4 {
+    display: none;
+    text-align: center;
+  }
+  .sidebar-nav-close {
+    display: none;
+  }
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    line-height: 1.4;
+    .menu-depth-0 {
+      & + .depth-0 {
+        margin-top: 1rem;
+      }
     }
-    .sidebar-nav-close {
-        display: none;
+    .menu-depth-1 {
+      padding-left: 1rem;
+      margin-bottom: 1rem;
     }
-    .sidebar-menu {
-        list-style: none;
-        padding: 0;
-        margin-top: 0;
-        line-height: 1.4;
-        .menu-depth-0 {
-            & + .depth-0 {
-                margin-top: 1rem;
-            }
-        }
-        .menu-depth-1 {
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-            & > ul {
-                margin-top: 0.5rem;
-            }
-        }
-        .sidebar-current-page {
-            font-size: 85%;
-            font-weight: 600;
-            color: $header_links_color;
-            margin-bottom: 0.5rem;
-            cursor: default;
-            &:focus,
-            &:hover {
-                border-bottom: none;
-            }
-        }
-        li.has-submenu {
-            .sidebar-current-page {
-                cursor: pointer;
-                &:focus,
-                &:hover {
-                    border-bottom: 2px solid;
-                }
-            }
-        }
-        a {
-            color: $header_links_color;
-            text-decoration: none;
-            font-size: 85%;
-            &:hover,
-            &:focus {
-                border-bottom: 2px solid;
-            }
-        }
+    li {
+      margin-bottom: 0.5rem;
+      & > ul {
+        margin-top: 0.5rem;
+      }
     }
+    .sidebar-current-page {
+      font-size: 85%;
+      font-weight: 600;
+      color: $header_links_color;
+      margin-bottom: 0.5rem;
+      cursor: default;
+      &:focus,
+      &:hover {
+        border-bottom: none;
+      }
+    }
+    li.has-submenu {
+      .sidebar-current-page {
+        cursor: pointer;
+        &:focus,
+        &:hover {
+          border-bottom: 2px solid;
+        }
+      }
+    }
+    a {
+      color: $header_links_color;
+      text-decoration: none;
+      font-size: 85%;
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid;
+      }
+    }
+  }
 }
 .sidebar-btn {
-    display: none;
+  display: none;
+  color: #fff;
+  background-color: $nrl_gray;
+  -webkit-appearance: initial;
+  -moz-appearance: initial;
+  appearance: initial;
+  border: 1px solid $nrl_light_gray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1px 10px;
+  position: absolute;
+  left: 32px;
+  height: 33px;
+  max-height: 50px;
+  font-weight: 300;
+  overflow: hidden;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin:  0 0;
+  -ms-transform-origin:   0 0;
+  -o-transform-origin:    0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(90deg); 
+  -moz-transform:  rotate(90deg); 
+  -ms-transform:   rotate(90deg); 
+  -o-transform:    rotate(90deg); 
+  transform: rotate(90deg);
+  &:focus,
+  &:active,
+  &:hover {
     color: #fff;
-    background-color: $nrl_gray;
-    -webkit-appearance: initial;
-    -moz-appearance: initial;
-    appearance: initial;
-    border: 1px solid $nrl_light_gray;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 1px 10px;
-    position: absolute;
-    left: 32px;
-    height: 33px;
-    max-height: 50px;
-    font-weight: 300;
-    overflow: hidden;
-    -webkit-transform-origin: 0 0;
-    -moz-transform-origin:    0 0;
-    -ms-transform-origin:     0 0;
-    -o-transform-origin:      0 0;
-    transform-origin: 0 0;
-    -webkit-transform: rotate(90deg); 
-    -moz-transform:    rotate(90deg); 
-    -ms-transform:     rotate(90deg); 
-    -o-transform:      rotate(90deg); 
-    transform: rotate(90deg);
-    &:focus,
-    &:active,
-    &:hover {
-        color: #fff;
-        background-color: $nrl_blue;
-    }
+    background-color: $nrl_blue;
+  }
 }
 body .sidebar-btn:not([disabled]):focus {
-    outline: none;
+  outline: none;
 }
 
 @media screen and (min-width: 64em) {
-    .sidebar-block {
-        .sidebar-menu {
-            li.has-submenu {
-                .sidebar-current-page {
-                    &:after {
-                        content: "";
-                        @include triangle-right(5, $header_links_color);
-                        display: inline-block;
-                        margin-left: 5px;
-                    }
-                    & + .menu-depth-1 {
-                        display: none;
-                    }
-                    &.submenu-open {
-                        &:after {
-                            content: "";
-                            @include triangle-down(5, $header_links_color);
-                        }
-                        & + .menu-depth-1 {
-                            display: block;
-                        }
-                    }
-                }
+  .sidebar-block {
+    .sidebar-menu {
+      li.has-submenu {
+        .sidebar-current-page {
+          &:after {
+            content: "";
+            @include triangle-right(5, $header_links_color);
+            display: inline-block;
+            margin-left: 5px;
+          }
+          & + .menu-depth-1 {
+            display: none;
+          }
+          &.submenu-open {
+            &:after {
+              content: "";
+              @include triangle-down(5, $header_links_color);
             }
+            & + .menu-depth-1 {
+              display: block;
+            }
+          }
         }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 63.99em) {
-    .sidebar-btn {
+  .sidebar-btn {
+    display: block;
+  }
+  .sidebar-block {
+    width: auto;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    float: none;
+    .sidebar-nav-close {
+      display: block;
+    }
+    .sidebar-nav {
+      display: none;
+      background: #fff;
+      border-left: 0;
+      bottom: 0;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 1rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 15rem;
+      z-index: 500;
+      &.is-visible {
+        -webkit-animation: slidein-right .3s ease-in-out;
+        animation: slidein-right .3s ease-in-out;
+        display: flex;
+      }
+      h4 {
         display: block;
+        margin: 0 0 1rem;
+      }
     }
-    .sidebar-block {
-        width: auto;
-        margin: 0;
-        position: relative;
-        padding: 0;
-        float: none;
-        .sidebar-nav-close {
-            display: block;
-        }
-        .sidebar-nav {
+    .sidebar-menu {
+      li.has-submenu {
+        .sidebar-current-page {
+          cursor: default;
+          border-bottom: none !important;
+          &:after {
             display: none;
-            background: #fff;
-            border-left: 0;
-            bottom: 0;
-            flex-direction: column;
-            overflow-y: auto;
-            padding: 1rem;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 15rem;
-            z-index: 500;
-            &.is-visible {
-                -webkit-animation: slidein-right .3s ease-in-out;
-                animation: slidein-right .3s ease-in-out;
-                display: flex;
-            }
-            h4 {
-                display: block;
-                margin: 0 0 1rem;
-            }
+          }
+          & + .menu-depth-1 {
+            display: block;
+          }
         }
-        .sidebar-menu {
-            li.has-submenu {
-                .sidebar-current-page {
-                    cursor: default;
-                    border-bottom: none !important;
-                    &:after {
-                        display: none;
-                    }
-                    & + .menu-depth-1 {
-                        display: block;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 50em) {
-    .sidebar-block {
-        padding: 0 1rem;
-    }
+  .sidebar-block {
+    padding: 0 1rem;
+  }
 }
