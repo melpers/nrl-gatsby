@@ -3,6 +3,7 @@ require("dotenv").config({
 })
 
 const path = require('path');
+const { typeNameFromDir } = require("gatsby-transformer-csv");
 
 module.exports = {
   siteMetadata: {
@@ -143,6 +144,12 @@ module.exports = {
         name: 'emergency',
         path: path.join(__dirname, `src`, `emergency`),
       },
+    },
+    {
+      resolve: `gatsby-transformer-csv`,
+      options: {
+          typeName: typeNameFromDir
+      }
     },
     {
       resolve: `gatsby-plugin-remote-images`,

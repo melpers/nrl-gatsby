@@ -47,10 +47,10 @@ module.exports = {
 module.exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type dataYaml implements Node {
-        metadata: yamlMetadata
+    type DataYaml implements Node {
+        metadata: YamlMetadata
     }
-    type yamlMetadata {
+    type YamlMetadata {
         code: Int
         template: String
     }
@@ -95,11 +95,11 @@ module.exports.createSchemaCustomization = ({ actions }) => {
         timestamp: Date
         url: String
         formatted_credit: String
-        related_video: [dvidsVideo]
+        related_video: [DvidsVideo]
         teaser_image___NODE: Node!
         related_images___NODE: Node!
     }
-    type dvidsVideo {
+    type DvidsVideo {
         id: String
         type: String
         title: String
@@ -116,6 +116,14 @@ module.exports.createSchemaCustomization = ({ actions }) => {
         url: String
         aspect_ratio: String
     }
+    type PublicationsCsv implements Node {
+      author: String!
+      code: Int!
+      journal: String!
+      pubNumber: String!
+      title: String!
+      year: Date! @dateformat
+    } 
   `
   createTypes(typeDefs)
 }

@@ -22,7 +22,7 @@ export const query = graphql`
       }
       html
     },
-    dataYaml(metadata: {elemMatch: {template: {eq: "carousel"}}}) {
+    dataYaml(metadata: {template: {eq: "carousel"}}) {
     carousel {
       copy
       image {

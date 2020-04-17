@@ -26,10 +26,8 @@ export const query = graphql`
       html
     },
     dataYaml(metadata: {
-      elemMatch: {
-        code: { eq: $code },
-        template: { eq: "publications" }
-      }
+      code: { eq: $code },
+      template: { eq: "publications" }
     }) {
       id
       publications {
