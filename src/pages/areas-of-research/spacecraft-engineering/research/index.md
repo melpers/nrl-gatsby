@@ -6,7 +6,7 @@ hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
 template: basic
-code: 8250
+code: "8250"
 code_name: Spacecraft Engineering
 ---
 Spacecraft Engineering Research Page Placeholder.

@@ -1,11 +1,11 @@
 ---
 divisions:
   - 
-    code: 6900
+    code: "6900"
     name: Biomolecular Science & Engineering
   -
-    code: 8250
+    code: "8250"
     name: Spacecraft Engineering
   -
-    code: 1600
+    code: "1600"
     name: Scientific Development Squadron (VXS) 1

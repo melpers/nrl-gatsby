@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/facilities/vibration-facilities
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: facilities
 ---
 ![The spacecraft vibration test facility](vibration.jpg)

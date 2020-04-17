@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/mission-planni
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: core-capabilities
 ---
 ![Satellite](8252.jpg)

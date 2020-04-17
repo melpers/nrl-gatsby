@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/test-systems-s
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: core-capabilities
 ---
 ![Space Shuttle Discovery and Satellite](8246.jpg)

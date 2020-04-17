@@ -8,7 +8,7 @@ import Breadcrumbs from 'components/breadcrumbs';
 import Datasort from 'react-data-sort';
 
 export const query = graphql`
-  query ($id: String!, $code: Int!) {
+  query ($id: String!, $code: String!) {
     markdownRemark (id: {eq: $id}) {
       frontmatter {
         title
@@ -25,24 +25,23 @@ export const query = graphql`
         }
       html
     },
-    dataYaml(metadata: {
-      code: { eq: $code },
-      template: { eq: "publications" }
-    }) {
-      id
-      publications {
-        year
-        title
-        pub_number
-        journal
-        author
+    allPublicationsCsv(filter: {code: {eq: $code}}) {
+      edges {
+        node {
+          author
+          code
+          journal
+          pubNumber
+          title
+          year
+        }
       }
     }
   }
 `
 
 const Index = (props) => {
-  let publicationsData = props.data.dataYaml.publications;
+  let publicationsData = props.data.allPublicationsCsv.edges
   const [sortBy, setSortBy] = useState("year");
   const [direction, setDirection] = useState("desc");
   const filters = ["author", "year", "title", "pub_number"];
@@ -101,9 +100,9 @@ const Index = (props) => {
         render={({ data }) => (
           <ul>
           {data.map((publication) => (
-          <li key={publication.pub_number}>
-            {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
-            <span className='pub-number'>{" (Publication # " + publication.pub_number + ")"}</span>
+          <li key={publication.node.pub_number}>
+            {publication.node.author + " (" + publication.node.year + ") " + publication.node.title + " " + publication.node.journal}
+            <span className='pub-number'>{" (Publication # " + publication.node.pubNumber + ")"}</span>
           </li>
           ))}
           </ul>

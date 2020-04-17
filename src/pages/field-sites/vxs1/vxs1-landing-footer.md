@@ -1,5 +1,5 @@
 ---
-code: 1600
+code: "1600"
 template: division-landing-footer
 ---
 For all incoming officers and enlisted personnel reporting to VXS-1, please contact VXS-1's sponsor coordinator, PS1 Trung Tin Vo at [trung.vo1@navy.mil](mailto:trung.vo1@navy.mil).

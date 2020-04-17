@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/design-verific
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: core-capabilities
 ---
 ![Mechanical engineers Jesse Maxwell, Evan Rogers, and Austin Phoenix](8220.jpg)

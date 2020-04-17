@@ -1,5 +1,5 @@
 ---
-    code: 1600
+    code: "1600"
     name: Commander Jared A. Tharp
     title: Commanding Officer
     picture: ../../../images/Tharp.jpg

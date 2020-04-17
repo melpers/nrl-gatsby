@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/core-capabilities/structural-eng
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: core-capabilities
 ---
 ![A member of the structural engineering team at work.](8222.jpg)

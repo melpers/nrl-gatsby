@@ -4,7 +4,7 @@ path: /areas-of-research/spacecraft-engineering/facilities/space-robotics-labora
 hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
-code: 8250
+code: "8250"
 template: facilities
 ---
 ![The NRL Space Robotics Laboratory](robotics_lab.jpg)

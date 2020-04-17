@@ -7,7 +7,7 @@ import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
 
 export const query = graphql`
-  query ($id: String!, $code: Int!) {
+  query ($id: String!, $code: String!) {
     markdownRemark (id: {eq: $id}) {
       frontmatter {
         title
