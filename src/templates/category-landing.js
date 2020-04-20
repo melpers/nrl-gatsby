@@ -61,7 +61,7 @@ const CategoryLanding = (props) => {
 
   const catResults = props.data.allMarkdownRemark.group;
   catResults.map(cat => {
-    let index = cat.fieldValue;
+    let index = cat.fieldValue.charAt(0).toUpperCase() + cat.fieldValue.slice(1) ;
     if (cats[index]) {
       cats[index] += cat.totalCount;
     }
@@ -75,7 +75,7 @@ const CategoryLanding = (props) => {
   dvidsResults.map(edge => {
     let keywordsArray = _.split(edge.node.keywords, ",");
     keywordsArray.forEach (keyword => {
-      let cleanKeyword = _.trim(keyword);
+      let cleanKeyword = _.trim(keyword).charAt(0).toUpperCase() + _.trim(keyword).slice(1);
       if (cats[cleanKeyword]) {
         cats[cleanKeyword] += 1;
       }
@@ -113,7 +113,7 @@ const CategoryLanding = (props) => {
       <ul className="categries-list">
       {Object.entries(sortedCats).map(([catName, catCount]) => (
       <li key={catName}>
-        <Link to={`/news/categories/${_.kebabCase(catName)}/`}>{catName.charAt(0).toUpperCase() + catName.slice(1)}</Link>
+        <Link to={`/news/categories/${_.kebabCase(catName)}/`}>{catName}</Link>
         <span className="category-count">&nbsp;({catCount})</span>
       </li>
       ))}
