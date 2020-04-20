@@ -5,7 +5,8 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
-import kebabCase from "lodash/kebabCase";
+
+const _ = require("lodash");
 
 export const query = graphql`
   query ($id: String!) {
@@ -40,22 +41,54 @@ export const query = graphql`
         fieldValue
         totalCount
       }
+    },
+    allDvidsPressReleases (
+      filter: {
+        keywords: {ne: "null"}
+      }
+    ) {
+      edges {
+        node {
+          keywords
+        }
+      }
     }
   }
 `
 
 const CategoryLanding = (props) => {
-  const catResults = props.data.allMarkdownRemark.group;
   var cats = {};
+
+  const catResults = props.data.allMarkdownRemark.group;
   catResults.map(cat => {
     let index = cat.fieldValue;
     if (cats[index]) {
       cats[index] += cat.totalCount;
+    }
+    else {
+      cats[index] = cat.totalCount;
+    }
+    return true;
+  });
+
+  const dvidsResults = props.data.allDvidsPressReleases.edges;
+  dvidsResults.map(edge => {
+    let keywordsArray = _.split(edge.node.keywords, ",");
+    keywordsArray.forEach (keyword => {
+      let cleanKeyword = _.trim(keyword);
+      if (cats[cleanKeyword]) {
+        cats[cleanKeyword] += 1;
       }
       else {
-      cats[index] = cat.totalCount;
+        cats[cleanKeyword] = 1;
       }
-      return true;
+    })
+    return true;
+  });
+
+  let sortedCats = {};
+  Object.keys(cats).sort().forEach(function(key) {
+    sortedCats[key] = cats[key];
   });
 
   return (
@@ -78,9 +111,9 @@ const CategoryLanding = (props) => {
     <div className="main-column">
       <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
       <ul className="categries-list">
-      {Object.entries(cats).map(([catName, catCount]) => (
+      {Object.entries(sortedCats).map(([catName, catCount]) => (
       <li key={catName}>
-        <Link to={`/news/categories/${kebabCase(catName)}/`}>{catName.charAt(0).toUpperCase() + catName.slice(1)}</Link>
+        <Link to={`/news/categories/${_.kebabCase(catName)}/`}>{catName.charAt(0).toUpperCase() + catName.slice(1)}</Link>
         <span className="category-count">&nbsp;({catCount})</span>
       </li>
       ))}

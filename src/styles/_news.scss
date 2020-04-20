@@ -80,6 +80,23 @@ body {
     }
   }
 }
+.page-categories {
+  .main-column {
+    .categries-list {
+      column-count: 3;
+      column-gap: 20px;
+      ul {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin: 0 0 1em;
+        padding: 0;
+        list-style-type: none;
+        line-height: 1.4;
+      }
+    }
+  }
+}
 .article-categories {
   color: $nrl_gray;
   font-style: italic;
@@ -102,6 +119,22 @@ body {
       max-width: 80%;
       float: none;
       margin: 0 auto 1rem;
+    }
+  }
+  .page-categories {
+    .main-column {
+      .categries-list {
+        column-count: 2;
+      }
+    }
+  }
+}
+@media screen and (max-width: 499px) {
+  .page-categories {
+    .main-column {
+      .categries-list {
+        column-count: 1;
+      }
     }
   }
 }

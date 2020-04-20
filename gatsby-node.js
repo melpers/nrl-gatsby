@@ -363,16 +363,16 @@ excludeCodeResponse.data.allMarkdownRemark.edges.forEach(edge => {
   const keywordsResponse = await graphql(`
   {
     allDvidsPressReleases (
-        filter: {
-            keywords: {ne: "null"}
-        }
+      filter: {
+        keywords: {ne: "null"}
+      }
     ) {
-        edges {
-          node {
-            keywords
-          }
+      edges {
+        node {
+          keywords
         }
       }
+    }
   }
   `);
 
