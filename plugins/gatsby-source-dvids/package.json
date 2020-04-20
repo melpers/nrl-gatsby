@@ -1,6 +1,0 @@
-{
-    "name": "gatsby-source-dvids",
-    "private": true,
-    "description": "A source plugin for using the DVIDS API to search for and fetch content",
-    "version": "0.1.0"
-}
