@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'gatsby';
+import { Link } from "@reach/router"
 import Img from 'gatsby-image/withIEPolyfill';
 
 const _ = require("lodash");

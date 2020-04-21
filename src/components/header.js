@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from "@reach/router"
 import ExternalLink from 'components/externalLink';
 import EmergencyStyles from "../styles/emergency.module.scss";
 import close from 'uswds_images/close.svg';

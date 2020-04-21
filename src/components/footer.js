@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from "@reach/router"
 import cx from 'classnames';
 import ExternalLink from 'components/externalLink';
 import SocialIcon from 'components/socialIcon';

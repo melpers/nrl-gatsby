@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import { Link } from "@reach/router"
 import { cleanPreviewUri } from 'utils/clean-preview-uri';
 import close from 'uswds_images/close.svg';
 

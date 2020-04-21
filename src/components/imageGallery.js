@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "gatsby";
+import { Link } from "@reach/router"
 
 import Img from 'gatsby-image/withIEPolyfill';
 import { chunk, sum } from 'lodash';

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "@reach/router";
 
 import { cleanPreviewUri } from 'utils/clean-preview-uri';
 import breadcrumbStyles from "styles/breadcrumbs.module.scss";
