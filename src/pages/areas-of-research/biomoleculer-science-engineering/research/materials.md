@@ -5,9 +5,8 @@ path: /areas-of-research/biomoleculer-science-engineering/research/materials
 hero_image: ../6900.jpg
 hero_color: yellow
 hero_size: small
-template: basic
+template: division-basic
 code: "6900"
-code_name: Biomolecular Science & Engineering
 ---
 **Protective Fabrics and Services**
 Self-decontaminating fabrics and surfaces are desired for the development of enhanced protective equipment for use by the warfighter. Of interest are materials that offer protection against environmental pollutants as well as chemical and biological threat agents.

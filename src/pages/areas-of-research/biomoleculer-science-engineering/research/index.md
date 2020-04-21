@@ -5,10 +5,9 @@ path: /areas-of-research/biomoleculer-science-engineering/research
 hero_image: ../6900.jpg
 hero_color: yellow
 hero_size: small
-template: basic
+template: division-basic
 image_float: right
 code: "6900"
-code_name: Biomolecular Science & Engineering
 ---
 ![MFC](MFC.jpg)
 

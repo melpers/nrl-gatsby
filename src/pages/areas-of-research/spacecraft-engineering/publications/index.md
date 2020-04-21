@@ -6,6 +6,5 @@ hero_image: ../8250.jpg
 hero_color: yellow
 hero_size: small
 code: "8250"
-code_name: Spacecraft Engineering
 template: publications
 ---

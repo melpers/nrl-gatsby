@@ -5,7 +5,6 @@ hero_image: 6900.jpg
 hero_color: yellow
 hero_size: small
 code: "6900"
-code_name: Biomolecular Science & Engineering
 template: division-landing
 news_image: ../../../images/8250-news.jpg
 publications_image: ../../../images/8250-pubs.jpg

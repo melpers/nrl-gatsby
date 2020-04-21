@@ -6,6 +6,5 @@ hero_image: ../6900.jpg
 hero_color: yellow
 hero_size: small
 code: "6900"
-code_name: Biomolecular Science & Engineering
 template: publications
 ---

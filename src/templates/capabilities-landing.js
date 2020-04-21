@@ -21,7 +21,6 @@ export const query = graphql`
         }
         hero_color
         hero_size
-        code_name
       }
       html
     },
@@ -45,6 +44,9 @@ export const query = graphql`
           }
         }
       }
+    },
+    divisionsCsv(code: {eq: $code}) {
+      name
     }
   }
 `
@@ -53,7 +55,7 @@ const CapabilitiesLanding = (props) => {
   return (
   <Layout
     pageMeta={{
-    title: props.data.markdownRemark.frontmatter.code_name + " " + props.data.markdownRemark.frontmatter.title,
+      title: props.data.divisionsCsv.name ? props.data.markdownRemark.frontmatter.title + " | " + props.data.divisionsCsv.name : props.data.markdownRemark.frontmatter.title,
     }}
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>

@@ -4,9 +4,8 @@ path: /areas-of-research/biomoleculer-science-engineering/research/fundamental-b
 hero_image: ../6900.jpg
 hero_color: yellow
 hero_size: small
-template: basic
+template: division-basic
 code: "6900"
-code_name: Biomolecular Science & Engineering
 ---
 **Bacterial Systems and Synthetic Biology**
 Our multidisciplinary and multidivisional team of scientists is interested in developing a fundamental understanding of marine bacterial system architecture, regulation, and dynamics for the purpose of re-engineering synthetic constructs for Navy-relevant sensing and decontamination applications. We are addressing these challenges by using a combination of genetic, functional genomic, proteomic, biochemical, physiological, mathematical, and modeling approaches.

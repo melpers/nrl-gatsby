@@ -53,7 +53,7 @@ const VideoLanding = (props) => {
   return (
   <Layout
     pageMeta={{
-    title: props.data.markdownRemark.frontmatter.code_name ? props.data.markdownRemark.frontmatter.code_name + " " + props.data.markdownRemark.frontmatter.title : props.data.markdownRemark.frontmatter.title,
+      title: props.data.markdownRemark.frontmatter.title,
     }}
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>

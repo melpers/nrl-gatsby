@@ -5,10 +5,9 @@ import Layout from 'components/layout';
 import HeroImage from 'components/heroImage';
 import Sidebar from 'components/sidebar';
 import Breadcrumbs from "components/breadcrumbs";
-import ImageGallery from "components/imageGallery";
 
 export const query = graphql`
-  query ($id: String!) {
+  query ($id: String!, $code: String!) {
     markdownRemark (id: {eq: $id}) {
       frontmatter {
         title
@@ -21,38 +20,23 @@ export const query = graphql`
           }
           }
         }
+        image_float
         template
         }
       html
     },
-    allDvidsImage (
-      filter: {
-        unit_name: {eq: "U.S. Naval Research Laboratory"}
-      }
-    ) {
-      edges {
-        node {
-          description
-          dvidsImage {
-            childImageSharp {
-              id
-              fluid {
-                ...GatsbyImageSharpFluid
-                originalImg
-              }
-            }
-          }
-        }
-      }
+    divisionsCsv(code: {eq: $code}) {
+      name
     }
   }
 `
 
-const GalleryPage = (props) => {
+const Basic = (props) => {
+  const imageFloatClass = props.data.markdownRemark.frontmatter.image_float ? "image-float-" + props.data.markdownRemark.frontmatter.image_float : "";
   return (
   <Layout
     pageMeta={{
-      title: props.data.markdownRemark.frontmatter.title,
+      title: props.data.divisionsCsv.name ? props.data.markdownRemark.frontmatter.title + " | " + props.data.divisionsCsv.name : props.data.markdownRemark.frontmatter.title,
     }}
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
@@ -67,19 +51,11 @@ const GalleryPage = (props) => {
     <div className={"content-wrapper template-" + props.data.markdownRemark.frontmatter.template}>
     <Sidebar uri={props.uri}></Sidebar>
     <div className="main-column">
-      <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-      <ImageGallery
-        images={props.data.allDvidsImage.edges.map(({ node }) => ({
-          ...node.dvidsImage.childImageSharp.fluid,
-          alt: `${node.description}`,
-          id: `${node.dvidsImage.childImageSharp.id}`,
-          caption: `${node.description}`
-        }))}
-      />
+      <div className={"md-content image-float " + imageFloatClass} dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
     </div>
     </div>
   </Layout>
   );
 };
 
-export default GalleryPage;
+export default Basic;

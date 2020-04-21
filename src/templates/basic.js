@@ -22,7 +22,6 @@ export const query = graphql`
         }
         image_float
         template
-        code_name
         }
       html
     },
@@ -34,7 +33,7 @@ const Basic = (props) => {
   return (
   <Layout
     pageMeta={{
-    title: props.data.markdownRemark.frontmatter.code_name ? props.data.markdownRemark.frontmatter.code_name + " " + props.data.markdownRemark.frontmatter.title : props.data.markdownRemark.frontmatter.title,
+    title: props.data.markdownRemark.frontmatter.title,
     }}
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>

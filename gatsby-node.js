@@ -48,11 +48,10 @@ module.exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type DataYaml implements Node {
-        metadata: YamlMetadata
+      metadata: YamlMetadata
     }
     type YamlMetadata {
-        code: String!
-        template: String
+      template: String
     }
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
@@ -60,7 +59,6 @@ module.exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       active: Boolean
       code: String!
-      code_name: String
       email: String
       fax: String
       hero_color: String
@@ -123,7 +121,11 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       pubNumber: String!
       title: String!
       year: Date! @dateformat
-    } 
+    }
+    type DivisionsCsv implements Node {
+      code: String!
+      name: String!
+    }
   `
   createTypes(typeDefs)
 }
@@ -193,7 +195,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
    ************************** */
   const baseCodeResponse = await graphql(`
     query {
-      allMarkdownRemark(filter: {frontmatter: {template: {in: ["division-landing", "publications", "capabilities-landing", "facilities-landing"]}}}) {
+      allMarkdownRemark(filter: {frontmatter: {template: {in: ["division-landing", "division-basic", "publications", "capabilities-landing", "facilities-landing"]}}}) {
         edges {
           node {
             frontmatter {

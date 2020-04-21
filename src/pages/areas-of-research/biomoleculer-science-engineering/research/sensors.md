@@ -5,9 +5,8 @@ path: /areas-of-research/biomoleculer-science-engineering/research/sensors
 hero_image: ../6900.jpg
 hero_color: yellow
 hero_size: small
-template: basic
+template: division-basic
 code: "6900"
-code_name: Biomolecular Science & Engineering
 ---
 **Microflow Cytometry**
 Our group has previously reported a system for three-dimensional particle focusing using chevron-shaped grooves that is robust, simple to fabricate, and compact. Recently, the technology was incorporated into a microflow cytometer system to identify fluorescence-coded microspheres and display the formation of antibody-antigen complexes.

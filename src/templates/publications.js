@@ -16,13 +16,12 @@ export const query = graphql`
         hero_color
         hero_image {
           childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
-        code_name
-        }
+      }
       html
     },
     allPublicationsCsv(filter: {code: {eq: $code}}) {
@@ -36,6 +35,9 @@ export const query = graphql`
           year
         }
       }
+    },
+    divisionsCsv(code: {eq: $code}) {
+      name
     }
   }
 `
@@ -75,7 +77,7 @@ const Index = (props) => {
   return (
   <Layout
     pageMeta={{
-    title: props.data.markdownRemark.frontmatter.code_name + " " + props.data.markdownRemark.frontmatter.title,
+      title: props.data.divisionsCsv.name ? props.data.markdownRemark.frontmatter.title + " | " + props.data.divisionsCsv.name : props.data.markdownRemark.frontmatter.title,
     }}
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
