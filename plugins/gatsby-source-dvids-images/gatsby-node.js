@@ -8,8 +8,8 @@ const _ = require("lodash");
 const NODE_TYPE = `DvidsImage`;
 
 // For Debugging / dev buids
-const debug = process.env.DEV_DEBUG ? process.env.DEV_DEBUG : false;
-const max_results = 5; // No more than 50
+const debug = process.env.DEV_DEBUG ? true : false;
+const max_results = debug? 5 : 50; // No more than 50
 
 const fetchImageList = (pageNum, unit, key) => axios.get(`https://api.dvidshub.net/search?unit=${unit}&type=image&page=${pageNum}&api_key=${key}&max_results=${max_results}`);
 
