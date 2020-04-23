@@ -49,6 +49,7 @@ const Index = (props) => {
       author: props.data.allPublicationsCsv.edges[i].node.author,
       year: props.data.allPublicationsCsv.edges[i].node.year,
       title: props.data.allPublicationsCsv.edges[i].node.title,
+      journal: props.data.allPublicationsCsv.edges[i].node.journal,
       pubNumber: props.data.allPublicationsCsv.edges[i].node.pubNumber
     });
   }
@@ -91,37 +92,37 @@ const Index = (props) => {
   >
     <HeroImage frontmatter={props.data.markdownRemark.frontmatter}/>
     <div className="title-block">
+      <div className="content-wrapper">
+        <div className="title-content">
+        <h1>{props.data.markdownRemark.frontmatter.title}</h1>
+        <Breadcrumbs uri={props.uri} title={props.data.markdownRemark.frontmatter.title}></Breadcrumbs>
+        </div>
+      </div>
+    </div>
     <div className="content-wrapper">
-      <div className="title-content">
-      <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-      <Breadcrumbs uri={props.uri} title={props.data.markdownRemark.frontmatter.title}></Breadcrumbs>
+      <Sidebar uri={props.uri}></Sidebar>
+      <div className="main-column">
+        <RenderFilters filters={filters} />
+        <div className="main-content-block">
+          <div className="publication-list">
+            <Datasort
+            data={publicationsData}
+            sortBy={sortBy}
+            direction={direction}
+            render={({ data }) => (
+              <ul>
+              {data.map((publication) => (
+              <li key={publication.pubNumber}>
+                {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
+                <span className='pub-number'>{" (Publication # " + publication.pubNumber + ")"}</span>
+              </li>
+              ))}
+              </ul>
+            )}
+            />
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-    <div className="content-wrapper">
-    <Sidebar uri={props.uri}></Sidebar>
-    <div className="main-column">
-      <RenderFilters filters={filters} />
-      <div className="main-content-block">
-      <div className="publication-list">
-        <Datasort
-        data={publicationsData}
-        sortBy={sortBy}
-        direction={direction}
-        render={({ data }) => (
-          <ul>
-          {data.map((publication) => (
-          <li key={publication.pubNumber}>
-            {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
-            <span className='pub-number'>{" (Publication # " + publication.pubNumber + ")"}</span>
-          </li>
-          ))}
-          </ul>
-        )}
-        />
-      </div>
-      </div>
-    </div>
     </div>
   </Layout>
   );
