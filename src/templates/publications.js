@@ -43,10 +43,19 @@ export const query = graphql`
 `
 
 const Index = (props) => {
-  let publicationsData = props.data.allPublicationsCsv.edges
+  let publicationsData = [];
+  for (var i=0; i < props.data.allPublicationsCsv.edges.length; i++) {
+    publicationsData.push({
+      author: props.data.allPublicationsCsv.edges[i].node.author,
+      year: props.data.allPublicationsCsv.edges[i].node.year,
+      title: props.data.allPublicationsCsv.edges[i].node.title,
+      pubNumber: props.data.allPublicationsCsv.edges[i].node.pubNumber
+    });
+  }
+
   const [sortBy, setSortBy] = useState("year");
   const [direction, setDirection] = useState("desc");
-  const filters = ["author", "year", "title", "pub_number"];
+  const filters = ["author", "year", "title", "pubNumber"];
 
   const RenderFilters = (props) => {
   return (
@@ -65,7 +74,7 @@ const Index = (props) => {
     nextDirection = "desc";
   }
   return (
-    <button className={sortBy === filter ? "active " + direction : ""} onClick={() => handleResort(filter, nextDirection)}>{filter === "pub_number" ? "Publication #" : filter}</button>
+    <button className={sortBy === filter ? "active " + direction : ""} onClick={() => handleResort(filter, nextDirection)}>{filter === "pubNumber" ? "Publication #" : filter}</button>
   )
   }
 
@@ -102,9 +111,9 @@ const Index = (props) => {
         render={({ data }) => (
           <ul>
           {data.map((publication) => (
-          <li key={publication.node.pub_number}>
-            {publication.node.author + " (" + publication.node.year + ") " + publication.node.title + " " + publication.node.journal}
-            <span className='pub-number'>{" (Publication # " + publication.node.pubNumber + ")"}</span>
+          <li key={publication.pubNumber}>
+            {publication.author + " (" + publication.year + ") " + publication.title + " " + publication.journal}
+            <span className='pub-number'>{" (Publication # " + publication.pubNumber + ")"}</span>
           </li>
           ))}
           </ul>
