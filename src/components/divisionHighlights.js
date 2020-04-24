@@ -6,16 +6,17 @@ import Img from "gatsby-image/withIEPolyfill";
 
 const DivisionHighlights = (props) => {
   const data = useStaticQuery(graphql`
-  query {
-    newsImageLg: file(relativePath: { eq: "highlights-news-lg.jpg" }) {
-    childImageSharp {
-      fluid(maxWidth: 800) {
-      ...GatsbyImageSharpFluid_withWebp
-      }
+    query {
+      newsImageLg: file(relativePath: { eq: "highlights-news-lg.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      },
     }
-    },
-  }
   `)
+  const path = props.path + "/";
 
   return (
     <div className="highlights-block-wrapper">
@@ -25,7 +26,7 @@ const DivisionHighlights = (props) => {
         {/*
         TODO: Change this into a component.
             This will replace the static newsImageLg query.
-            Pass in the props.code number to fetch the latest news article info?
+            Pass in the props.code number to fetch the latest news & video article info
         */}
         <div className="image-box">
         <Img fluid={data.newsImageLg.childImageSharp.fluid} />
@@ -38,7 +39,7 @@ const DivisionHighlights = (props) => {
 
       <div className="section-grid">
         <div className="image-box-wrapper">
-        <Link className="image-box-link" to="/news">
+        <Link className="image-box-link" to="/news/releases">
           <div className="image-box">
           <Img fluid={props.news_image.childImageSharp.fluid} />
           <div className="image-box-content">
@@ -49,7 +50,7 @@ const DivisionHighlights = (props) => {
         </div>
 
         <div className="image-box-wrapper">
-        <Link className="image-box-link" to="/videos">
+        <Link className="image-box-link" to="/news/videos">
           <div className="image-box">
           <Img fluid={props.videos_image.childImageSharp.fluid} />
           <div className="image-box-content">
@@ -60,7 +61,7 @@ const DivisionHighlights = (props) => {
         </div>
 
         <div className="image-box-wrapper">
-        <Link className="image-box-link" to="/areas-of-research/spacecraft-engineering/publications">
+        <Link className="image-box-link" to={path + "publications"}>
           <div className="image-box">
           <Img fluid={props.publications_image.childImageSharp.fluid} />
           <div className="image-box-content">
@@ -71,7 +72,7 @@ const DivisionHighlights = (props) => {
         </div>
 
         <div className="image-box-wrapper">
-        <Link className="image-box-link" to="/areas-of-research/spacecraft-engineering/research">
+        <Link className="image-box-link" to={path + "research"}>
           <div className="image-box">
           <Img fluid={props.research_image.childImageSharp.fluid} />
           <div className="image-box-content">

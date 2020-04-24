@@ -13,6 +13,9 @@ export const query = graphql`
     division: markdownRemark (id: {eq: $id}) {
       frontmatter {
         title
+        code
+        template
+        path
         hero_size
         hero_color
         hero_image {
@@ -50,9 +53,7 @@ export const query = graphql`
             }
           }
         }
-        template
-        code
-        }
+      }
       html
     },
     leadership: allMarkdownRemark(
@@ -111,6 +112,7 @@ const DivisionLanding = (props) => {
         {props.data.division.frontmatter.news_image ? 
           <DivisionHighlights 
             code={props.data.division.frontmatter.code}
+            path={props.data.division.frontmatter.path}
             news_image={props.data.division.frontmatter.news_image}
             publications_image={props.data.division.frontmatter.publications_image}
             research_image={props.data.division.frontmatter.research_image}
