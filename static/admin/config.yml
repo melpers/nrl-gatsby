@@ -13,32 +13,24 @@ publish_mode: editorial_workflow
 logo_url: https://federalist.18f.gov/assets/images/federalist-logo.png
 
 collections:
-  - name: releases
-    label: News Releases
-    label_singular: News Release
-    folder: src/pages/news/releases
+  - name: dresearch-division-landing-pages
+    label: Research Division Landing Pages
+    label_singular: Research Division Landing Page
+    folder: src/pages/research-divisions/research-division-landing-pages
     create: true
-    preview_path: 'news/releases/{{slug}}'
+    preview_path: 'areas-of-research/{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - {
-          label: 'Date',
-          name: 'date',
-          widget: 'datetime',
-          format: 'MMMM D, YYYY',
-          dateFormat: 'MMMM D, YYYY',
-          timeFormat: false
-        }
-      - { label: "URL SLug", name: "slug", widget: "string" }
-      - { label: 'Teaser', name: 'teaser', widget: 'string' }
-      - { label: 'Teaser Image', name: 'teaser_image', widget: 'string', default: "../../../images/media/" }
-      - { label: 'Teaser Image Alt', name: 'teaser_image_alt', widget: 'string' }
-      - { label: 'Categories', name: 'categories', widget: 'select', multiple: true, options: ["General","Material Science","Meteorology","Navy","Ocean and Atmospheric Science","Oceanography","Space","Space Science","Technology","Testing"] }
+      - { label: "URL Path", name: "path", widget: "string" }
+      - { label: 'Code', name: 'code', widget: 'string' }
       - { label: "Hero Image", name: "hero_image", widget: "hidden", default: "../../../images/header_faceted.jpg" }
       - { label: "Hero Color", name: "hero_color", widget: "hidden", default: "yellow" }
       - { label: "Hero Size", name: "hero_size", widget: "hidden", default: "small" }
-      - { label: "Template", name: "template", widget: "hidden", default: "news-article" }
+      - { label: "News Image", name: "news_image", widget: "hidden", default: "../../../images/8250-news.jpg" }
+      - { label: "Publications Image", name: "publications_image", widget: "hidden", default: "../../../images/8250-pubs.jpg" }
+      - { label: "Research Image", name: "research_image", widget: "hidden", default: "../../../images/8250-research.jpg" }
+      - { label: "Videos Image", name: "videos_image", widget: "hidden", default: "../../../images/8250-videos.jpg" }
+      - { label: "Template", name: "template", widget: "hidden", default: "division-landing" }
       - { label: 'Body', name: 'body', widget: 'markdown' }
