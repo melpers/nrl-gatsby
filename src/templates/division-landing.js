@@ -17,16 +17,16 @@ export const query = graphql`
         hero_color
         hero_image {
           childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
         news_image {
           childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
         publications_image {
@@ -35,21 +35,21 @@ export const query = graphql`
             ...GatsbyImageSharpFluid_withWebp
             }
           }
-          }
+        }
         research_image {
           childImageSharp {
             fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid_withWebp
             }
           }
-          }
+        }
         videos_image {
           childImageSharp {
             fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid_withWebp
             }
           }
-          }
+        }
         template
         code
         }
