@@ -1,6 +1,8 @@
 const path = require('path');
 const _ = require("lodash");
 
+const remark = require("remark");
+const remarkHTML = require("remark-html");
 const uswdsRoot = 'node_modules/uswds';
 const shims = 'shims';
 
@@ -61,6 +63,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       code: String!
       email: String
       fax: String
+      footer: String
       hero_color: String
       hero_size: String
       image_float: String
@@ -136,6 +139,23 @@ module.exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node
     });
+    // This transforms the frontmatter footer field from markdown to html
+    const footer = node.frontmatter.footer;
+    if (footer) {
+      const value = remark()
+        .use(remarkHTML)
+        .processSync(footer)
+        .toString();
+      // new node at:
+      // fields {
+      //   footerHTML
+      // }
+      createNodeField({
+        name: `footerHTML`,
+        node,
+        value
+      });
+    }
   }
 }
 

@@ -7,6 +7,17 @@ hero_color: yellow
 hero_size: small
 code: "1600"
 template: division-landing
+footer: |
+ For all incoming officers and enlisted personnel reporting to VXS-1, please contact VXS-1's sponsor coordinator, PS1 Trung Tin Vo at [trung.vo1@navy.mil](mailto:trung.vo1@navy.mil).
+ 
+ **Command Duty Officer** (202) 494-1249  
+ **Assistant Command Duty Officer** (202) 494-0340
+ 
+ PO1 Scientific Development Squadron One
+ 22474 James Road Ste 2a (Hangar 109)
+ Naval Air Station
+ Patuxent River, Md 20670
+ (Military, Code 1600)
 ---
 Scientific Development Squadron (VXS) 1 conducts airborne scientific experimentation and advanced technology development in worldwide operations supporting U.S. Navy and national science and technology (S&T) priorities and war fighting goals. Supporting broadly based, multidisciplinary programs across the full spectrum of scientific research and applied technologies, our focus is toward the maritime application of new and improved airborne data collection techniques, experimental equipment, and system demonstration. While directly supporting scientific programs across the globe, we ensure that our work environment provides for the learning, personal growth, and respect of all our men and women and their families.
 

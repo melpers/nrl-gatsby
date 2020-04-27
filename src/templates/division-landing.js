@@ -54,6 +54,9 @@ export const query = graphql`
           }
         }
       }
+      fields {
+        footerHTML
+      }
       html
     },
     leadership: allMarkdownRemark(
@@ -133,8 +136,8 @@ const DivisionLanding = (props) => {
           ""
         }
 
-        {props.data.footer ? 
-          <div className="md-content-footer" dangerouslySetInnerHTML={{ __html: props.data.footer.html }} />
+        {props.data.division.fields.footerHTML ? 
+          <div className="md-content-footer" dangerouslySetInnerHTML={{ __html: props.data.division.fields.footerHTML }} />
           :
           ""
         }
