@@ -18,7 +18,6 @@ export const query = graphql`
         path
         sidebar_display
         hero_size
-        hero_text
         hero_image {
           childImageSharp {
             fluid(maxWidth: 1200) {
@@ -58,6 +57,7 @@ export const query = graphql`
       fields {
         contentHeaderHTML
         contentFooterHTML
+        heroTextHTML
       }
       html
     },
@@ -103,7 +103,18 @@ const DivisionLanding = (props) => {
         title: props.data.division.frontmatter.title,
       }}
     >
-      <HeroImage frontmatter={props.data.division.frontmatter}/>
+      <HeroImage frontmatter={props.data.division.frontmatter}>
+        {props.data.division.fields.heroTextHTML ? 
+          <div className="hero-text-block">
+            <div className="hero-text-block-wrapper">
+              <div className="hero-text" dangerouslySetInnerHTML={{ __html: props.data.division.fields.heroTextHTML }} />
+              <div className="yellow-bar"/>
+            </div>
+          </div>
+          :
+          ""
+        }
+      </HeroImage>
       <div className="title-block">
         <div className="content-wrapper">
           <div className="title-content">
@@ -115,7 +126,7 @@ const DivisionLanding = (props) => {
 
       {props.data.division.fields.contentHeaderHTML ? 
         <div className="md-content-header">
-          <div className="content-wrapper"  dangerouslySetInnerHTML={{ __html: props.data.division.fields.contentHeaderHTML }}></div>
+          <div className="content-wrapper" dangerouslySetInnerHTML={{ __html: props.data.division.fields.contentHeaderHTML }}></div>
         </div>
         :
         ""

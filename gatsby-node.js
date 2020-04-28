@@ -144,7 +144,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node
     });
-    // This transforms the frontmatter content_footer & content_header fields from markdown to html
+    // This transforms some frontmatter fields from markdown to html
     const contentFooter = node.frontmatter.content_footer;
     if (contentFooter) {
       const value = remark()
@@ -173,6 +173,22 @@ module.exports.onCreateNode = ({ node, actions }) => {
       // }
       createNodeField({
         name: `contentHeaderHTML`,
+        node,
+        value
+      });
+    }
+    const heroText = node.frontmatter.hero_text;
+    if (heroText) {
+      const value = remark()
+        .use(remarkHTML)
+        .processSync(heroText)
+        .toString();
+      // new node at:
+      // fields {
+      //   heroTextHTML
+      // }
+      createNodeField({
+        name: `heroTextHTML`,
         node,
         value
       });

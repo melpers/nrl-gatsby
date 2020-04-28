@@ -4,7 +4,7 @@ path: /careers
 code: "1800"
 hero_image: ../../images/careers-banner.jpg
 hero_size: large
-hero_text: "Advancing your career further than you can imagine.®"
+hero_text: "Advancing your career\n\n**further than you can imagine**.®"
 content_header: "The U.S. Naval Research Laboratory (NRL) provides the advanced scientific capabilities required to bolster our country's position of global naval leadership. Here, in an environment where the nation's best scientists and engineers are inspired to pursue their passion, everyone is focused on research that yields immediate and long-range applications in the defense of the United States."
 template: division-landing
 sidebar_display: false
