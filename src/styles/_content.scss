@@ -120,7 +120,6 @@
 
 .file-pdf {
   border-bottom: none !important;
-  text-decoration: underline;
   &:before {
     content: '';
     display: inline-block;
@@ -132,6 +131,11 @@
     background: url(../images/svg/document_pdf.svg), linear-gradient(transparent, transparent);
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
   }
 }
 

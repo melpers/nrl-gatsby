@@ -31,18 +31,27 @@
           z-index: 1;
           background-color: $nrl_navy_blue;
           a {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: height 0.2s ease;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             font-size: 16px;
             line-height: 40px;
+            height: 40px;
             color: #fabd00;
             text-decoration: none;
             background-color: rgba(0,0,0,0.7);
             border-bottom: none;
             z-index: 2;
+            &:hover,
+            &:active,
+            &:focus {
+              height: 230px;
+            }
             .gatsby-resp-image-wrapper {
               display: block !important;
               position: absolute !important;
@@ -52,23 +61,10 @@
               right: 0;
               z-index: 1;
             }
-            &:hover,
-            &:active,
-            &:focus {
-              border-bottom: 2px solid;
-            }
           }
-          img {
-            -webkit-transition: -webkit-transform .7s;
-            transition: transform .7s;
-          }
-          &:hover,
-          &:active,
-          &:focus {
-            img {
-              -ms-transform: scale3d(1.1,1.1,1);
-              -webkit-transform: scale3d(1.1,1.1,1);
-              transform: scale3d(1.1,1.1,1);
+          &:hover {
+            a {
+              height: 230px;
             }
           }
         }
