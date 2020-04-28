@@ -15,7 +15,6 @@
 .hero-block-large {
   padding-top: 60%;
   position: relative;
-  margin-bottom: 5px;
   max-height: 671px;
   min-height: 350px;
   .hero-text-wrapper {
@@ -41,6 +40,12 @@
 }
 .hero-block-small {
   height: 200px;
+}
+
+.page-home {
+  .hero-block-large {
+    margin-bottom: 5px;
+  }
 }
 
 .hero-text-block {

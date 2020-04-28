@@ -200,8 +200,9 @@ module.exports = {
               quality: 80,
               maxWidth: 1200,
               linkImagesToOriginal: true
-            },
+            }
           },
+          "gatsby-remark-attr"
         ],
       },
     },

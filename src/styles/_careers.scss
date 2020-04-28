@@ -6,4 +6,101 @@
       }
     }
   }
+  .main-column {
+    padding: 0;
+    p {
+      font-size: 18px;
+      line-height: 32px;
+      padding: 0 6rem;
+    }
+    .md-content {
+      ul {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        li {
+          list-style-image: none;
+          list-style-type: none;
+          display: inline-block;
+          display: inline-block;
+          height: 230px;
+          width: 186px;
+          margin: 0 7px 7px 0;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          background-color: $nrl_navy_blue;
+          a {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 16px;
+            line-height: 40px;
+            color: #fabd00;
+            text-decoration: none;
+            background-color: rgba(0,0,0,0.7);
+            border-bottom: none;
+            z-index: 2;
+            .gatsby-resp-image-wrapper {
+              display: block !important;
+              position: absolute !important;
+              bottom: 0;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 1;
+            }
+            &:hover,
+            &:active,
+            &:focus {
+              border-bottom: 2px solid;
+            }
+          }
+          img {
+            -webkit-transition: -webkit-transform .7s;
+            transition: transform .7s;
+          }
+          &:hover,
+          &:active,
+          &:focus {
+            img {
+              -ms-transform: scale3d(1.1,1.1,1);
+              -webkit-transform: scale3d(1.1,1.1,1);
+              transform: scale3d(1.1,1.1,1);
+            }
+          }
+        }
+      }
+    }
+    .file-pdf {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1075px) {
+  .page-careers {
+    .main-column {
+      padding: 0 2rem;
+      p {
+        padding: 0;
+      }
+      .md-content {
+        ul {
+          max-width: 750px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }  
+}
+@media screen and (max-width: 600px) {
+  .page-careers {
+    .main-column {
+      padding: 0;
+    }
+  }
 }
