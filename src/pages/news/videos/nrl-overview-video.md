@@ -7,7 +7,6 @@
     teaser_image_alt: "NRL Overview Video"
     categories: ["General", "Navy", "Technology", "Testing"]
     hero_image: ../../../images/header_faceted.jpg
-    hero_color: yellow
     hero_size: small
     template: news-video
 ---

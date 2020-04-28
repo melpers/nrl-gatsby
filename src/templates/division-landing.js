@@ -16,8 +16,9 @@ export const query = graphql`
         code
         template
         path
+        sidebar_display
         hero_size
-        hero_color
+        hero_text
         hero_image {
           childImageSharp {
             fluid(maxWidth: 1200) {
@@ -55,7 +56,8 @@ export const query = graphql`
         }
       }
       fields {
-        footerHTML
+        contentHeaderHTML
+        contentFooterHTML
       }
       html
     },
@@ -84,63 +86,81 @@ export const query = graphql`
           id
         }
       }
-    },
-    footer: markdownRemark(frontmatter: {template: {eq: "division-landing-footer"}, code: {eq: $code}}) {
-      html
-    },
+    }
   }
 `
 const DivisionLanding = (props) => {
+  let contentClasses = "content-wrapper";
+  if (props.data.division.frontmatter.template) {
+    contentClasses = contentClasses + " template-" + props.data.division.frontmatter.template;
+  }
+  if (props.data.division.frontmatter.sidebar_display === false) {
+    contentClasses = contentClasses + " no-sidebar";
+  }
   return (
     <Layout
-    pageMeta={{
-      title: props.data.division.frontmatter.title,
-    }}
+      pageMeta={{
+        title: props.data.division.frontmatter.title,
+      }}
     >
       <HeroImage frontmatter={props.data.division.frontmatter}/>
       <div className="title-block">
         <div className="content-wrapper">
-        <div className="title-content">
-          <h1>{props.data.division.frontmatter.title}</h1>
-          <Breadcrumbs uri={props.uri} title={props.data.division.frontmatter.title}></Breadcrumbs>
-        </div>
+          <div className="title-content">
+            <h1>{props.data.division.frontmatter.title}</h1>
+            <Breadcrumbs uri={props.uri} title={props.data.division.frontmatter.title}></Breadcrumbs>
+          </div>
         </div>
       </div>
-      <div className={"content-wrapper template-" + props.data.division.frontmatter.template}>
-        <Sidebar uri={props.uri}></Sidebar>
+
+      {props.data.division.fields.contentHeaderHTML ? 
+        <div className="md-content-header">
+          <div className="content-wrapper"  dangerouslySetInnerHTML={{ __html: props.data.division.fields.contentHeaderHTML }}></div>
+        </div>
+        :
+        ""
+      }
+
+      <div className={contentClasses}>
+        {props.data.division.frontmatter.sidebar_display !== false ? 
+          <Sidebar uri={props.uri}></Sidebar>
+          : 
+          ""
+        }
+
         <div className="main-column">
 
-        <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.division.html }} />
+          <div className="md-content" dangerouslySetInnerHTML={{ __html: props.data.division.html }} />
 
-        {props.data.division.frontmatter.news_image ? 
-          <DivisionHighlights 
-            code={props.data.division.frontmatter.code}
-            path={props.data.division.frontmatter.path}
-            news_image={props.data.division.frontmatter.news_image}
-            publications_image={props.data.division.frontmatter.publications_image}
-            research_image={props.data.division.frontmatter.research_image}
-            videos_image={props.data.division.frontmatter.videos_image}
-          />
-          :
-          ""
-        }
+          {props.data.division.frontmatter.news_image ? 
+            <DivisionHighlights 
+              code={props.data.division.frontmatter.code}
+              path={props.data.division.frontmatter.path}
+              news_image={props.data.division.frontmatter.news_image}
+              publications_image={props.data.division.frontmatter.publications_image}
+              research_image={props.data.division.frontmatter.research_image}
+              videos_image={props.data.division.frontmatter.videos_image}
+            />
+            :
+            ""
+          }
 
-        {props.data.leadership ? 
-          <React.Fragment>
-            <h2>Leadership</h2>
-            {props.data.leadership.edges.map((node, idx) => (
-              <Leadership key={idx} data={node} />
-            ))}
-          </React.Fragment>
-          :
-          ""
-        }
+          {props.data.leadership.edges.length > 0 ? 
+            <React.Fragment>
+              <h2>Leadership</h2>
+              {props.data.leadership.edges.map((node, idx) => (
+                <Leadership key={idx} data={node} />
+              ))}
+            </React.Fragment>
+            :
+            ""
+          }
 
-        {props.data.division.fields.footerHTML ? 
-          <div className="md-content-footer" dangerouslySetInnerHTML={{ __html: props.data.division.fields.footerHTML }} />
-          :
-          ""
-        }
+          {props.data.division.fields.contentFooterHTML ? 
+            <div className="md-content-footer" dangerouslySetInnerHTML={{ __html: props.data.division.fields.contentFooterHTML }} />
+            :
+            ""
+          }
 
         </div>
       </div>

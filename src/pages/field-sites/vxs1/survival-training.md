@@ -3,7 +3,6 @@ title: Naval Aviation Survival Training
 nav_order: 5
 path: /field-sites/vxs1/naval-aviation-survival-training
 hero_image: ./vxs1-header.jpg
-hero_color: yellow
 hero_size: small
 code: "1600"
 template: basic

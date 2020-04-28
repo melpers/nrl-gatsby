@@ -2,7 +2,6 @@
 title: Mathematics and Orbit Dynamics
 path: /areas-of-research/spacecraft-engineering/core-capabilities/mathematics-orbit-dynamics
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 code: "8250"
 template: core-capabilities

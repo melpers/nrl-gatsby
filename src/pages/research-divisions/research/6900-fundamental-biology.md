@@ -2,7 +2,6 @@
 title: Fundamental Biology
 path: /areas-of-research/biomoleculer-science-engineering/research/fundamental-biology
 hero_image: ../../../images/6900.jpg
-hero_color: yellow
 hero_size: small
 template: division-basic
 code: "6900"

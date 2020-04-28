@@ -26,7 +26,6 @@ collections:
       - { label: "URL Path", name: "path", widget: "string" }
       - { label: 'Code', name: 'code', widget: 'string' }
       - { label: "Hero Image", name: "hero_image", widget: "hidden", default: "../../../images/header_faceted.jpg" }
-      - { label: "Hero Color", name: "hero_color", widget: "hidden", default: "yellow" }
       - { label: "Hero Size", name: "hero_size", widget: "hidden", default: "small" }
       - { label: "News Image", name: "news_image", widget: "hidden", default: "../../../images/8250-news.jpg" }
       - { label: "Publications Image", name: "publications_image", widget: "hidden", default: "../../../images/8250-pubs.jpg" }

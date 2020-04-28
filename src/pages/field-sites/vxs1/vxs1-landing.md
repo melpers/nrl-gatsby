@@ -3,11 +3,10 @@ title: Scientific Development Squadron (VXS) 1
 path: /field-sites/vxs1
 nav_title: VXS-1
 hero_image: ./vxs1-header.jpg
-hero_color: yellow
 hero_size: small
 code: "1600"
 template: division-landing
-footer: |
+content_footer: |
  For all incoming officers and enlisted personnel reporting to VXS-1, please contact VXS-1's sponsor coordinator, PS1 Trung Tin Vo at [trung.vo1@navy.mil](mailto:trung.vo1@navy.mil).
  
  **Command Duty Officer** (202) 494-1249  

@@ -3,7 +3,6 @@ title: Research
 nav_order: 5
 path: /areas-of-research/biomoleculer-science-engineering/research
 hero_image: ../../../images/6900.jpg
-hero_color: yellow
 hero_size: small
 template: division-basic
 image_float: right

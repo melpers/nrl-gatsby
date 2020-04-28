@@ -3,7 +3,6 @@ title: Flight Support
 nav_order: 2
 path: /field-sites/vxs1/flight-support
 hero_image: ./vxs1-header.jpg
-hero_color: yellow
 hero_size: small
 code: "1600"
 template: basic

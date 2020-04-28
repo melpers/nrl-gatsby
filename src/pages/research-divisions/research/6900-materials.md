@@ -3,7 +3,6 @@ title: Materials
 nav_order: 5
 path: /areas-of-research/biomoleculer-science-engineering/research/materials
 hero_image: ../../../images/6900.jpg
-hero_color: yellow
 hero_size: small
 template: division-basic
 code: "6900"

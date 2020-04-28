@@ -2,7 +2,6 @@
 title: Home
 path: /
 hero_image: ../images/nrl_hero_home.jpg
-hero_color: light-blue
 hero_size: large
 template: home
 ---

@@ -2,7 +2,6 @@
 title: Class-100 Clean Room
 path: /areas-of-research/spacecraft-engineering/facilities/class-100-clean-room
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 template: facilities
 ---

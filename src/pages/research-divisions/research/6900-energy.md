@@ -2,7 +2,6 @@
 title: Energy
 path: /areas-of-research/biomoleculer-science-engineering/research/energy
 hero_image: ../../../images/6900.jpg
-hero_color: yellow
 hero_size: small
 template: division-basic
 code: "6900"

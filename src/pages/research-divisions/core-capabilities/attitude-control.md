@@ -2,7 +2,6 @@
 title: Attitude Control
 path: /areas-of-research/spacecraft-engineering/core-capabilities/attitude-control
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 code: "8250"
 template: core-capabilities

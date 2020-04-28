@@ -2,7 +2,6 @@
 title: About NRL
 path: /about
 hero_image: ../../images/nrl_hero_about.jpg
-hero_color: light-blue
 hero_size: small
 template: basic
 ---

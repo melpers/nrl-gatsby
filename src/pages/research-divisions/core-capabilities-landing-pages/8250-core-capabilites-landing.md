@@ -3,7 +3,6 @@ title: Core Capabilities
 nav_order: 2
 path: /areas-of-research/spacecraft-engineering/core-capabilities
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 code: "8250"
 template: capabilities-landing

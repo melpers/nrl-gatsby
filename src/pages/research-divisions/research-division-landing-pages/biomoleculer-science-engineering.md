@@ -2,7 +2,6 @@
 title: Biomolecular Science & Engineering
 path: /areas-of-research/biomoleculer-science-engineering
 hero_image: ../../../images/6900.jpg
-hero_color: yellow
 hero_size: small
 code: "6900"
 template: division-landing

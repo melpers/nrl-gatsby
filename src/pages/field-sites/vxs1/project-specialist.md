@@ -3,7 +3,6 @@ title: Project Specialist
 nav_order: 4
 path: /field-sites/vxs1/project-specialist
 hero_image: ./vxs1-header.jpg
-hero_color: yellow
 hero_size: small
 code: "1600"
 template: basic

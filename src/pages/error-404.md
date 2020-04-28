@@ -3,7 +3,6 @@ title: Page Not Found
 path: /404
 sidebar_exclude: true
 hero_image: ../images/header_404.jpg
-hero_color: light-blue
 hero_size: small
 template: error-404
 ---

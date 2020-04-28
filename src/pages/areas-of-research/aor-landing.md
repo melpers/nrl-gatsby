@@ -2,7 +2,6 @@
 title: Areas of Research
 path: /areas-of-research
 hero_image: ../../images/nrl_hero_aor.jpg
-hero_color: yellow
 hero_size: small
 template: aor-landing
 ---

@@ -18,7 +18,6 @@ export const query = graphql`
         categories
         template
         hero_size
-        hero_color
         hero_image {
           childImageSharp {
           fluid(maxWidth: 1200) {

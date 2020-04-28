@@ -2,7 +2,6 @@
 title: EMI/EMC Test Facility
 path: /areas-of-research/spacecraft-engineering/facilities/emi-emc
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 code: "8250"
 template: facilities

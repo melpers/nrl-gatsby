@@ -48,6 +48,8 @@ module.exports = {
 
 module.exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
+  // sidebar_display: false ===> Do not show the sidebar on this page.
+  // sidebar_exclude: true ===> Do not include this page in the sidebar's links.
   const typeDefs = `
     type DataYaml implements Node {
       metadata: YamlMetadata
@@ -61,11 +63,13 @@ module.exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       active: Boolean
       code: String!
+      content_header: String
       email: String
       fax: String
-      footer: String
-      hero_color: String
+      content_header: String
+      content_footer: String
       hero_size: String
+      hero_text: String
       image_float: String
       name: String
       nav_title: String
@@ -73,6 +77,7 @@ module.exports.createSchemaCustomization = ({ actions }) => {
       order: Int
       path: String
       phone: String
+      sidebar_display: Boolean
       sidebar_exclude: Boolean
       slug: String
       template: String
@@ -139,19 +144,35 @@ module.exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node
     });
-    // This transforms the frontmatter footer field from markdown to html
-    const footer = node.frontmatter.footer;
-    if (footer) {
+    // This transforms the frontmatter content_footer & content_header fields from markdown to html
+    const contentFooter = node.frontmatter.content_footer;
+    if (contentFooter) {
       const value = remark()
         .use(remarkHTML)
-        .processSync(footer)
+        .processSync(contentFooter)
         .toString();
       // new node at:
       // fields {
-      //   footerHTML
+      //   contentFooterHTML
       // }
       createNodeField({
-        name: `footerHTML`,
+        name: `contentFooterHTML`,
+        node,
+        value
+      });
+    }
+    const contentHeader = node.frontmatter.content_header;
+    if (contentHeader) {
+      const value = remark()
+        .use(remarkHTML)
+        .processSync(contentHeader)
+        .toString();
+      // new node at:
+      // fields {
+      //   contentHeaderHTML
+      // }
+      createNodeField({
+        name: `contentHeaderHTML`,
         node,
         value
       });

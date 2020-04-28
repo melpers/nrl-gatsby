@@ -19,7 +19,6 @@ export const query = graphql`
             }
           }
         }
-        hero_color
         hero_size
       }
       html

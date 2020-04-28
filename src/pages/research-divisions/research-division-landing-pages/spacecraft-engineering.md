@@ -2,7 +2,6 @@
 title: Spacecraft Engineering
 path: /areas-of-research/spacecraft-engineering
 hero_image: ../../../images/8250.jpg
-hero_color: yellow
 hero_size: small
 code: "8250"
 template: division-landing

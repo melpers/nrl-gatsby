@@ -2,6 +2,7 @@
   margin-left: 11rem;
   padding-right: 6rem;
   margin-bottom: 5rem;
+  margin-top: 2.5rem;
   h2 {
     color: $nrl_blue;
     font-weight: 400;
@@ -34,7 +35,12 @@
     }
   }
 }
-
+.no-sidebar {
+  .main-column {
+    margin-left: 0;
+    padding-left: 6rem;
+  }
+}
 .md-content {
   a {
     border-bottom: 1px solid;
@@ -96,6 +102,20 @@
 }
 .md-content-footer {
   margin-top: 3rem;
+}
+.md-content-header {
+  background-color: $nrl_light_gray;
+  color: $nrl_navy_blue;
+  .content-wrapper {
+    padding: 2rem 8rem;
+    p {
+      font-size: 20px;
+      line-height: 33px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 750px;
+    }
+  }
 }
 
 ul.tabs {
@@ -285,6 +305,17 @@ a.image-box-link {
   .main-column {
     margin-left: 0;
     padding: 0 1rem;
+  }
+  .no-sidebar {
+    .main-column {
+      margin-left: 0;
+      padding-left: 2rem;
+    }
+  }
+  .md-content-header {
+    .content-wrapper {
+      padding: 2rem 4rem;
+    }
   }
 }
 
